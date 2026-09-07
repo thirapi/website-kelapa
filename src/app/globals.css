@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  /* Tropical Heritage — docs/02-PRD-Design-System.md §4.1 */
+  --color-base: #14100c;
+  --color-surface: #1e1812;
+  --color-surface-alt: #2a2118;
+  --color-ember: #f28c28;
+  --color-ember-glow: #f28c28;
+  --color-palm: #a8c686;
+  --color-paper: #f5f0e8;
+  --color-muted: #a39b8d;
+
+  --font-display: var(--font-display), "Space Grotesk", sans-serif;
+  --font-sans: var(--font-sans), "Inter", sans-serif;
+
+  --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root {
+  --background: var(--color-base);
+  --foreground: var(--color-paper);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: var(--color-base);
+}
+
+/* tabular figures untuk counter/rundown — Design System §4.2 */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fade Mask utilities — Design System §2.4 */
+.fade-mask-linear {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.fade-mask-radial {
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(ellipse at center, black 55%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
