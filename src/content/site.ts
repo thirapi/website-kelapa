@@ -11,4 +11,6 @@ export const CONTACT = {
   email: "mailto:export@hancoco.id",
   emailText: "export@hancoco.id",
   address: "Coconut heartlands, Indonesia",
+  // Ganti dengan alamat pabrik/kantor final (open question 04-PRD §4.3)
+  mapsQuery: "Sulawesi, Indonesia",
 } as const;

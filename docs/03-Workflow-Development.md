@@ -171,15 +171,17 @@ export function FadeMaskImage({ src, alt, variant = "linear", className = "" }: 
 - WhatsApp deep-link, Maps embed.
 - Wiring data dinamis (Numbers, Products, Testimonials, FAQ) ke sumber final (CMS/JSON/API).
 
-### Fase 5 — QA & Optimisasi
-- Audit performa (§6). Cross-browser (terutama Safari iOS untuk video & backdrop-filter).
-- Accessibility: keyboard nav, aria-label kontol custom, cursor `aria-hidden`.
-- Test `prefers-reduced-motion` di semua motion berat.
+### Fase 5 — Viewport QA (endgame tahap desain)
+> Revisi: project ini berhenti sebagai *desain awal* — bukan deploy. Fase 5 memastikan
+> tampilan sudah benar di semua viewport. Performa/Lighthouse penuh & deploy ditunda ke Fase 6.
+- Audit 4 breakpoint PRD: <768 · 768–1024 · >1024 · >1440 — tiap halaman & section.
+- Cek: tidak ada overflow-x, teks tidak kepotong, grid runtuh rapi ke 1 kolom,
+  sticky/parallax punya fallback mobile, drawer & form usable di 360px.
+- Verifikasi statis via audit kode + build; cek visual manual di device/browser nyata.
 
-### Fase 6 — Deployment
-- Deploy Vercel; env vars (form endpoint, analytics, maps key).
-- Domain, sitemap.xml, robots.txt, Open Graph.
-- Monitoring: Vercel Analytics + error tracking.
+### Fase 6 — Backlog (ditunda — bukan target saat ini)
+- Deploy Vercel; env vars; domain; sitemap/robots/OG; monitoring.
+- Audit performa penuh (§6) + cross-browser Safari iOS saat aset final masuk.
 
 *(Fase 0 hanya sekali; halaman lain reuse komponen - lihat §9 & PRD 04/05.)*
 

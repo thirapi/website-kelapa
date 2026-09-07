@@ -3,34 +3,44 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { NAV_LINKS } from "@/content/site";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import { CONTACT, NAV_LINKS } from "@/content/site";
 import { track } from "@/lib/analytics";
 
-// Navbar — pola floating-pill java-management, di-retune ke theme Hancoco:
-// transparent over hero → pill glass + announcement collapse saat scroll > 80.
-// Framer Motion only (state-triggered) — tidak menyentuh properti yang dipegang GSAP.
+// Navbar "Export House Bar" — identitas Hancoco sendiri:
+// full-width editorial (bukan pill): announcement ember → nav transparan di hero
+// → solid blur + border + hairline progress ember saat scroll.
+// Framer Motion only (state-driven); GSAP tidak menyentuh elemen ini.
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [announcementVisible, setAnnouncementVisible] = useState(true);
   const pathname = usePathname();
 
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.4 });
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > 40);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll saat drawer terbuka
+  // Lock body scroll + Escape saat drawer terbuka
   useEffect(() => {
-    document.body.style.overflow = isDrawerOpen ? "hidden" : "";
+    if (!isDrawerOpen) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsDrawerOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
     };
   }, [isDrawerOpen]);
 
@@ -51,30 +61,38 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={`fixed right-0 left-0 z-50 transition-all duration-500 ease-out ${
-          isScrolled ? "top-3 px-3 sm:top-4 sm:px-6" : "top-0 px-0"
-        }`}
-      >
-        {/* Announcement — collapse saat scroll */}
+      <header className="fixed right-0 left-0 z-50">
+        {/* Announcement — ember, dismissible, collapse saat scroll */}
         <AnimatePresence>
           {!isScrolled && announcementVisible && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="w-full overflow-hidden bg-ember text-sm font-medium text-base"
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden bg-ember text-sm font-medium text-base"
             >
-              <p className="relative mx-auto max-w-7xl px-6 py-2 text-center">
-                Export capacity available — consistent monthly volume, documented QC.
-                <Link href="/contact" className="ml-2 underline underline-offset-2">
-                  Request Quote
-                </Link>
+              <p className="relative mx-auto max-w-7xl px-6 py-2 pr-12 text-center text-[13px] md:px-10 md:text-sm">
+                <span className="mr-2 inline-block rounded-full bg-base/20 px-2 py-0.5 text-[11px] font-bold tracking-widest uppercase">
+                  Export
+                </span>
+                {/* Mobile: copy pendek. Desktop: copy penuh. */}
+                <span className="sm:hidden">
+                  Capacity ready.{" "}
+                  <Link href="/contact" className="font-bold underline underline-offset-2">
+                    Get Quote
+                  </Link>
+                </span>
+                <span className="hidden sm:inline">
+                  Capacity available — consistent monthly volume, documented QC.
+                  <Link href="/contact" className="ml-2 font-bold underline underline-offset-2">
+                    Request Quote
+                  </Link>
+                </span>
                 <button
                   onClick={() => setAnnouncementVisible(false)}
                   aria-label="Dismiss announcement"
-                  className="absolute top-1/2 right-4 -translate-y-1/2 rounded p-1 hover:bg-black/10"
+                  className="absolute top-1/2 right-4 -translate-y-1/2 rounded-full p-1 outline-none hover:bg-black/10 focus-visible:ring-2 focus-visible:ring-base"
                 >
                   <X size={16} />
                 </button>
@@ -83,107 +101,154 @@ export function Navbar() {
           )}
         </AnimatePresence>
 
-        {/* Main nav — transparent → floating pill */}
-        <nav
-          aria-label="Primary"
-          className={`mx-auto transition-all duration-500 ease-out ${
+        {/* Nav row */}
+        <div
+          className={`transition-all duration-300 ${
             isScrolled
-              ? "max-w-6xl rounded-full border border-white/10 bg-surface/90 py-2 shadow-2xl shadow-black/60 backdrop-blur-xl xl:max-w-7xl"
-              : "w-full rounded-none border border-transparent bg-gradient-to-b from-base/80 via-base/40 to-transparent"
+              ? "border-b border-white/10 bg-base/85 shadow-lg shadow-black/30 backdrop-blur-xl"
+              : "border-b border-transparent bg-gradient-to-b from-base/70 to-transparent"
           }`}
         >
-          <div className="flex items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+          <nav
+            aria-label="Primary"
+            className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-6 md:h-[72px] md:px-10"
+          >
+            {/* Wordmark + micro tag */}
             <Link
               href="/"
               onClick={handleHomeClick}
-              className="font-display shrink-0 font-bold whitespace-nowrap text-paper transition-all duration-300"
+              className="group flex shrink-0 flex-col leading-none outline-none focus-visible:ring-2 focus-visible:ring-ember"
+              aria-label="Hancoco — home"
             >
-              <span className={isScrolled ? "text-base" : "text-lg lg:text-xl"}>
+              <span className="font-display text-xl font-bold tracking-tight text-paper md:text-2xl">
                 Hancoco<span className="text-ember">.</span>
+              </span>
+              <span className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-muted uppercase transition-colors group-hover:text-ember">
+                Coconut Products
               </span>
             </Link>
 
-            <ul className="hidden items-center gap-6 lg:flex">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href} className="shrink-0">
-                  <Link
-                    href={l.href}
-                    aria-current={pathname === l.href ? "page" : undefined}
-                    onClick={l.href === "/" ? handleHomeClick : undefined}
-                    className={`text-sm font-medium tracking-wide whitespace-nowrap transition-colors duration-200 hover:text-ember ${
-                      pathname === l.href ? "text-ember" : "text-paper/80"
-                    }`}
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+            {/* Desktop links — bernomor ala rundown + underline aktif */}
+            <ul className="hidden items-center gap-7 lg:flex">
+              {NAV_LINKS.map((l, i) => {
+                const active = pathname === l.href;
+                return (
+                  <li key={l.href} className="shrink-0">
+                    <Link
+                      href={l.href}
+                      aria-current={active ? "page" : undefined}
+                      onClick={l.href === "/" ? handleHomeClick : undefined}
+                      className={`relative flex items-baseline gap-1.5 pb-1 text-sm font-medium tracking-wide transition-colors duration-200 outline-none hover:text-paper focus-visible:ring-2 focus-visible:ring-ember ${
+                        active ? "text-paper" : "text-paper/65"
+                      }`}
+                    >
+                      <span className="tnum text-[10px] text-ember/80">
+                        0{i + 1}
+                      </span>
+                      {l.label}
+                      {active && (
+                        <motion.span
+                          layoutId="nav-underline"
+                          className="absolute -bottom-0.5 left-0 h-0.5 w-full rounded-full bg-ember"
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
 
-            <div className="hidden lg:block">
+            <div className="flex shrink-0 items-center gap-2">
               <Link
                 href="/contact"
                 onClick={() => track("hero_cta_quote", { source: "nav" })}
-                className="flex h-9 items-center rounded-full bg-ember px-4 text-xs font-bold whitespace-nowrap text-base shadow-md transition-all duration-300 hover:scale-[1.03]"
+                className="group hidden h-10 items-center gap-1.5 rounded-full bg-ember px-5 text-xs font-bold whitespace-nowrap text-base shadow-[0_0_24px_-8px_rgba(242,140,40,0.7)] transition-all duration-300 outline-none hover:shadow-[0_0_32px_-6px_rgba(242,140,40,0.9)] focus-visible:ring-2 focus-visible:ring-paper lg:flex"
               >
                 Request Quote
+                <ArrowUpRight
+                  size={15}
+                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </Link>
+              <button
+                className="rounded-full p-2 text-paper transition-colors outline-none hover:text-ember focus-visible:ring-2 focus-visible:ring-ember lg:hidden"
+                onClick={() => setIsDrawerOpen((v) => !v)}
+                aria-expanded={isDrawerOpen}
+                aria-label={isDrawerOpen ? "Close menu" : "Open menu"}
+              >
+                {isDrawerOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
             </div>
+          </nav>
 
-            <button
-              className="p-1.5 text-paper transition-colors hover:text-ember lg:hidden"
-              onClick={() => setIsDrawerOpen((v) => !v)}
-              aria-expanded={isDrawerOpen}
-              aria-label="Toggle menu"
-            >
-              {isDrawerOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
-        </nav>
+          {/* Hairline progress scroll */}
+          <motion.div
+            aria-hidden
+            style={{ scaleX: isScrolled ? progress : 0 }}
+            className="h-[2px] origin-left bg-gradient-to-r from-ember/60 via-ember to-ember/60"
+          />
+        </div>
       </header>
 
       {/* Mobile fullscreen drawer */}
       <AnimatePresence>
         {isDrawerOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: "0%" }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-base/95 p-6 backdrop-blur-xl"
+            initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
+            exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-base/95 backdrop-blur-xl"
           >
-            <nav className="flex w-full max-w-xs flex-col items-center gap-5 text-center">
+            <nav
+              aria-label="Mobile"
+              className="flex flex-1 flex-col justify-center gap-1 px-8 pt-20"
+            >
               {NAV_LINKS.map((l, i) => (
                 <motion.div
                   key={l.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06 }}
+                  initial={{ opacity: 0, x: -32 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.08 + i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <Link
                     href={l.href}
                     onClick={() => setIsDrawerOpen(false)}
-                    className="font-display text-xl font-bold text-paper transition-colors hover:text-ember"
+                    aria-current={pathname === l.href ? "page" : undefined}
+                    className="group flex items-baseline gap-3 border-b border-white/10 py-4 outline-none focus-visible:ring-2 focus-visible:ring-ember"
                   >
-                    {l.label}
+                    <span className="tnum text-xs font-bold text-ember">0{i + 1}</span>
+                    <span
+                      className={`font-display text-3xl font-bold transition-colors group-hover:text-ember ${
+                        pathname === l.href ? "text-ember" : "text-paper"
+                      }`}
+                    >
+                      {l.label}
+                    </span>
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.06 }}
-                className="mt-4"
-              >
-                <Link
-                  href="/contact"
-                  onClick={() => setIsDrawerOpen(false)}
-                  className="inline-flex items-center rounded-full bg-ember px-6 py-3 text-sm font-bold text-base"
-                >
-                  Request Quote
-                </Link>
-              </motion.div>
             </nav>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-3 px-8 pb-10"
+            >
+              <Link
+                href="/contact"
+                onClick={() => setIsDrawerOpen(false)}
+                className="flex h-12 items-center justify-center gap-2 rounded-full bg-ember text-sm font-bold text-base"
+              >
+                Request Quote <ArrowUpRight size={16} />
+              </Link>
+              <p className="text-center text-xs text-muted">
+                <a href={CONTACT.whatsapp} className="hover:text-paper">WhatsApp</a>
+                {" · "}
+                <a href={CONTACT.email} className="hover:text-paper">{CONTACT.emailText}</a>
+              </p>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

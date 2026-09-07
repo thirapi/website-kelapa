@@ -101,4 +101,9 @@ body {
   html {
     scroll-behavior: auto;
   }
+  /* Marquee: diam total (durasi ~nol bikin spin liar) */
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
 }

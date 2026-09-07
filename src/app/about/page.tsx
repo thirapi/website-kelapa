@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container, Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/motion/Reveal";
+import { Rundown } from "@/components/motion/Rundown";
 import { JOURNEY, VALUES } from "@/content/shared";
 
 export const metadata: Metadata = {
-  title: "About — Hancoco",
+  title: "About",
   description: "Lebih dari pemasok: mitra pasokan kelapa yang tertelusur.",
 };
 
@@ -50,22 +52,18 @@ export default function AboutPage() {
       {/* 3 Our Journey — reuse Rundown */}
       <div className="border-y border-white/10 bg-surface/50">
         <Section>
-          <h2 className="font-display text-3xl font-bold md:text-5xl">
-            Perjalanan yang Dibangun dari Kepercayaan.
-          </h2>
-          <ol className="mt-10">
-            {JOURNEY.map((j, i) => (
-              <li key={j.year} className="flex gap-6 border-t border-white/10 py-6 last:border-b">
-                <span className="tnum font-display text-2xl font-bold text-ember">{j.year}</span>
-                <div>
-                  <h3 className="font-display text-lg font-bold">
-                    0{i + 1} — {j.title}
-                  </h3>
-                  <p className="text-muted">{j.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <Reveal>
+            <h2 className="font-display text-3xl font-bold md:text-5xl">
+              Perjalanan yang Dibangun dari Kepercayaan.
+            </h2>
+          </Reveal>
+          <Rundown
+            items={JOURNEY.map((j, i) => ({
+              marker: `${j.year} — 0${i + 1}`,
+              title: j.title,
+              desc: j.desc,
+            }))}
+          />
         </Section>
       </div>
 

@@ -3,9 +3,10 @@ import { CONTACT } from "@/content/site";
 import { FAQS } from "@/content/shared";
 import { Container, Section } from "@/components/ui/Section";
 import { FaqList } from "@/components/ui/FaqList";
+import { QuoteForm } from "@/components/forms/QuoteForm";
 
 export const metadata: Metadata = {
-  title: "Contact — Hancoco",
+  title: "Contact",
   description: "Request quote: respon cepat untuk kebutuhan volume Anda.",
 };
 
@@ -53,30 +54,9 @@ export default function ContactPage() {
       {/* 4 Request Quote Form */}
       <Section spacing="compact">
         <h2 className="font-display text-2xl font-bold">Request Quote Form.</h2>
-        <form className="mt-6 grid gap-4 rounded-2xl border border-white/10 bg-surface p-7 md:grid-cols-2">
-          {["Nama*", "Perusahaan", "Email*", "WhatsApp*", "Produk interest", "Volume / kontainer", "Negara tujuan", "Lead time target"].map(
-            (f) => (
-              <label key={f} className="block text-sm">
-                {f}
-                <input
-                  placeholder={f}
-                  className="mt-1 w-full rounded-lg border border-white/10 bg-base px-4 py-2.5 placeholder:text-muted"
-                />
-              </label>
-            ),
-          )}
-          <label className="block text-sm md:col-span-2">
-            Deskripsi kebutuhan
-            <textarea
-              rows={4}
-              placeholder="Spec, packaging, jadwal kirim…"
-              className="mt-1 w-full rounded-lg border border-white/10 bg-base px-4 py-2.5 placeholder:text-muted"
-            />
-          </label>
-          <button type="submit" className="rounded-full bg-ember px-6 py-3 text-sm font-semibold text-base md:col-span-2">
-            Submit RFQ
-          </button>
-        </form>
+        <div className="mt-6">
+          <QuoteForm variant="full" />
+        </div>
       </Section>
 
       {/* 5 Quick Links */}
@@ -106,11 +86,16 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      {/* 7 Office/Location */}
+      {/* 7 Office/Location — embed tanpa API key; ganti mapsQuery saat alamat final */}
       <Section spacing="compact">
         <h2 className="font-display text-2xl font-bold">Lokasi.</h2>
-        <div className="mt-6 min-h-64 rounded-2xl border border-white/10 bg-surface-alt p-8">
-          <p className="text-muted">Google Maps embed (Fase 4 — butuh Maps key & alamat final).</p>
+        <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
+          <iframe
+            title="Hancoco location map"
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(CONTACT.mapsQuery)}&z=5&output=embed`}
+            loading="lazy"
+            className="min-h-64 w-full border-0 grayscale-[35%] contrast-[1.05]"
+          />
         </div>
       </Section>
 

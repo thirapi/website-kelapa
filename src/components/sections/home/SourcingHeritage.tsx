@@ -1,36 +1,89 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { MEDIA } from "@/content/media";
+import { gsap } from "@/lib/gsap";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { Reveal } from "@/components/motion/Reveal";
 
-// 08 Sourcing & Heritage — 01-PRD §08: masonry foto asli (parallax Fase 3)
+// 08 Sourcing & Heritage — masonry + parallax multi-layer (GSAP scrub).
+// Desktop: 3 kolom beda kecepatan. Mobile: 1 kolom statis (hemat budget).
+function columns<T>(arr: readonly T[], n: number): T[][] {
+  return Array.from({ length: n }, (_, c) => arr.filter((_, i) => i % n === c));
+}
+
 export function SourcingHeritage() {
+  const root = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const cols = columns(MEDIA.sourcing, 3);
+
+  useEffect(() => {
+    if (reduced || !root.current) return;
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      const speeds = [50, -50, 90];
+      gsap.utils.toArray<HTMLElement>("[data-masonry-col]").forEach((el, i) => {
+        gsap.fromTo(
+          el,
+          { y: speeds[i] ?? 0 },
+          {
+            y: -(speeds[i] ?? 0),
+            ease: "none",
+            scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: 1 },
+          },
+        );
+      });
+    });
+    return () => mm.revert();
+  }, [reduced]);
+
   return (
     <section aria-label="Sourcing and heritage" className="py-24 md:py-32">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-        <h2 className="font-display max-w-xl text-3xl font-bold md:text-5xl">
-          Dari Tangan yang Teliti, untuk Pasar Global.
-        </h2>
+        <Reveal>
+          <h2 className="font-display max-w-xl text-3xl font-bold md:text-5xl">
+            Dari Tangan yang Teliti, untuk Pasar Global.
+          </h2>
+        </Reveal>
       </div>
-      <div className="mx-auto mt-12 w-full max-w-7xl columns-2 gap-4 px-6 md:columns-3 md:px-10 [&>*]:mb-4">
-        {MEDIA.sourcing.map((m, i) => (
-          <figure
-            key={m.src + i}
-            className="fade-mask-radial relative break-inside-avoid overflow-hidden rounded-2xl"
-          >
-            <Image
-              src={m.src}
-              alt={m.alt}
-              width={800}
-              height={i % 2 === 0 ? 1000 : 700}
-              loading="lazy"
-              sizes="(max-width: 768px) 50vw, 33vw"
-              className="h-auto w-full object-cover"
-            />
-            <figcaption className="absolute bottom-3 left-3 rounded-full bg-base/70 px-3 py-1 text-xs text-paper backdrop-blur-sm">
-              {m.label}
-            </figcaption>
-          </figure>
-        ))}
+      <div ref={root} className="mx-auto mt-12 w-full max-w-7xl px-6 md:px-10">
+        {/* Mobile: single column */}
+        <div className="space-y-4 md:hidden">
+          {MEDIA.sourcing.map((m) => (
+            <MasonryCard key={m.src} src={m.src} alt={m.alt} label={m.label} />
+          ))}
+        </div>
+        {/* Desktop: 3 parallax layers */}
+        <div className="hidden gap-4 md:grid md:grid-cols-3">
+          {cols.map((col, ci) => (
+            <div key={ci} data-masonry-col className="space-y-4">
+              {col.map((m) => (
+                <MasonryCard key={m.src} src={m.src} alt={m.alt} label={m.label} />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
+  );
+}
+
+function MasonryCard({ src, alt, label }: { src: string; alt: string; label: string }) {
+  return (
+    <figure className="fade-mask-radial group relative break-inside-avoid overflow-hidden rounded-2xl">
+      <Image
+        src={src}
+        alt={alt}
+        width={800}
+        height={900}
+        loading="lazy"
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+      />
+      <figcaption className="absolute bottom-3 left-3 rounded-full bg-base/70 px-3 py-1 text-xs text-paper backdrop-blur-sm">
+        {label}
+      </figcaption>
+    </figure>
   );
 }

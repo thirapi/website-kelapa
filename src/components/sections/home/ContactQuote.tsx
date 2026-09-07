@@ -1,8 +1,12 @@
+"use client";
+
 import { CONTACT } from "@/content/site";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
+import { QuoteForm } from "@/components/forms/QuoteForm";
+import { track } from "@/lib/analytics";
 
-// 12 Contact / Request Quote — 01-PRD §12: form statis Fase 1, wiring Fase 4
+// 12 Contact / Request Quote — 01-PRD §12: form fungsional (Fase 4)
 export function ContactQuote() {
   return (
     <Section ariaLabel="Request quote">
@@ -13,25 +17,15 @@ export function ContactQuote() {
       </Reveal>
       <Reveal delay={0.1}>
         <div className="mt-12 grid gap-10 md:grid-cols-2">
-          <form className="space-y-4 rounded-2xl border border-white/10 bg-surface p-7">
-            {["Nama", "Perusahaan", "Email", "WhatsApp", "Kebutuhan volume"].map((f) => (
-              <label key={f} className="block text-sm">
-                {f}
-                <input
-                  required={f === "Nama" || f === "Email"}
-                  placeholder={f}
-                  className="mt-1 w-full rounded-lg border border-white/10 bg-base px-4 py-2.5 text-paper placeholder:text-muted"
-                />
-              </label>
-            ))}
-            <button type="submit" className="w-full rounded-full bg-ember px-6 py-3 text-sm font-semibold text-base">
-              Kirim Request Quote
-            </button>
-          </form>
+          <QuoteForm variant="short" />
           <div className="space-y-3 text-muted">
             <p>
               WhatsApp:{" "}
-              <a href={CONTACT.whatsapp} className="text-paper underline underline-offset-4">
+              <a
+                href={CONTACT.whatsapp}
+                onClick={() => track("quote_whatsapp_click", { source: "homepage-side" })}
+                className="text-paper underline underline-offset-4"
+              >
                 Chat export team
               </a>
             </p>

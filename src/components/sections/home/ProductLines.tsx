@@ -6,7 +6,7 @@ import { MEDIA } from "@/content/media";
 // 02 Product Lines — 01-PRD §02: split asimetris, BUKAN 2 kartu seragam
 export function ProductLines() {
   return (
-    <Section ariaLabel="Product lines">
+    <Section ariaLabel="Product lines" id="products">
       <h2 className="font-display max-w-xl text-3xl font-bold md:text-5xl">
         Dua Produk Inti. Satu Standar Kualitas.
       </h2>

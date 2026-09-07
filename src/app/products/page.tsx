@@ -7,7 +7,7 @@ import { CATEGORIES, PRODUCTS } from "@/content/products";
 import { MEDIA } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Products — Hancoco",
+  title: "Products",
   description: "Katalog charcoal, briket, dan kopra — spec terdokumentasi, RFQ cepat.",
 };
 

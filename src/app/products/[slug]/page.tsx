@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = getProduct(slug);
   return {
-    title: p ? `${p.name} — Hancoco` : "Product — Hancoco",
+    title: p ? p.name : "Product",
     description: p?.shortDesc ?? "Product detail",
   };
 }

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { Container, Section } from "@/components/ui/Section";
+import { Reveal } from "@/components/motion/Reveal";
+import { Rundown } from "@/components/motion/Rundown";
 import { CERTIFICATIONS, PROCESS_STEPS } from "@/content/shared";
 
 export const metadata: Metadata = {
-  title: "Process — Hancoco",
+  title: "Process",
   description: "Rantai pasok & QC: dari lahan ke pelabuhan.",
 };
 
@@ -26,20 +28,16 @@ export default function ProcessPage() {
       {/* 2 Process Overview — Rundown signature */}
       <div className="border-y border-white/10 bg-surface/50">
         <Section>
-          <h2 className="font-display text-3xl font-bold md:text-5xl">Alur Inti Kami.</h2>
-          <ol className="mt-10">
-            {PROCESS_STEPS.map((s, i) => (
-              <li key={s.title} className="flex gap-6 border-t border-white/10 py-6 last:border-b">
-                <span className="tnum font-display text-3xl font-bold text-ember">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="font-display text-xl font-bold">{s.title}</h3>
-                  <p className="text-muted">{s.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <Reveal>
+            <h2 className="font-display text-3xl font-bold md:text-5xl">Alur Inti Kami.</h2>
+          </Reveal>
+          <Rundown
+            items={PROCESS_STEPS.map((s, i) => ({
+              marker: String(i + 1).padStart(2, "0"),
+              title: s.title,
+              desc: s.desc,
+            }))}
+          />
         </Section>
       </div>
 
