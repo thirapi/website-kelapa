@@ -11,8 +11,11 @@ export function SmoothScrollProvider({
 }) {
   useEffect(() => {
     const lenis = initSmoothScroll();
+    // Diekspos agar ScrollTop & logo-nav bisa scroll via Lenis (fallback native)
+    (window as unknown as { lenis?: typeof lenis }).lenis = lenis;
     ScrollTrigger.refresh();
     return () => {
+      (window as unknown as { lenis?: typeof lenis }).lenis = undefined;
       lenis.destroy();
     };
   }, []);

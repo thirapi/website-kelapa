@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Section";
 import { PRODUCTS, getProduct } from "@/content/products";
 import { MEDIA } from "@/content/media";
 
@@ -31,7 +32,7 @@ export default async function ProductDetail({
   const related = PRODUCTS.filter((p) => p.slug !== slug).slice(0, 2);
 
   return (
-    <div className="mx-auto max-w-7xl flex-1 px-6 pt-28 pb-16 md:px-10">
+    <Container className="flex-1 pt-28 pb-16">
       <Link href="/products" className="text-sm text-muted hover:text-paper">
         ← Katalog
       </Link>
@@ -98,6 +99,6 @@ export default async function ProductDetail({
           ))}
         </div>
       </section>
-    </div>
+    </Container>
   );
 }

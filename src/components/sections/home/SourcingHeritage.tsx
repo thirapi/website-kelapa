@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { MEDIA } from "@/content/media";
+import { Container } from "@/components/ui/Section";
 import { gsap } from "@/lib/gsap";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { Reveal } from "@/components/motion/Reveal";
@@ -40,31 +41,33 @@ export function SourcingHeritage() {
 
   return (
     <section aria-label="Sourcing and heritage" className="py-24 md:py-32">
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
+      <Container>
         <Reveal>
           <h2 className="font-display max-w-xl text-3xl font-bold md:text-5xl">
             Dari Tangan yang Teliti, untuk Pasar Global.
           </h2>
         </Reveal>
-      </div>
-      <div ref={root} className="mx-auto mt-12 w-full max-w-7xl px-6 md:px-10">
-        {/* Mobile: single column */}
-        <div className="space-y-4 md:hidden">
-          {MEDIA.sourcing.map((m) => (
-            <MasonryCard key={m.src} src={m.src} alt={m.alt} label={m.label} />
-          ))}
+      </Container>
+      <Container className="mt-12">
+        <div ref={root}>
+          {/* Mobile: single column */}
+          <div className="space-y-4 md:hidden">
+            {MEDIA.sourcing.map((m) => (
+              <MasonryCard key={m.src} src={m.src} alt={m.alt} label={m.label} />
+            ))}
+          </div>
+          {/* Desktop: 3 parallax layers */}
+          <div className="hidden gap-4 md:grid md:grid-cols-3">
+            {cols.map((col, ci) => (
+              <div key={ci} data-masonry-col className="space-y-4">
+                {col.map((m) => (
+                  <MasonryCard key={m.src} src={m.src} alt={m.alt} label={m.label} />
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-        {/* Desktop: 3 parallax layers */}
-        <div className="hidden gap-4 md:grid md:grid-cols-3">
-          {cols.map((col, ci) => (
-            <div key={ci} data-masonry-col className="space-y-4">
-              {col.map((m) => (
-                <MasonryCard key={m.src} src={m.src} alt={m.alt} label={m.label} />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+      </Container>
     </section>
   );
 }
