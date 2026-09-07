@@ -1,6 +1,7 @@
-# Hancoco — Coconut Products
+# COCO KATAPIANG — Produk Kelapa Indonesia
 
-**Niche:** B2B Export / Industrial — coconut products (charcoal / arang & copra / kopra)
+**Brand:** COCO KATAPIANG — product & commerce brand dari Nagari Katapiang, Padang Pariaman.
+**Program:** binaan Pertamina melalui Desa Energi Berdikari (DEB) — credibility layer, bukan headline.
 
 **Stack:** Next.js (App Router) + Tailwind v4 + GSAP + Framer Motion + Lenis
 
@@ -14,6 +15,8 @@ Dokumentasi pengembangan di folder `docs/`:
 | 03 | `03-Workflow-Development.md` | Tech stack, phases, GSAP/Framer division of labor |
 | 04 | `04-PRD-Other-Pages.md` | About, Products, Process, Contact |
 | 05 | `05-PRD-Ecommerce.md` | Product catalog, cart, checkout |
+| 06 | `06-Anti-Slop.md` | Patokan anti-AI-slop (dari nutlope/hallmark) + checklist pre-push |
+| 07 | `07-Commerce-Blueprint.md` | Suling blueprint commerce eksternal: adopsi vs konflik vs backlog |
 
 ---
 
@@ -24,5 +27,6 @@ Dokumentasi pengembangan di folder `docs/`:
 3. **Phased development** — Static → Light reveal → Signature interaction → Data/Integrasi → QA → Deploy.
 4. **Library split rule** — GSAP = scroll-linked; Framer Motion = state-triggered. Tidak pernah keduanya mengontrol properti sama pada elemen sama.
 5. **Content data decoupled** dari komponen, mudah migrasi CMS.
+6. **Anti-slop** — cek `docs/06-Anti-Slop.md` sebelum push (grep `transition-all` harus kosong).
 
 Lihat `docs/03-Workflow-Development.md` untuk detail teknis & urutan kerja.

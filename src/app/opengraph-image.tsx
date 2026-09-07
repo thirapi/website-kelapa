@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// OG default — Tropical Heritage: base gelap + aksen ember.
+// OG default — Nagari Katapiang: base putih hangat + coklat.
 export default function OpengraphImage() {
   return new ImageResponse(
     (
@@ -15,18 +15,18 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 96,
-          background: "#14100C",
-          color: "#F5F0E8",
+          background: "#FAF6EF",
+          color: "#2B1D12",
         }}
       >
-        <div style={{ fontSize: 28, color: "#F28C28", letterSpacing: 8 }}>
-          COCONUT PRODUCTS
+        <div style={{ fontSize: 28, color: "#7A4E1F", letterSpacing: 8 }}>
+          DESA ENERGI BERDIKARI
         </div>
         <div style={{ fontSize: 84, fontWeight: 800, marginTop: 16 }}>
-          Hancoco.
+          COCO KATAPIANG.
         </div>
-        <div style={{ fontSize: 32, color: "#A39B8D", marginTop: 16 }}>
-          From the Coconut Heartlands to the World.
+        <div style={{ fontSize: 32, color: "#6E5F50", marginTop: 16 }}>
+          The Value of Coconut, Reimagined.
         </div>
       </div>
     ),

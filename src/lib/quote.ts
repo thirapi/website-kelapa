@@ -45,10 +45,10 @@ export function productName(slug: string): string {
   return PRODUCTS.find((p) => p.slug === slug)?.name ?? slug;
 }
 
-// Pesan WA otomatis dari payload — 04-PRD: sales follow-up off-platform.
+// Pesan WA otomatis dari payload — sales/tim nagari follow-up off-platform.
 export function buildWhatsAppUrl(p: QuotePayload): string {
   const lines = [
-    "Halo Hancoco, saya ingin meminta penawaran:",
+    "Halo COCO KATAPIANG, saya ingin meminta penawaran:",
     `• Nama: ${p.name || "-"}`,
     `• Perusahaan: ${p.company || "-"}`,
     `• Email: ${p.email || "-"}`,
@@ -73,7 +73,7 @@ export async function submitQuote(p: QuotePayload): Promise<{ ok: boolean; demo:
   const res = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...p, source: "hancoco-web" }),
+    body: JSON.stringify({ ...p, source: "coco-katapiang-web" }),
   });
   if (!res.ok) throw new Error(`Submit failed: ${res.status}`);
   return { ok: true, demo: false };

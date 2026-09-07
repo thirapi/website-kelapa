@@ -1,43 +1,44 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/motion/SmoothScrollProvider";
-import { CustomCursor } from "@/components/motion/CustomCursor";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollTop } from "@/components/ui/ScrollTop";
 
-const display = Space_Grotesk({
+// Display: Fraunces — serif hangat berkarakter heritage (bukan techy).
+// Body: Plus Jakarta Sans — karya desainer Indonesia, netral & bersahabat.
+const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
 
-const sans = Inter({
+const sans = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hancoco.id"),
+  metadataBase: new URL("https://nagarikatapiang.id"),
   title: {
-    default: "Hancoco — Coconut Products, Global Standard",
-    template: "%s — Hancoco",
+    default: "COCO KATAPIANG — The Value of Coconut, Reimagined",
+    template: "%s — COCO KATAPIANG",
   },
   description:
-    "Coconut shell charcoal & premium copra — consistent, traceable, export-ready supply from the coconut heartlands to the world.",
+    "COCO KATAPIANG — coconut processing & products from Katapiang, West Sumatra, Indonesia. Supported by Pertamina through Desa Energi Berdikari.",
   openGraph: {
-    title: "Hancoco — Coconut Products, Global Standard",
+    title: "COCO KATAPIANG — The Value of Coconut, Reimagined",
     description:
-      "Coconut shell charcoal & premium copra for B2B global buyers.",
+      "Coconut products from Indonesia: shell charcoal, briquettes, copra.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hancoco — Coconut Products, Global Standard",
-    description: "Consistent, traceable, export-ready coconut supply.",
+    title: "COCO KATAPIANG — The Value of Coconut, Reimagined",
+    description: "Source coconut products from Indonesia.",
   },
 };
 
@@ -45,10 +46,10 @@ export const metadata: Metadata = {
 const ORG_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Hancoco",
-  description: "B2B export supplier of coconut shell charcoal and copra.",
-  email: "export@hancoco.id",
-  address: { "@type": "PostalAddress", addressCountry: "ID" },
+  name: "COCO KATAPIANG",
+  description: "Coconut processing & products from West Sumatra, Indonesia. A Pertamina-supported Desa Energi Berdikari initiative.",
+  email: "info@nagarikatapiang.id",
+  address: { "@type": "PostalAddress", addressLocality: "Katapiang", addressRegion: "Sumatera Barat", addressCountry: "ID" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -69,7 +70,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
         />
         <SmoothScrollProvider>
-          <CustomCursor />
           <Navbar />
           <main id="main" className="flex flex-1 flex-col">{children}</main>
           <Footer />

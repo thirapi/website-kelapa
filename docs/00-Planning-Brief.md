@@ -1,7 +1,12 @@
-# Planning Brief — Hancoco
-## Coconut Products — Charcoal & Copra
+# Planning Brief — COCO KATAPIANG
+## Coconut Processing & Products — Katapiang, West Sumatra (DEB Pertamina)
 
-**Versi:** 1.0
+> **Amandemen brand (diputuskan):** brand utama **COCO KATAPIANG**
+> (product & commerce brand). Pertamina = kredibilitas, DEB = framework.
+> Tema warna putih hangat + coklat (lihat `02` §4.1 + `06-Anti-Slop.md`).
+> Detail distilasi: `07-Commerce-Blueprint.md`.
+
+**Versi:** 1.1 (rebrand)
 **Status:** Draft
 **Dokumen terkait:** `01-PRD-Landing-Page.md`, `02-PRD-Design-System.md`, `03-Workflow-Development.md`, `04-PRD-Other-Pages.md`, `05-PRD-Ecommerce.md`
 

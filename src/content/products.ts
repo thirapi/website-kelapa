@@ -22,7 +22,7 @@ export const CATEGORIES = [
   {
     id: "charcoal",
     name: "Coconut Shell Charcoal",
-    desc: "Raw lump charcoal untuk BBQ, industri, dan ekspor volume besar.",
+    desc: "Raw lump charcoal untuk BBQ, industri, dan kebutuhan volume besar.",
   },
   {
     id: "briquettes",

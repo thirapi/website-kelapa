@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 // Counter GSAP onEnter sekali (Fase 2). Tracking numbers_section_viewed ikut di sini.
 export function QuickNumbers() {
   return (
-    <div className="border-y border-white/10 bg-surface/50">
+    <div className="border-y border-paper/15 bg-surface-alt/60">
       <Section ariaLabel="Capacity" spacing="compact">
         <Reveal>
           <h2 className="font-display text-2xl font-bold md:text-4xl">Kapasitas yang Siap Mendukung Pasokan Anda.</h2>

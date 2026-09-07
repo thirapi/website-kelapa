@@ -8,9 +8,9 @@ export const NAV_LINKS = [
 
 export const CONTACT = {
   whatsapp: "https://wa.me/6200000000000",
-  email: "mailto:export@hancoco.id",
-  emailText: "export@hancoco.id",
-  address: "Coconut heartlands, Indonesia",
-  // Ganti dengan alamat pabrik/kantor final (open question 04-PRD §4.3)
-  mapsQuery: "Sulawesi, Indonesia",
+  email: "mailto:info@nagarikatapiang.id",
+  emailText: "info@nagarikatapiang.id",
+  address: "Nagari Katapiang, Padang Pariaman, Sumatera Barat",
+  // Ganti dengan alamat balai/gudang final bila sudah ditetapkan
+  mapsQuery: "Katapiang, Batang Anai, Padang Pariaman",
 } as const;

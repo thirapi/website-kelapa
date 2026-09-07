@@ -4,7 +4,7 @@ import { QuickNumbers } from "@/components/sections/home/QuickNumbers";
 import { QualityTraceability } from "@/components/sections/home/QualityTraceability";
 import { ProcessRundown } from "@/components/sections/home/ProcessRundown";
 import { Compliance } from "@/components/sections/home/Compliance";
-import { WhyHancoco } from "@/components/sections/home/WhyHancoco";
+import { WhyCoco } from "@/components/sections/home/WhyCoco";
 import { SourcingHeritage } from "@/components/sections/home/SourcingHeritage";
 import { Testimonials } from "@/components/sections/home/Testimonials";
 import { MarketIndustries } from "@/components/sections/home/MarketIndustries";
@@ -27,7 +27,7 @@ export default function Home() {
       <ProcessRundown />
       <Compliance />
       <EmberWipe>
-        <WhyHancoco />
+        <WhyCoco />
       </EmberWipe>
       <SourcingHeritage />
       <Testimonials />

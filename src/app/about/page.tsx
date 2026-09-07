@@ -5,10 +5,12 @@ import { Container, Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { Rundown } from "@/components/motion/Rundown";
 import { JOURNEY, VALUES } from "@/content/shared";
+import { MEDIA } from "@/content/media";
+import { ICONS } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Lebih dari pemasok: mitra pasokan kelapa yang tertelusur.",
+  description: "COCO KATAPIANG dari Nagari Katapiang: arang & kopra dikelola masyarakat, didukung Pertamina.",
 };
 
 // About — 9 section per 04-PRD-Other-Pages.md §1
@@ -17,7 +19,7 @@ export default function AboutPage() {
     <div className="flex flex-1 flex-col">
       {/* 1 Hero */}
       <section className="relative flex min-h-[70dvh] items-center pt-24">
-        <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(242,140,40,0.12),transparent_65%)]" />
+        <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.12),transparent_65%)]" />
         <Container className="relative py-20">
           <p className="text-xs font-semibold tracking-widest text-ember uppercase">About Us</p>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
@@ -33,8 +35,9 @@ export default function AboutPage() {
         </h2>
         <div className="mt-8 grid gap-8 md:grid-cols-2">
           <p className="text-muted">
-            Hancoco menghubungkan lahan petani kelapa dengan buyer global — arang tempurung
-            dan kopra dengan QC terdokumentasi dan jadwal kirim yang bisa dipegang.
+            COCO KATAPIANG mengolah kelapa Nagari Katapiang menjadi arang tempurung
+            dan kopra — dengan QC terdokumentasi dan jadwal kirim yang bisa dipegang.
+            Sebuah inisiatif yang didukung Pertamina melalui Desa Energi Berdikari.
           </p>
           <div className="fade-mask-radial relative min-h-56 overflow-hidden rounded-2xl bg-surface-alt">
             <Image
@@ -50,7 +53,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 3 Our Journey — reuse Rundown */}
-      <div className="border-y border-white/10 bg-surface/50">
+      <div className="border-y border-paper/15 bg-surface-alt/60">
         <Section>
           <Reveal>
             <h2 className="font-display text-3xl font-bold md:text-5xl">
@@ -77,11 +80,11 @@ export default function AboutPage() {
       {/* 5 Vision & Mission — 2 kolom asimetris */}
       <Section spacing="none" className="pb-24 md:pb-32">
         <div className="grid gap-6 md:grid-cols-12">
-          <div className="rounded-2xl border border-white/10 bg-surface p-8 md:col-span-5">
+          <div className="rounded-2xl border border-paper/15 bg-surface p-8 md:col-span-5">
             <h2 className="font-display text-2xl font-bold">Visi</h2>
             <p className="mt-3 text-muted">Rantai pasok kelapa Indonesia yang paling bisa diandalkan.</p>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-surface-alt p-8 md:col-span-7">
+          <div className="rounded-2xl border border-paper/15 bg-surface-alt p-8 md:col-span-7">
             <h2 className="font-display text-2xl font-bold">Misi</h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-muted">
               <li>Volume konsisten & spec terdokumentasi.</li>
@@ -92,53 +95,88 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* 6 Our Values — bento + glass */}
+      {/* 6 Our Values — bento + glass + ikon */}
       <Section spacing="none" className="pb-24 md:pb-32">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">
-          Nilai yang Menjadi Fondasi Setiap Pengiriman.
-        </h2>
+        <Reveal>
+          <p className="text-xs font-bold tracking-[0.25em] text-ember uppercase">Fondasi</p>
+          <h2 className="font-display mt-3 max-w-2xl text-3xl font-bold md:text-5xl">
+            Nilai yang Menjadi Fondasi Setiap Pengiriman.
+          </h2>
+        </Reveal>
         <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {VALUES.map((v, i) => (
-            <article
-              key={v.title}
-              className={`rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur ${i === 0 ? "md:col-span-2" : ""}`}
-            >
-              <h3 className="font-display text-xl font-bold">{v.title}</h3>
-              <p className="mt-2 text-sm text-muted">{v.desc}</p>
-            </article>
-          ))}
+          {VALUES.map((v, i) => {
+            const Icon = ICONS[v.icon];
+            return (
+              <article
+                key={v.title}
+                className={`rounded-2xl border border-paper/15 bg-paper/5 p-7 backdrop-blur transition-[border-color] hover:border-ember/40 ${i === 0 ? "md:col-span-2" : ""}`}
+              >
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-ember/10 text-ember">
+                    <Icon size={20} strokeWidth={1.75} aria-hidden />
+                  </span>
+                  <h3 className="font-display text-xl font-bold">{v.title}</h3>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{v.desc}</p>
+              </article>
+            );
+          })}
         </div>
       </Section>
 
-      {/* 7 Sourcing Network */}
+      {/* 7 Sourcing Network — daftar bernomor, bukan grid kartu */}
       <Section spacing="none" className="pb-24 md:pb-32">
         <h2 className="font-display text-3xl font-bold md:text-4xl">Jaringan Lahan yang Terkelola.</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {["Sulawesi", "Maluku", "Jawa"].map((l) => (
-            <div key={l} className="rounded-2xl border border-white/10 bg-surface p-7">
-              <h3 className="font-display text-xl font-bold">{l}</h3>
-              <p className="text-sm text-muted">Kemitraan petani + titik kumpul.</p>
-            </div>
+        <ol className="mt-8 divide-y divide-paper/15 border-y border-paper/15">
+          {[
+            { region: "Sulawesi", note: "Kemitraan petani + titik kumpul kopra" },
+            { region: "Maluku", note: "Lahan kelapa + karbonisasi" },
+            { region: "Jawa", note: "Sortir, packing & stuffing kontainer" },
+          ].map((l, i) => (
+            <li key={l.region} className="flex items-baseline gap-5 py-5">
+              <span className="tnum font-display text-sm font-bold text-ember">0{i + 1}</span>
+              <div>
+                <h3 className="font-display text-xl font-bold md:text-2xl">{l.region}</h3>
+                <p className="text-sm text-muted">{l.note}</p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
-      {/* 8 Behind the Harvest — masonry */}
+      {/* 8 Behind the Harvest — foto proses asli */}
       <Section spacing="none" className="pb-24 md:pb-32">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">
-          Di Balik Setiap Ton, Ada Proses yang Tertelusur.
-        </h2>
-        <div className="mt-8 columns-2 gap-4 md:columns-3 [&>*]:mb-4">
-          {["Sortir", "Jemur", "Kiln", "Packing", "Stuffing", "Sail"].map((t) => (
-            <div key={t} className="fade-mask-radial break-inside-avoid rounded-2xl bg-surface-alt p-6">
-              <p className="text-sm text-muted">{t}</p>
-            </div>
+        <Reveal>
+          <p className="text-xs font-bold tracking-[0.25em] text-ember uppercase">Proses</p>
+          <h2 className="font-display mt-3 max-w-2xl text-3xl font-bold md:text-4xl">
+            Di Balik Setiap Ton, Ada Proses yang Tertelusur.
+          </h2>
+        </Reveal>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+          {MEDIA.sourcing.slice(0, 4).map((m, i) => (
+            <figure
+              key={m.src}
+              className={`fade-mask-radial relative overflow-hidden rounded-2xl ${i === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`}
+            >
+              <Image
+                src={m.src}
+                alt={m.alt}
+                width={800}
+                height={i === 0 ? 1000 : 600}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 25vw"
+                className="h-full min-h-52 w-full object-cover"
+              />
+              <figcaption className="absolute bottom-3 left-3 rounded-full bg-base/70 px-3 py-1 text-xs text-paper backdrop-blur-sm">
+                {m.label}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </Section>
 
       {/* 9 Closing Statement — reuse CTA */}
-      <section className="border-t border-white/10 py-24 md:py-32">
+      <section className="border-t border-paper/15 py-24 md:py-32">
         <Container className="text-center">
           <h2 className="font-display text-3xl font-bold md:text-5xl">
             Mari Bangun Pasokan yang Konsisten Bersama.

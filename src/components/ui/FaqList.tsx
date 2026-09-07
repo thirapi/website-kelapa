@@ -5,7 +5,7 @@ import { track } from "@/lib/analytics";
 
 export function FaqList({ items }: { items: readonly { q: string; a: string }[] }) {
   return (
-    <div className="divide-y divide-white/10 border-y border-white/10">
+    <div className="divide-y divide-paper/15 border-y border-paper/15">
       {items.map((f) => (
         <AccordionItem
           key={f.q}

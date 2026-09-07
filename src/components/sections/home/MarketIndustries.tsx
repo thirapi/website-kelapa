@@ -8,7 +8,7 @@ export function MarketIndustries() {
     <Section ariaLabel="Markets" spacing="compact">
       <Reveal>
         <h2 className="font-display text-2xl font-bold md:text-4xl">Melayani Pasar Global.</h2>
-        <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
+        <ul className="mt-8 divide-y divide-paper/15 border-y border-paper/15">
           {INDUSTRIES.map((m, i) => (
             <li key={m} className="flex items-baseline gap-4 py-4">
               <span className="tnum text-xs text-muted">0{i + 1}</span>

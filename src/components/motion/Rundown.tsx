@@ -58,7 +58,7 @@ export function Rundown({ items }: { items: readonly RundownItem[] }) {
   return (
     <ol ref={root} className="relative mt-12">
       {/* track */}
-      <span aria-hidden className="absolute top-2 bottom-2 left-[7px] w-px bg-white/10 md:left-[9px]" />
+      <span aria-hidden className="absolute top-2 bottom-2 left-[7px] w-px bg-paper/10 md:left-[9px]" />
       {/* fill */}
       <span
         aria-hidden
@@ -76,7 +76,7 @@ export function Rundown({ items }: { items: readonly RundownItem[] }) {
         >
           <span
             aria-hidden
-            className="absolute top-8 left-[3px] h-2.5 w-2.5 rounded-full bg-white/20 transition-all duration-500 group-data-[active=true]:bg-ember group-data-[active=true]:shadow-[0_0_16px_2px_rgba(242,140,40,0.6)] md:left-[5px]"
+            className="absolute top-8 left-[3px] h-2.5 w-2.5 rounded-full bg-paper/20 transition-[background-color,box-shadow] duration-500 group-data-[active=true]:bg-ember group-data-[active=true]:shadow-[0_0_16px_2px_rgba(122,78,31,0.6)] md:left-[5px]"
           />
           <div>
             <p className="tnum font-display text-sm font-bold tracking-widest text-muted uppercase transition-colors duration-500 group-data-[active=true]:text-ember">

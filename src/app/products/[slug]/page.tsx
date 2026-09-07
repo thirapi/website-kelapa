@@ -52,19 +52,19 @@ export default async function ProductDetail({
           <h1 className="font-display mt-2 text-4xl font-bold md:text-5xl">{product.name}</h1>
           <p className="mt-4 text-muted">{product.shortDesc}</p>
           <dl className="mt-6 space-y-2 text-sm">
-            <div className="flex justify-between border-t border-white/10 py-2">
+            <div className="flex justify-between border-t border-paper/15 py-2">
               <dt className="text-muted">MOQ</dt>
               <dd>{product.moq}</dd>
             </div>
-            <div className="flex justify-between border-t border-white/10 py-2">
+            <div className="flex justify-between border-t border-paper/15 py-2">
               <dt className="text-muted">Packing</dt>
               <dd>{product.packing}</dd>
             </div>
-            <div className="flex justify-between border-t border-white/10 py-2">
+            <div className="flex justify-between border-t border-paper/15 py-2">
               <dt className="text-muted">Lead time</dt>
               <dd>{product.leadTime}</dd>
             </div>
-            <div className="flex justify-between border-y border-white/10 py-2">
+            <div className="flex justify-between border-y border-paper/15 py-2">
               <dt className="text-muted">Kapasitas</dt>
               <dd>{product.capability}</dd>
             </div>
@@ -92,7 +92,7 @@ export default async function ProductDetail({
         <h2 className="font-display text-2xl font-bold">Related products</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {related.map((r) => (
-            <Link key={r.id} href={`/products/${r.slug}`} className="rounded-2xl border border-white/10 bg-surface p-6 hover:border-ember/50">
+            <Link key={r.id} href={`/products/${r.slug}`} className="rounded-2xl border border-paper/15 bg-surface p-6 hover:border-ember/50">
               <h3 className="font-display font-bold">{r.name}</h3>
               <p className="text-sm text-muted">{r.shortDesc}</p>
             </Link>

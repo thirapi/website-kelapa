@@ -8,7 +8,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { CONTACT, NAV_LINKS } from "@/content/site";
 import { track } from "@/lib/analytics";
 
-// Navbar "Export House Bar" — identitas Hancoco sendiri:
+// Navbar "Export House Bar" — identitas COCO KATAPIANG:
 // full-width editorial (bukan pill): announcement ember → nav transparan di hero
 // → solid blur + border + hairline progress ember saat scroll.
 // Framer Motion only (state-driven); GSAP tidak menyentuh elemen ini.
@@ -73,18 +73,18 @@ export function Navbar() {
               className="overflow-hidden bg-ember text-sm font-medium text-base"
             >
               <p className="relative mx-auto max-w-7xl px-6 py-2 pr-12 text-center text-[13px] md:px-10 md:text-sm">
-                <span className="mr-2 inline-block rounded-full bg-base/20 px-2 py-0.5 text-[11px] font-bold tracking-widest uppercase">
-                  Export
+                <span className="mr-2 hidden rounded-full bg-base/20 px-2 py-0.5 text-[11px] font-bold tracking-widest uppercase sm:inline-block">
+                  Nagari
                 </span>
                 {/* Mobile: copy pendek. Desktop: copy penuh. */}
                 <span className="sm:hidden">
-                  Capacity ready.{" "}
+                  Produksi nagari ready.{" "}
                   <Link href="/contact" className="font-bold underline underline-offset-2">
                     Get Quote
                   </Link>
                 </span>
                 <span className="hidden sm:inline">
-                  Capacity available — consistent monthly volume, documented QC.
+                  Produksi arang & kopra nagari tersedia — QC terdokumentasi.
                   <Link href="/contact" className="ml-2 font-bold underline underline-offset-2">
                     Request Quote
                   </Link>
@@ -103,9 +103,9 @@ export function Navbar() {
 
         {/* Nav row */}
         <div
-          className={`transition-all duration-300 ${
+          className={`transition-[background-color,border-color,box-shadow] duration-300 ${
             isScrolled
-              ? "border-b border-white/10 bg-base/85 shadow-lg shadow-black/30 backdrop-blur-xl"
+              ? "border-b border-paper/15 bg-base/85 shadow-lg shadow-[#2b1d12]/10 backdrop-blur-xl"
               : "border-b border-transparent bg-gradient-to-b from-base/70 to-transparent"
           }`}
         >
@@ -118,19 +118,19 @@ export function Navbar() {
               href="/"
               onClick={handleHomeClick}
               className="group flex shrink-0 flex-col leading-none outline-none focus-visible:ring-2 focus-visible:ring-ember"
-              aria-label="Hancoco — home"
+              aria-label="COCO KATAPIANG — home"
             >
               <span className="font-display text-xl font-bold tracking-tight text-paper md:text-2xl">
-                Hancoco<span className="text-ember">.</span>
+                COCO KATAPIANG<span className="text-ember">.</span>
               </span>
               <span className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-muted uppercase transition-colors group-hover:text-ember">
                 Coconut Products
               </span>
             </Link>
 
-            {/* Desktop links — bernomor ala rundown + underline aktif */}
+            {/* Desktop links — underline aktif meluncur */}
             <ul className="hidden items-center gap-7 lg:flex">
-              {NAV_LINKS.map((l, i) => {
+              {NAV_LINKS.map((l) => {
                 const active = pathname === l.href;
                 return (
                   <li key={l.href} className="shrink-0">
@@ -138,13 +138,10 @@ export function Navbar() {
                       href={l.href}
                       aria-current={active ? "page" : undefined}
                       onClick={l.href === "/" ? handleHomeClick : undefined}
-                      className={`relative flex items-baseline gap-1.5 pb-1 text-sm font-medium tracking-wide transition-colors duration-200 outline-none hover:text-paper focus-visible:ring-2 focus-visible:ring-ember ${
+                      className={`relative pb-1 text-sm font-medium tracking-wide transition-colors duration-200 outline-none hover:text-paper focus-visible:ring-2 focus-visible:ring-ember ${
                         active ? "text-paper" : "text-paper/65"
                       }`}
                     >
-                      <span className="tnum text-[10px] text-ember/80">
-                        0{i + 1}
-                      </span>
                       {l.label}
                       {active && (
                         <motion.span
@@ -163,7 +160,7 @@ export function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => track("hero_cta_quote", { source: "nav" })}
-                className="group hidden h-10 items-center gap-1.5 rounded-full bg-ember px-5 text-xs font-bold whitespace-nowrap text-base shadow-[0_0_24px_-8px_rgba(242,140,40,0.7)] transition-all duration-300 outline-none hover:shadow-[0_0_32px_-6px_rgba(242,140,40,0.9)] focus-visible:ring-2 focus-visible:ring-paper lg:flex"
+                className="group hidden h-10 items-center gap-1.5 rounded-full bg-ember px-5 text-xs font-bold whitespace-nowrap text-base shadow-[0_0_24px_-8px_rgba(122,78,31,0.7)] outline-none transition-[background-color] duration-200 hover:bg-[#8d5c28] focus-visible:ring-2 focus-visible:ring-paper lg:flex"
               >
                 Request Quote
                 <ArrowUpRight
@@ -216,9 +213,8 @@ export function Navbar() {
                     href={l.href}
                     onClick={() => setIsDrawerOpen(false)}
                     aria-current={pathname === l.href ? "page" : undefined}
-                    className="group flex items-baseline gap-3 border-b border-white/10 py-4 outline-none focus-visible:ring-2 focus-visible:ring-ember"
+                    className="group flex items-center justify-between border-b border-paper/15 py-4 outline-none focus-visible:ring-2 focus-visible:ring-ember"
                   >
-                    <span className="tnum text-xs font-bold text-ember">0{i + 1}</span>
                     <span
                       className={`font-display text-3xl font-bold transition-colors group-hover:text-ember ${
                         pathname === l.href ? "text-ember" : "text-paper"
@@ -226,6 +222,11 @@ export function Navbar() {
                     >
                       {l.label}
                     </span>
+                    <ArrowUpRight
+                      size={22}
+                      aria-hidden
+                      className="text-muted transition-[transform,color] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ember"
+                    />
                   </Link>
                 </motion.div>
               ))}

@@ -78,8 +78,8 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
         <h3 className="font-display mt-4 text-2xl font-bold">Permintaan terkirim.</h3>
         <p className="mt-2 text-sm text-muted">
           {demo
-            ? "Mode demo — endpoint sales belum dikonfigurasi. Lanjutkan via WhatsApp agar langsung diproses."
-            : "Tim sales akan menghubungi Anda via email/WhatsApp."}
+            ? "Mode demo — endpoint tim nagari belum dikonfigurasi. Lanjutkan via WhatsApp agar langsung diproses."
+            : "Tim nagari akan menghubungi Anda via email/WhatsApp."}
           {form.product && (
             <>
               {" "}Produk: <span className="text-paper">{productName(form.product)}</span>
@@ -101,7 +101,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
               setStatus("idle");
               setForm({ ...EMPTY_QUOTE, product: prefill });
             }}
-            className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold hover:border-paper/50"
+            className="rounded-full border border-paper/25 px-6 py-3 text-sm font-semibold hover:border-paper/50"
           >
             Kirim lagi
           </button>
@@ -114,7 +114,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
     <form
       onSubmit={onSubmit}
       noValidate
-      className={`grid gap-4 rounded-2xl border border-white/10 bg-surface p-7 ${
+      className={`grid gap-4 rounded-2xl border border-paper/15 bg-surface p-7 ${
         variant === "full" ? "md:grid-cols-2" : ""
       }`}
     >
@@ -129,7 +129,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
                 id={id}
                 value={form.product}
                 onChange={(e) => set("product", e.target.value)}
-                className="mt-1 w-full rounded-lg border border-white/10 bg-base px-4 py-2.5 text-paper"
+                className="mt-1 w-full rounded-lg border border-paper/15 bg-base px-4 py-3 text-paper"
               >
                 <option value="">Umum / belum tahu</option>
                 {PRODUCTS.map((p) => (
@@ -155,7 +155,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
                 value={form.message}
                 onChange={(e) => set("message", e.target.value)}
                 placeholder="Spec, packaging, jadwal kirim…"
-                className="mt-1 w-full rounded-lg border border-white/10 bg-base px-4 py-2.5 placeholder:text-muted"
+                className="mt-1 min-h-24 w-full resize-y rounded-lg border border-paper/15 bg-base px-4 py-3 placeholder:text-muted"
               />
             </label>
           );
@@ -169,28 +169,30 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
               onChange={(e) => set(k, e.target.value)}
               placeholder={LABELS[k].replace("*", "")}
               aria-invalid={Boolean(err)}
-              aria-describedby={err ? `${id}-error` : undefined}
-              className={`mt-1 w-full rounded-lg border bg-base px-4 py-2.5 placeholder:text-muted ${
-                err ? "border-red-400" : "border-white/10"
+              aria-describedby={`${id}-error`}
+              className={`mt-1 w-full rounded-lg border bg-base px-4 py-3 placeholder:text-muted ${
+                err ? "border-red-600" : "border-paper/15"
               }`}
             />
-            {err && (
-              <span id={`${id}-error`} role="alert" className="mt-1 block text-xs text-red-300">
-                {err}
-              </span>
-            )}
+            <span
+              id={`${id}-error`}
+              role={err ? "alert" : undefined}
+              className={`mt-1 block min-h-[1.25rem] text-xs text-red-700 ${err ? "" : "invisible"}`}
+            >
+              {err ?? ""}
+            </span>
           </label>
         );
       })}
       {status === "error" && (
-        <p role="alert" className="text-sm text-red-300 md:col-span-2">
+        <p role="alert" className="text-sm text-red-700 md:col-span-2">
           Gagal mengirim. Coba lagi atau hubungi langsung via WhatsApp.
         </p>
       )}
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="flex items-center justify-center gap-2 rounded-full bg-ember px-6 py-3 text-sm font-semibold text-base transition-opacity disabled:opacity-60 md:col-span-2"
+        className="flex items-center justify-center gap-2 rounded-full bg-ember px-6 py-3 text-sm font-semibold whitespace-nowrap text-base outline-none transition-[background-color,opacity] focus-visible:ring-2 focus-visible:ring-paper disabled:cursor-not-allowed disabled:opacity-60 md:col-span-2"
       >
         {status === "submitting" && <Loader2 size={16} className="animate-spin" />}
         {status === "submitting" ? "Mengirim…" : variant === "short" ? "Kirim Request Quote" : "Submit RFQ"}
@@ -204,7 +206,7 @@ export function QuoteForm({ variant = "short" }: { variant?: "short" | "full" })
   return (
     <Suspense
       fallback={
-        <div className="rounded-2xl border border-white/10 bg-surface p-7 text-sm text-muted">
+        <div className="rounded-2xl border border-paper/15 bg-surface p-7 text-sm text-muted">
           Memuat form…
         </div>
       }

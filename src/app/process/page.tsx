@@ -16,7 +16,7 @@ export default function ProcessPage() {
     <div className="flex flex-1 flex-col">
       {/* 1 Hero */}
       <section className="relative flex min-h-[60dvh] items-center pt-24">
-        <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(242,140,40,0.12),transparent_65%)]" />
+        <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.12),transparent_65%)]" />
         <Container className="relative py-20">
           <p className="text-xs font-semibold tracking-widest text-ember uppercase">Our Process</p>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
@@ -26,7 +26,7 @@ export default function ProcessPage() {
       </section>
 
       {/* 2 Process Overview — Rundown signature */}
-      <div className="border-y border-white/10 bg-surface/50">
+      <div className="border-y border-paper/15 bg-surface-alt/60">
         <Section>
           <Reveal>
             <h2 className="font-display text-3xl font-bold md:text-5xl">Alur Inti Kami.</h2>
@@ -69,7 +69,7 @@ export default function ProcessPage() {
       {/* 5 Sustainability */}
       <Section width="narrow" className="text-center">
         <h2 className="font-display text-3xl font-bold md:text-5xl">“Limbah Jadi Energi.”</h2>
-        <p className="mt-4 text-muted">Tempurung — sampingan pertanian — menjadi arang bernilai ekspor.</p>
+        <p className="mt-4 text-muted">Tempurung — sampingan pertanian — menjadi arang bernilai ekonomi bagi nagari.</p>
       </Section>
 
       {/* 6 Certifications — marquee */}
@@ -77,7 +77,7 @@ export default function ProcessPage() {
         <h2 className="font-display text-2xl font-bold md:text-4xl">Compliance.</h2>
         <ul className="mt-6 flex flex-wrap gap-3">
           {CERTIFICATIONS.map((c) => (
-            <li key={c} className="rounded-full border border-white/15 px-5 py-2.5 text-sm">
+            <li key={c} className="rounded-full border border-paper/20 px-5 py-2.5 text-sm">
               {c}
             </li>
           ))}
@@ -85,7 +85,7 @@ export default function ProcessPage() {
       </Section>
 
       {/* 7 CTA */}
-      <section className="border-t border-white/10 py-24 md:py-32">
+      <section className="border-t border-paper/15 py-24 md:py-32">
         <Container className="text-center">
           <h2 className="font-display text-3xl font-bold md:text-5xl">Audit Rantai Kami Kapan Saja.</h2>
           <div className="mt-8">

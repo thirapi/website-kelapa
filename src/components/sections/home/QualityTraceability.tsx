@@ -61,7 +61,7 @@ export function QualityTraceability() {
   return (
     <Section ariaLabel="Quality and traceability">
       <Reveal>
-        <h2 className="font-display max-w-xl text-3xl font-bold md:text-5xl">
+        <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
           Kualitas Tidak Terjadi Secara Kebetulan.
         </h2>
       </Reveal>
@@ -73,7 +73,7 @@ export function QualityTraceability() {
               key={p.title}
               data-quality-step
               className="border-l-2 pl-6 transition-colors duration-500 md:flex md:min-h-[46vh] md:flex-col md:justify-center"
-              style={{ borderColor: active === i ? "var(--color-ember)" : "rgba(255,255,255,0.12)" }}
+              style={{ borderColor: active === i ? "var(--color-ember)" : "rgba(43,29,18,0.12)" }}
             >
               <p className="tnum text-xs text-muted">0{i + 1}</p>
               <h3
@@ -115,10 +115,10 @@ export function QualityTraceability() {
               {POINTS.map((p, i) => (
                 <span
                   key={p.title}
-                  className="h-1.5 rounded-full transition-all duration-500"
+                  className="h-1.5 w-6 rounded-full transition-[background-color,opacity] duration-500"
                   style={{
-                    width: active === i ? 28 : 8,
-                    background: active === i ? "var(--color-ember)" : "rgba(255,255,255,0.25)",
+                    background: active === i ? "var(--color-ember)" : "rgba(43,29,18,0.25)",
+                    opacity: active === i ? 1 : 0.6,
                   }}
                 />
               ))}

@@ -5,15 +5,14 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-base">
+    <footer className="border-t border-paper/15 bg-base">
       <Container className="py-14">
         <Reveal>
           <p className="font-display text-2xl font-bold">
-            Coconut Products, Global Standard.
+            The Value of Coconut, Reimagined.
           </p>
           <p className="mt-2 max-w-md text-sm text-muted">
-            Coconut shell charcoal & premium copra — consistent, traceable,
-            export-ready.
+            Coconut products from Katapiang, West Sumatra — supported by Pertamina through Desa Energi Berdikari.
           </p>
         </Reveal>
 
@@ -44,7 +43,7 @@ export function Footer() {
         </div>
 
         <p className="mt-10 text-xs text-muted">
-          © {new Date().getFullYear()} Hancoco. All rights reserved.
+          © {new Date().getFullYear()} COCO KATAPIANG · Supported by Pertamina. All rights reserved.
         </p>
       </Container>
     </footer>

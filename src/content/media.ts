@@ -8,7 +8,7 @@ export const MEDIA = {
   hero: {
     // Poster = elemen LCP (priority). Video loop <15s menyusul (workflow §6).
     poster: "/assets/hero/plantation.webp",
-    posterAlt: "Coconut grove by the sea — the heartlands",
+    posterAlt: "Kebun kelapa nagari di tepi laut",
     videoWebm: "",
     videoMp4: "",
   },
@@ -27,7 +27,7 @@ export const MEDIA = {
     { src: "/assets/sourcing/harvest.webp", alt: "Fresh harvested coconuts", label: "Hasil panen" },
     { src: "/assets/products/charcoal.webp", alt: "Charcoal embers close-up", label: "Karbonisasi" },
     { src: "/assets/products/briquettes.webp", alt: "Charcoal catching flame", label: "Uji bakar" },
-    { src: "/assets/hero/plantation.webp", alt: "Coconut grove by the sea", label: "Siap ekspor" },
+    { src: "/assets/hero/plantation.webp", alt: "Coconut grove by the sea", label: "Siap kirim" },
   ],
 } as const;
 

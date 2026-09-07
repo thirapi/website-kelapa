@@ -26,10 +26,10 @@ Prinsip: setiap section boleh punya kepribadian layout sendiri, dalam satu siste
 
 Big idea untuk Hancoco: **from raw harvest to global product** — perjalanan yang hangat (api/arang = energi) dan terpercaya (asal jelas). Elemen-elemen reusable:
 
-### 2.1 Custom Cursor — "Ember Glow"
-- Cursor default: radial glow lembut (mix `screen`/`soft-light`), berada di section gelap (Hero, Process, CTA Closing).
-- Aksen warna ember/arang — bukan kuning neon. Hover pada elemen interaktif: glow membesar & meredup.
-- **Nonaktif di touch** (`(pointer: coarse)` / `(hover: none)`).
+### 2.1 Custom Cursor — "Ember Glow" (DINONAKTIFKAN)
+- ~~Cursor default radial glow~~ — **dibuang pasca-review**: mengganggu di tema terang +
+  melanggar anti-slop (custom cursor = tell). File dihapus dari layout.
+- **Nonaktif di touch** (`(pointer: coarse)` / `(hover: none)`) — tetap berlaku bila dihidupkan lagi.
 
 ### 2.2 Transisi Antar-Section — "Ember Wipe" (Curtain Reveal variant)
 - Alih-alih fade polos, transisi antar section besar (Hero → Product Lines, Process → Why, CTA → Footer) memakai `clip-path` wipe yang menyerupai "bara api menyapu".
@@ -110,9 +110,10 @@ Prinsip pengganti kartu-sejajar:
 - **Palet deviate-lah dari baseline** (yellow #FFC72C → ember orange) — keputusan ini harus diputuskan di design review SEBELUM build (lesson dari Java Management).
 
 ### 4.2 Tipografi
-- **Display/Headline:** grotesk hangat & berkarakter (misal *Space Grotesk* seperti baseline, atau *Bricolage Grotesque*). Headline besar 48–110px desktop, tracking sedikit rapat.
-- **Body:** sans netral (*Inter*, *Geist*). 16–18px, line-height 1.6.
+- **Display/Headline:** *Fraunces* — serif hangat berkarakter heritage (ganti Space Grotesk yang terlalu techy). Headline besar 48–110px desktop, tracking sedikit rapat.
+- **Body:** *Plus Jakarta Sans* — karya desainer Indonesia, netral & bersahabat (ganti Inter). 16–18px, line-height 1.6.
 - **Angka/rundown/counter:** tabular figures (tidak goyang saat counting).
+- Maksimal 2 family (anti-slop gate 37); italic dilarang di heading (gate 38a).
 
 ### 4.3 Grid & Spacing
 - Container max ~1440px, padding responsif (24px mobile → 96px desktop).

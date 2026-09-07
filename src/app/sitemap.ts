@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { PRODUCTS } from "@/content/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://hancoco.id";
+  const base = "https://nagarikatapiang.id";
   const staticRoutes = ["", "/about", "/products", "/process", "/contact"].map((r) => ({
     url: `${base}${r || "/"}`,
     lastModified: new Date(),

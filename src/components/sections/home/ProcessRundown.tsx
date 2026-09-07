@@ -6,7 +6,7 @@ import { Rundown } from "@/components/motion/Rundown";
 // 05 Process Rundown — 01-PRD §05 signature (scrub progress + tahap menyala)
 export function ProcessRundown() {
   return (
-    <div className="border-y border-white/10 bg-surface/50">
+    <div className="border-y border-paper/15 bg-surface-alt/60">
       <Section ariaLabel="Our process">
         <Reveal>
           <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">

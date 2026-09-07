@@ -17,7 +17,7 @@ export function Compliance() {
           renderItem={(c, key) => (
             <span
               key={key}
-              className="rounded-full border border-white/15 px-5 py-2.5 text-sm whitespace-nowrap text-paper/80"
+              className="rounded-full border border-paper/20 px-5 py-2.5 text-sm whitespace-nowrap text-paper/80"
             >
               {c}
             </span>

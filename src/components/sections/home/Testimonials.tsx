@@ -36,9 +36,9 @@ export function Testimonials() {
   const t = TESTIMONIALS[index];
 
   return (
-    <div className="border-y border-white/10 bg-surface/50">
+    <div className="border-y border-paper/15 bg-surface-alt/60">
       <Section ariaLabel="Testimonials">
-        <h2 className="font-display max-w-xl text-3xl font-bold md:text-5xl">
+        <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
           Kepercayaan Mitra Adalah Standar Kami.
         </h2>
         <div
@@ -51,7 +51,7 @@ export function Testimonials() {
           onBlur={() => setPaused(false)}
           className="relative mx-auto mt-12 max-w-3xl"
         >
-          <div className="relative min-h-64 overflow-hidden rounded-2xl border border-white/10 bg-base p-8 md:min-h-56 md:p-12">
+          <div className="relative min-h-64 overflow-hidden rounded-2xl border border-paper/15 bg-base p-8 md:min-h-56 md:p-12">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.figure
                 key={index}
@@ -87,10 +87,11 @@ export function Testimonials() {
                   aria-selected={i === index}
                   aria-label={`Show testimonial ${i + 1}`}
                   onClick={() => setIndex([i, i > index ? 1 : -1])}
-                  className="h-1.5 rounded-full transition-all duration-300"
+                  className="h-2 w-2 rounded-full transition-[background-color,transform,opacity] duration-300"
                   style={{
-                    width: i === index ? 28 : 8,
-                    background: i === index ? "var(--color-ember)" : "rgba(255,255,255,0.25)",
+                    background: i === index ? "var(--color-ember)" : "rgba(43,29,18,0.25)",
+                    transform: i === index ? "scale(1.35)" : "scale(1)",
+                    opacity: i === index ? 1 : 0.7,
                   }}
                 />
               ))}
@@ -99,14 +100,14 @@ export function Testimonials() {
               <button
                 onClick={() => paginate(-1)}
                 aria-label="Previous testimonial"
-                className="rounded-full border border-white/15 p-2.5 transition-colors hover:border-ember hover:text-ember"
+                className="rounded-full border border-paper/20 p-2.5 transition-colors hover:border-ember hover:text-ember"
               >
                 <ArrowLeft size={18} />
               </button>
               <button
                 onClick={() => paginate(1)}
                 aria-label="Next testimonial"
-                className="rounded-full border border-white/15 p-2.5 transition-colors hover:border-ember hover:text-ember"
+                className="rounded-full border border-paper/20 p-2.5 transition-colors hover:border-ember hover:text-ember"
               >
                 <ArrowRight size={18} />
               </button>

@@ -1,23 +1,24 @@
 // docs/04-PRD-Other-Pages.md §1 About + §3 Process + §4 Contact (shared)
+// Konteks: program Desa Energi Berdikari (DEB) Pertamina — Nagari Katapiang.
 
 export const PROCESS_STEPS = [
-  { title: "Lahan Petani", desc: "Kelapa dari lahan & kemitraan petani terkelola." },
+  { title: "Lahan Petani", desc: "Kelapa dari lahan & kemitraan petani nagari." },
   { title: "Panen & Sortir", desc: "Seleksi bahan baku — hanya yang memenuhi standar." },
   { title: "Pengolahan", desc: "Karbonisasi / pengeringan terkontrol per tipe produk." },
   { title: "QC", desc: "Uji moisture, ash, size, purity per batch." },
-  { title: "Pengemasan", desc: "Jute bag, karton, inner — sesuai spec buyer." },
-  { title: "Logistik Ekspor", desc: "Stuffing kontainer, dokumen ekspor, kirim." },
+  { title: "Pengemasan", desc: "Jute bag, karton, inner — sesuai pesanan pembeli." },
+  { title: "Distribusi", desc: "Pengepakan, dokumen, kirim ke pembeli." },
 ] as const;
 
 export const NUMBERS = [
   { value: 120, suffix: "+", label: "Ton/bulan charcoal" },
   { value: 200, suffix: "+", label: "Ton/bulan copra" },
   { value: 10, suffix: "+", label: "Tahun pengalaman" },
-  { value: 12, suffix: "", label: "Negara tujuan" },
+  { value: 12, suffix: "", label: "Mitra & daerah pasar" },
 ] as const;
 
 export const CERTIFICATIONS = [
-  "Export permits",
+  "Perizinan usaha nagari",
   "QC documentation per batch",
   "Food-grade handling",
   "Traceable origin",
@@ -33,8 +34,8 @@ export const FAQS = [
     a: "14–28 hari tergantung produk & volume. Jadwal pasti dikonfirmasi saat RFQ.",
   },
   {
-    q: "Apakah spesifikasi terdokumentasi per shipment?",
-    a: "Ya — QC per batch (moisture, ash, size, purity) + dokumen ekspor.",
+    q: "Apakah spesifikasi terdokumentasi per pengiriman?",
+    a: "Ya — QC per batch (moisture, ash, size, purity) + dokumen lengkap.",
   },
   {
     q: "Bagaimana packaging & private label?",
@@ -42,25 +43,25 @@ export const FAQS = [
   },
   {
     q: "Bagaimana cara meminta penawaran?",
-    a: "Isi form Request Quote atau chat WhatsApp — tim sales follow-up dengan proforma.",
+    a: "Isi form Request Quote atau chat WhatsApp — tim nagari follow-up dengan proforma.",
   },
 ] as const;
 
 export const TESTIMONIALS = [
   {
-    quote: "Shipment konsisten, dokumen rapi. Partner pasokan yang bisa dipegang.",
-    name: "Buyer — BBQ Distributor",
-    origin: "Middle East",
+    quote: "Pasokan konsisten, dokumen rapi. Partner yang bisa dipegang.",
+    name: "Distributor BBQ",
+    origin: "Jakarta",
   },
   {
     quote: "Briket stabil, ash rendah. Repeat order tiap bulan.",
-    name: "Buyer — Shisha Brand",
-    origin: "Europe",
+    name: "Shisha Brand",
+    origin: "Surabaya",
   },
   {
     quote: "Kopra bersih, rendemen minyak bagus.",
-    name: "Buyer — Coconut Oil Mill",
-    origin: "Asia",
+    name: "Pabrik Minyak Kelapa",
+    origin: "Medan",
   },
 ] as const;
 
@@ -75,15 +76,15 @@ export const INDUSTRIES = [
 export const JOURNEY = [
   { year: "2015", title: "Awal kemitraan petani", desc: "Jaringan lahan awal terbentuk." },
   { year: "2018", title: "Kapasitas karbonisasi naik", desc: "Investasi kiln & drying." },
-  { year: "2021", title: "Ekspor reguler", desc: "Kontrak distributor Asia & Middle East." },
+  { year: "2021", title: "Pasokan rutin", desc: "Kontrak distributor antar-pulau." },
   { year: "2024", title: "QC terdokumentasi penuh", desc: "Batch testing + traceability." },
 ] as const;
 
 export const VALUES = [
-  { title: "Consistency", desc: "Shipment yang bisa diprediksi." },
-  { title: "Integrity", desc: "Spec sesuai dokumen." },
-  { title: "Sustainability", desc: "Limbah jadi energi." },
-  { title: "Quality", desc: "QC per batch." },
-  { title: "Partnership", desc: "Tumbuh bersama buyer." },
-  { title: "Transparency", desc: "Asal tertelusur." },
+  { icon: "repeat", title: "Consistency", desc: "Pengiriman yang bisa diprediksi — batch demi batch." },
+  { icon: "shield", title: "Integrity", desc: "Spec sesuai dokumen. Tidak ada yang ditutup-tutupi." },
+  { icon: "recycle", title: "Sustainability", desc: "Tempurung sisa panen jadi energi — bukan sampah." },
+  { icon: "badge", title: "Quality", desc: "Diuji tiap batch: moisture, ash, size, purity." },
+  { icon: "handshake", title: "Partnership", desc: "Tumbuh bersama pembeli dan petani nagari." },
+  { icon: "eye", title: "Transparency", desc: "Asal tertelusur sampai ke lahan." },
 ] as const;

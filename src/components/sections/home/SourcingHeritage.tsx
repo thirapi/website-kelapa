@@ -43,7 +43,7 @@ export function SourcingHeritage() {
     <section aria-label="Sourcing and heritage" className="py-24 md:py-32">
       <Container>
         <Reveal>
-          <h2 className="font-display max-w-xl text-3xl font-bold md:text-5xl">
+          <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
             Dari Tangan yang Teliti, untuk Pasar Global.
           </h2>
         </Reveal>

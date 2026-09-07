@@ -58,7 +58,7 @@ export function Hero() {
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-base/70 via-base/55 to-base" />
-      <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(242,140,40,0.12),transparent_65%)]" />
+      <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.12),transparent_65%)]" />
       <Container className="relative py-24">
         <div data-hero-content>
           <p className="inline-block rounded-full border border-ember/40 bg-base/60 px-4 py-1.5 text-xs font-semibold tracking-widest text-ember uppercase backdrop-blur-sm">
