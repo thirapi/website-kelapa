@@ -25,6 +25,13 @@ export function ProductLines() {
             </p>
             <h3 className="font-display mt-3 text-2xl font-bold md:text-4xl">Coconut Shell Charcoal</h3>
             <p className="mt-3 max-w-md text-muted">Briket & raw charcoal untuk BBQ, shisha, industri.</p>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Spesifikasi singkat charcoal">
+              {["Ash ≤ 3%", "Moisture ≤ 8%", "120 ton/bulan"].map((s) => (
+                <li key={s} className="rounded-full border border-paper/15 px-3 py-1 text-xs font-semibold text-paper/80">
+                  {s}
+                </li>
+              ))}
+            </ul>
             <Link href="/products" className="mt-6 inline-block text-sm font-semibold text-ember underline-offset-4 hover:underline">
               Lihat detail →
             </Link>
@@ -43,6 +50,13 @@ export function ProductLines() {
             </p>
             <h3 className="font-display mt-3 text-2xl font-bold md:text-3xl">Copra</h3>
             <p className="mt-3 text-muted">Dried coconut untuk produsen minyak & industri pangan.</p>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Spesifikasi singkat kopra">
+              {["Moisture ≤ 7%", "Rendemen 62–65%", "200 ton/bulan"].map((s) => (
+                <li key={s} className="rounded-full border border-paper/15 px-3 py-1 text-xs font-semibold text-paper/80">
+                  {s}
+                </li>
+              ))}
+            </ul>
             <Link href="/products" className="mt-6 inline-block text-sm font-semibold text-ember underline-offset-4 hover:underline">
               Lihat detail →
             </Link>

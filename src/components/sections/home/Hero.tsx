@@ -61,7 +61,8 @@ export function Hero() {
       <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.12),transparent_65%)]" />
       <Container className="relative py-24">
         <div data-hero-content>
-          <p className="inline-block rounded-full border border-ember/40 bg-base/60 px-4 py-1.5 text-xs font-semibold tracking-widest text-ember uppercase backdrop-blur-sm">
+          {/* Badge chip solid ala race-tag F1 */}
+          <p className="inline-block rounded-md bg-ember px-3 py-1.5 text-xs font-bold tracking-widest text-white uppercase">
             {hero.badge}
           </p>
           <h1 className="font-display mt-6 max-w-3xl text-4xl leading-[1.05] font-bold tracking-tight sm:text-5xl md:text-7xl">
@@ -74,6 +75,21 @@ export function Hero() {
               {hero.secondaryCta.label}
             </Button>
           </div>
+          {/* Trust row korporat ala Pertamina */}
+          <dl className="mt-12 flex max-w-xl flex-wrap gap-x-8 gap-y-3 border-t border-paper/15 pt-6">
+            {[
+              ["100%", "Tempurung kelapa"],
+              ["Per batch", "QC terdokumentasi"],
+              ["Katapiang", "Sumatera Barat"],
+            ].map(([v, l]) => (
+              <div key={l}>
+                <dt className="sr-only">{l}</dt>
+                <dd className="font-display text-xl font-bold">
+                  {v} <span className="text-sm font-medium text-muted">{l}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </Container>
       <div

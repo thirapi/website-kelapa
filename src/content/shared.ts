@@ -66,11 +66,11 @@ export const TESTIMONIALS = [
 ] as const;
 
 export const INDUSTRIES = [
-  "Shisha / Hookah",
-  "BBQ & Grill",
-  "Industrial",
-  "Food / Coconut Oil",
-  "HoReCa",
+  { name: "Shisha / Hookah", product: "Briket hexagon · low ash" },
+  { name: "BBQ & Grill", product: "Lump charcoal · long burn" },
+  { name: "Industrial", product: "Bulk charcoal · custom spec" },
+  { name: "Food / Coconut Oil", product: "Kopra kering · rendemen tinggi" },
+  { name: "HoReCa", product: "Briket pillow · packing ritel" },
 ] as const;
 
 export const JOURNEY = [

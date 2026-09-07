@@ -75,6 +75,7 @@ Skor < 3 di sumbu mana pun = revisi dulu. Dua putaran wajar; tiga = brief-nya ya
 | 2 | Reveal per-section (bukan satu entrance) | Keputusan Fase 2; subtle + once-only. Matikan bila terasa ramai. |
 | 3 | Testimoni anonim ("Buyer — BBQ Distributor") | Menunggu approval logo (`01` §8). |
 | 4 | Struktur dikunci PRD, bukan 21 macrostructure | Anti-slop ditegakkan di detail, bukan variasi layout. |
+| 5 | Kartu contoh batch Traceability | Jelas berlabel "Contoh format" — menunjukkan sistem, bukan klaim data. |
 
 ---
 

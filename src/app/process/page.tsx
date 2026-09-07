@@ -58,12 +58,35 @@ export default function ProcessPage() {
         </div>
       </Section>
 
-      {/* 4 Traceability */}
+      {/* 4 Traceability — kartu contoh batch */}
       <Section spacing="compact">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">Traceability.</h2>
+        <h2 className="font-display max-w-2xl text-3xl font-bold md:text-4xl">Traceability.</h2>
         <p className="mt-4 max-w-2xl text-muted">
           Setiap batch tercatat: asal lahan, tanggal produksi, hasil uji, dan nomor kontainer.
         </p>
+        <div className="mt-8 max-w-xl rounded-2xl border border-paper/15 bg-surface p-6">
+          <div className="flex items-center justify-between">
+            <p className="tnum text-sm font-bold tracking-widest text-ember uppercase">
+              Batch CK-2602-014
+            </p>
+            <p className="rounded-full bg-ember/10 px-3 py-1 text-xs font-bold text-ember">
+              Contoh format
+            </p>
+          </div>
+          <dl className="mt-4 space-y-2 text-sm">
+            {[
+              ["Asal lahan", "Katapiang Utara, Blok 3"],
+              ["Produksi", "12 Feb 2026 · Karbonisasi Kiln 2"],
+              ["Moisture / Ash", "6,8% / 2,4%"],
+              ["Status", "Lolos QC — siap kemas"],
+            ].map(([k, v]) => (
+              <div key={k} className="flex justify-between gap-4 border-t border-paper/15 py-2">
+                <dt className="text-muted">{k}</dt>
+                <dd className="text-right font-semibold">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </Section>
 
       {/* 5 Sustainability */}

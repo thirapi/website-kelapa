@@ -17,6 +17,7 @@ Dokumentasi pengembangan di folder `docs/`:
 | 05 | `05-PRD-Ecommerce.md` | Product catalog, cart, checkout |
 | 06 | `06-Anti-Slop.md` | Patokan anti-AI-slop (dari nutlope/hallmark) + checklist pre-push |
 | 07 | `07-Commerce-Blueprint.md` | Suling blueprint commerce eksternal: adopsi vs konflik vs backlog |
+| 08 | `08-Referensi-Standar-Web.md` | Bar properness ala F1/Pertamina/Stripe: standar + checklist |
 
 ---
 

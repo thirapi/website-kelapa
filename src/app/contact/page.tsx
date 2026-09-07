@@ -76,6 +76,17 @@ export default function ContactPage() {
         <div className="mt-6">
           <QuoteForm variant="full" />
         </div>
+        {/* Waspada penipuan — pola Pertamina, tanpa rute baru */}
+        <div className="mt-6 flex gap-4 rounded-2xl border border-ember/30 bg-ember/5 p-5">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-ember/10 text-ember">
+            <ICONS.shield size={20} aria-hidden />
+          </span>
+          <p className="text-sm leading-relaxed text-muted">
+            <span className="font-bold text-paper">Waspada penipuan.</span> Transaksi
+            resmi hanya melalui kontak di halaman ini. Tim kami tidak pernah meminta
+            transfer ke rekening pribadi.
+          </p>
+        </div>
       </Section>
 
       {/* 5 Quick Links */}

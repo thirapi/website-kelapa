@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container, Section } from "@/components/ui/Section";
+import { ICONS } from "@/components/ui/icons";
 import { CATEGORIES, PRODUCTS } from "@/content/products";
 import { MEDIA } from "@/content/media";
 
@@ -123,8 +124,8 @@ export default function ProductsPage() {
                 <caption className="px-5 py-3 text-left font-semibold">{p.name}</caption>
                 <tbody>
                   {p.specs.map((s) => (
-                    <tr key={s.label} className="border-t border-paper/15">
-                      <th className="px-5 py-3 font-medium text-muted">{s.label}</th>
+                    <tr key={s.label} className="border-t border-paper/15 transition-[background-color] hover:bg-ember/5">
+                      <th className="px-5 py-3 font-bold text-paper">{s.label}</th>
                       <td className="px-5 py-3">{s.value}</td>
                     </tr>
                   ))}
@@ -137,11 +138,26 @@ export default function ProductsPage() {
 
       {/* 5 Packaging & Logistics */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold md:text-4xl">Pengemasan & Logistik.</h2>
-        <ul className="mt-6 space-y-3 text-muted">
-          <li>Jute bag 50 kg / 15 kg bag untuk charcoal & kopra.</li>
-          <li>Inner + master carton untuk briket retail.</li>
-          <li>Stuffing 20ft container + dokumen lengkap.</li>
+        <h2 className="font-display max-w-2xl text-2xl font-bold md:text-4xl">Pengemasan & Logistik.</h2>
+        <ul className="mt-6 max-w-2xl space-y-3">
+          {[
+            ["package", "Karung 50 kg / 15 kg", "Untuk charcoal & kopra curah."],
+            ["badge", "Inner + karton master", "Untuk briket ritel & HoReCa."],
+            ["fileCheck", "Kontainer 20ft + dokumen", "Stuffing, fumigasi bila perlu, dokumen lengkap."],
+          ].map(([icon, t, d]) => {
+            const Icon = ICONS[icon as "package" | "badge" | "fileCheck"];
+            return (
+              <li key={t} className="flex items-start gap-4 rounded-2xl border border-paper/15 bg-surface p-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-ember/10 text-ember">
+                  <Icon size={20} strokeWidth={1.75} aria-hidden />
+                </span>
+                <span>
+                  <span className="block font-bold">{t}</span>
+                  <span className="text-sm text-muted">{d}</span>
+                </span>
+              </li>
+            );
+          })}
         </ul>
       </Section>
 
