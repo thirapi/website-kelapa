@@ -39,7 +39,7 @@ export function Testimonials() {
     <div className="border-y border-paper/15 bg-surface-alt/60">
       <Section ariaLabel="Testimonials">
         <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
-          Kepercayaan Mitra Adalah Standar Kami.
+          Partner Trust Is Our Standard.
         </h2>
         <div
           role="region"

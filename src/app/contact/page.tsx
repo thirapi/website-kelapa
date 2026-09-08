@@ -8,7 +8,7 @@ import { ICONS } from "@/components/ui/icons";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Request quote: respon cepat untuk kebutuhan volume Anda.",
+  description: "Request quote: fast response for your volume needs.",
 };
 
 // Contact — 9 section per 04-PRD §4
@@ -20,7 +20,7 @@ export default function ContactPage() {
         <Container className="pt-20 pb-10">
           <p className="text-xs font-semibold tracking-widest text-ember uppercase">Contact</p>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
-            Ceritakan Kebutuhan Volume Anda.
+            Tell Us Your Volume Needs.
           </h1>
         </Container>
       </section>
@@ -28,22 +28,22 @@ export default function ContactPage() {
       {/* 2 Let's Talk */}
       <Section spacing="none" className="pb-8">
         <p className="max-w-2xl text-lg text-muted">
-          Importir, trader, atau purchasing — kirim spec & target jadwal Anda, kami balas dengan
-          penawaran + lead time.
+          Importer, trader, or purchasing — send your spec & target schedule, we reply with
+          a quotation + lead time.
         </p>
       </Section>
 
       {/* 3 Contact Info — WA unggulan full-width, sisanya 2 kolom */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Kontak Langsung.</h2>
+        <h2 className="font-display text-2xl font-bold">Direct Contact.</h2>
         <a href={CONTACT.whatsapp} className="mt-6 flex items-center justify-between gap-4 rounded-2xl bg-ember p-6 text-base transition-[background-color] hover:bg-[#8d5c28] md:p-7">
           <span className="flex items-center gap-4">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15">
               <ICONS.wa size={22} aria-hidden />
             </span>
             <span>
-              <span className="font-display block text-xl font-bold">WhatsApp Nagari</span>
-              <span className="text-sm opacity-80">Respon tercepat — jam kerja WIB</span>
+              <span className="font-display block text-xl font-bold">Village WhatsApp</span>
+              <span className="text-sm opacity-80">Fastest response — WIB business hours</span>
             </span>
           </span>
           <span aria-hidden className="font-display text-3xl font-bold">→</span>
@@ -63,7 +63,7 @@ export default function ContactPage() {
               <ICONS.pin size={22} aria-hidden />
             </span>
             <span>
-              <span className="block font-bold">Alamat</span>
+              <span className="block font-bold">Address</span>
               <span className="text-sm text-muted">{CONTACT.address}</span>
             </span>
           </div>
@@ -82,22 +82,22 @@ export default function ContactPage() {
             <ICONS.shield size={20} aria-hidden />
           </span>
           <p className="text-sm leading-relaxed text-muted">
-            <span className="font-bold text-paper">Waspada penipuan.</span> Transaksi
-            resmi hanya melalui kontak di halaman ini. Tim kami tidak pernah meminta
-            transfer ke rekening pribadi.
+            <span className="font-bold text-paper">Beware of fraud.</span> Official transactions
+            only go through the contacts on this page. Our team never asks for
+            transfers to personal accounts.
           </p>
         </div>
       </Section>
 
       {/* 5 Quick Links */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Navigasi Cepat.</h2>
+        <h2 className="font-display text-2xl font-bold">Quick Links.</h2>
         <ul className="mt-4 space-y-2">
           {[
             ["Charcoal →", "/products"],
-            ["Briket →", "/products"],
+            ["Briquettes →", "/products"],
             ["Copra →", "/products"],
-            ["Proses & QC →", "/process"],
+            ["Process & QC →", "/process"],
           ].map(([label, href]) => (
             <li key={label}>
               <a href={href} className="text-paper/80 hover:text-ember">
@@ -118,7 +118,7 @@ export default function ContactPage() {
 
       {/* 7 Office/Location — embed tanpa API key; ganti mapsQuery saat alamat final */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Lokasi.</h2>
+        <h2 className="font-display text-2xl font-bold">Location.</h2>
         <div className="mt-6 overflow-hidden rounded-2xl border border-paper/15">
           <iframe
             title="Nagari Katapiang location map"
@@ -127,18 +127,23 @@ export default function ContactPage() {
             className="min-h-64 w-full border-0 grayscale-[35%] contrast-[1.05]"
           />
         </div>
+        <p className="mt-3 text-sm text-muted">
+          {CONTACT.address} ·{" "}
+          <a
+            href={`https://www.google.com/maps/search/${encodeURIComponent(CONTACT.mapsQuery)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-ember underline underline-offset-4"
+          >
+            Open in Google Maps →
+          </a>
+        </p>
       </Section>
 
-      {/* 8 Social */}
-      <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Kanal.</h2>
-        <p className="mt-2 text-muted">LinkedIn / Instagram / WhatsApp Channel (menunggu akun resmi).</p>
-      </Section>
-
-      {/* 9 Closing CTA */}
+      {/* 8 Closing CTA */}
       <section className="border-t border-paper/15 py-24 md:py-32">
         <Container className="text-center">
-          <h2 className="font-display text-3xl font-bold md:text-5xl">Siap Diskusi Hari Ini?</h2>
+          <h2 className="font-display text-3xl font-bold md:text-5xl">Ready to Talk Today?</h2>
           <a
             href={CONTACT.whatsapp}
             className="mt-8 inline-block rounded-full bg-ember px-8 py-3 text-sm font-semibold text-base"

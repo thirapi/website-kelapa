@@ -9,7 +9,7 @@ export function ProductLines() {
   return (
     <Section ariaLabel="Product lines" id="products">
       <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
-        Dua Produk Inti. Satu Standar Kualitas.
+        Two Core Products. One Quality Standard.
       </h2>
       <div className="mt-12 grid gap-6 md:grid-cols-12">
         <article className="overflow-hidden rounded-2xl border border-paper/15 bg-surface md:col-span-7">
@@ -23,17 +23,17 @@ export function ProductLines() {
             <p className="flex items-center gap-2 text-xs font-semibold tracking-widest text-ember uppercase">
               <ICONS.flame size={15} aria-hidden /> 01 — Charcoal
             </p>
-            <h3 className="font-display mt-3 text-2xl font-bold md:text-4xl">Coconut Shell Charcoal</h3>
-            <p className="mt-3 max-w-md text-muted">Briket & raw charcoal untuk BBQ, shisha, industri.</p>
-            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Spesifikasi singkat charcoal">
-              {["Ash ≤ 3%", "Moisture ≤ 8%", "120 ton/bulan"].map((s) => (
+            <h3 className="mt-3 text-2xl font-bold md:text-4xl">Coconut Shell Charcoal</h3>
+            <p className="mt-3 max-w-md text-muted">Briquettes & raw charcoal for BBQ, shisha, industry.</p>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Charcoal quick specs">
+              {["Ash ≤ 3%", "Moisture ≤ 8%", "120 tons/month"].map((s) => (
                 <li key={s} className="rounded-full border border-paper/15 px-3 py-1 text-xs font-semibold text-paper/80">
                   {s}
                 </li>
               ))}
             </ul>
             <Link href="/products" className="mt-6 inline-block text-sm font-semibold text-ember underline-offset-4 hover:underline">
-              Lihat detail →
+              View details →
             </Link>
           </div>
         </article>
@@ -48,17 +48,17 @@ export function ProductLines() {
             <p className="flex items-center gap-2 text-xs font-semibold tracking-widest text-ember uppercase">
               <ICONS.package size={15} aria-hidden /> 02 — Copra
             </p>
-            <h3 className="font-display mt-3 text-2xl font-bold md:text-3xl">Copra</h3>
-            <p className="mt-3 text-muted">Dried coconut untuk produsen minyak & industri pangan.</p>
-            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Spesifikasi singkat kopra">
-              {["Moisture ≤ 7%", "Rendemen 62–65%", "200 ton/bulan"].map((s) => (
+            <h3 className="mt-3 text-2xl font-bold md:text-3xl">Copra</h3>
+            <p className="mt-3 text-muted">Dried coconut for oil mills & the food industry.</p>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Copra quick specs">
+              {["Moisture ≤ 7%", "62–65% oil yield", "200 tons/month"].map((s) => (
                 <li key={s} className="rounded-full border border-paper/15 px-3 py-1 text-xs font-semibold text-paper/80">
                   {s}
                 </li>
               ))}
             </ul>
             <Link href="/products" className="mt-6 inline-block text-sm font-semibold text-ember underline-offset-4 hover:underline">
-              Lihat detail →
+              View details →
             </Link>
           </div>
         </article>

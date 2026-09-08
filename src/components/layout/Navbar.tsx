@@ -74,17 +74,17 @@ export function Navbar() {
             >
               <p className="relative mx-auto max-w-7xl px-6 py-2 pr-12 text-center text-[13px] md:px-10 md:text-sm">
                 <span className="mr-2 hidden rounded-full bg-base/20 px-2 py-0.5 text-[11px] font-bold tracking-widest uppercase sm:inline-block">
-                  Nagari
+                  Village
                 </span>
-                {/* Mobile: copy pendek. Desktop: copy penuh. */}
+                {/* Mobile: short copy. Desktop: full copy. */}
                 <span className="sm:hidden">
-                  Produksi nagari ready.{" "}
+                  Village production ready.{" "}
                   <Link href="/contact" className="font-bold underline underline-offset-2">
                     Get Quote
                   </Link>
                 </span>
                 <span className="hidden sm:inline">
-                  Produksi arang & kopra nagari tersedia — QC terdokumentasi.
+                  Village charcoal & copra in production — documented QC.
                   <Link href="/contact" className="ml-2 font-bold underline underline-offset-2">
                     Request Quote
                   </Link>

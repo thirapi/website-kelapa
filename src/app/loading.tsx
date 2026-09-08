@@ -9,7 +9,7 @@ export default function Loading() {
           aria-hidden
           className="mx-auto h-1.5 w-40 animate-pulse rounded-full bg-ember/70"
         />
-        <p className="mt-4 text-sm text-muted">Memuat…</p>
+        <p className="mt-4 text-sm text-muted">Loading…</p>
       </Container>
     </div>
   );

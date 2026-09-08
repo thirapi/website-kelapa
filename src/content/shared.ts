@@ -1,24 +1,25 @@
 // docs/04-PRD-Other-Pages.md §1 About + §3 Process + §4 Contact (shared)
-// Konteks: program Desa Energi Berdikari (DEB) Pertamina — Nagari Katapiang.
+// Context: Pertamina Desa Energi Berdikari (DEB) program — Nagari Katapiang.
+// Language: English-first.
 
 export const PROCESS_STEPS = [
-  { title: "Lahan Petani", desc: "Kelapa dari lahan & kemitraan petani nagari." },
-  { title: "Panen & Sortir", desc: "Seleksi bahan baku — hanya yang memenuhi standar." },
-  { title: "Pengolahan", desc: "Karbonisasi / pengeringan terkontrol per tipe produk." },
-  { title: "QC", desc: "Uji moisture, ash, size, purity per batch." },
-  { title: "Pengemasan", desc: "Jute bag, karton, inner — sesuai pesanan pembeli." },
-  { title: "Distribusi", desc: "Pengepakan, dokumen, kirim ke pembeli." },
+  { title: "Village Groves", desc: "Coconuts from managed groves & farmer partnerships." },
+  { title: "Harvest & Sort", desc: "Raw material selection — only standard-grade enters." },
+  { title: "Processing", desc: "Controlled carbonization / drying per product type." },
+  { title: "QC", desc: "Moisture, ash, size, and purity tested per batch." },
+  { title: "Packing", desc: "Jute bags, cartons, inners — matched to buyer spec." },
+  { title: "Delivery", desc: "Packing, documents, shipment to buyers." },
 ] as const;
 
 export const NUMBERS = [
-  { value: 120, suffix: "+", label: "Ton/bulan charcoal" },
-  { value: 200, suffix: "+", label: "Ton/bulan copra" },
-  { value: 10, suffix: "+", label: "Tahun pengalaman" },
-  { value: 12, suffix: "", label: "Mitra & daerah pasar" },
+  { value: 120, suffix: "+", label: "Tons/month charcoal" },
+  { value: 200, suffix: "+", label: "Tons/month copra" },
+  { value: 10, suffix: "+", label: "Years of experience" },
+  { value: 12, suffix: "", label: "Partners & market regions" },
 ] as const;
 
 export const CERTIFICATIONS = [
-  "Perizinan usaha nagari",
+  "Village business permits",
   "QC documentation per batch",
   "Food-grade handling",
   "Traceable origin",
@@ -26,65 +27,64 @@ export const CERTIFICATIONS = [
 
 export const FAQS = [
   {
-    q: "Berapa MOQ (minimum order)?",
-    a: "Mulai 1 × 20ft container untuk charcoal/briket, 25 ton untuk kopra. Sample kecil bisa didiskusikan.",
+    q: "What is the minimum order (MOQ)?",
+    a: "From 1 × 20ft container for charcoal/briquettes, 25 tons for copra. Small samples can be discussed.",
   },
   {
-    q: "Berapa lead time produksi & pengiriman?",
-    a: "14–28 hari tergantung produk & volume. Jadwal pasti dikonfirmasi saat RFQ.",
+    q: "What is the production & delivery lead time?",
+    a: "14–28 days depending on product & volume. Exact schedule confirmed with your RFQ.",
   },
   {
-    q: "Apakah spesifikasi terdokumentasi per pengiriman?",
-    a: "Ya — QC per batch (moisture, ash, size, purity) + dokumen lengkap.",
+    q: "Is every shipment documented to spec?",
+    a: "Yes — QC per batch (moisture, ash, size, purity) plus full documents.",
   },
   {
-    q: "Bagaimana packaging & private label?",
-    a: "Jute bag, karton, inner custom. Private label tersedia untuk kontrak volume.",
+    q: "How about packaging & private label?",
+    a: "Jute bags, cartons, custom inners. Private label available for volume contracts.",
   },
   {
-    q: "Bagaimana cara meminta penawaran?",
-    a: "Isi form Request Quote atau chat WhatsApp — tim nagari follow-up dengan proforma.",
+    q: "How do I request a quotation?",
+    a: "Fill the Request Quote form or chat on WhatsApp — our team follows up with a proforma.",
   },
 ] as const;
 
 export const TESTIMONIALS = [
   {
-    quote: "Pasokan konsisten, dokumen rapi. Partner yang bisa dipegang.",
-    name: "Distributor BBQ",
+    quote: "Consistent supply, clean documents. A partner you can hold to.",
+    name: "BBQ Distributor",
     origin: "Jakarta",
   },
   {
-    quote: "Briket stabil, ash rendah. Repeat order tiap bulan.",
+    quote: "Stable briquettes, low ash. Repeat orders every month.",
     name: "Shisha Brand",
     origin: "Surabaya",
   },
   {
-    quote: "Kopra bersih, rendemen minyak bagus.",
-    name: "Pabrik Minyak Kelapa",
+    quote: "Clean copra, great oil yield.",
+    name: "Coconut Oil Mill",
     origin: "Medan",
   },
 ] as const;
 
 export const INDUSTRIES = [
-  { name: "Shisha / Hookah", product: "Briket hexagon · low ash" },
+  { name: "Shisha / Hookah", product: "Hexagon briquettes · low ash" },
   { name: "BBQ & Grill", product: "Lump charcoal · long burn" },
   { name: "Industrial", product: "Bulk charcoal · custom spec" },
-  { name: "Food / Coconut Oil", product: "Kopra kering · rendemen tinggi" },
-  { name: "HoReCa", product: "Briket pillow · packing ritel" },
+  { name: "Food / Coconut Oil", product: "Dried copra · high yield" },
+  { name: "HoReCa", product: "Pillow briquettes · retail packing" },
 ] as const;
 
 export const JOURNEY = [
-  { year: "2015", title: "Awal kemitraan petani", desc: "Jaringan lahan awal terbentuk." },
-  { year: "2018", title: "Kapasitas karbonisasi naik", desc: "Investasi kiln & drying." },
-  { year: "2021", title: "Pasokan rutin", desc: "Kontrak distributor antar-pulau." },
-  { year: "2024", title: "QC terdokumentasi penuh", desc: "Batch testing + traceability." },
+  { year: "2015", title: "First farmer partnerships", desc: "Initial grove network formed." },
+  { year: "2018", title: "Carbonization capacity up", desc: "Investment in kilns & drying." },
+  { year: "2021", title: "Regular supply", desc: "Inter-island distributor contracts." },
+  { year: "2024", title: "Fully documented QC", desc: "Batch testing + traceability." },
 ] as const;
 
 export const VALUES = [
-  { icon: "repeat", title: "Consistency", desc: "Pengiriman yang bisa diprediksi — batch demi batch." },
-  { icon: "shield", title: "Integrity", desc: "Spec sesuai dokumen. Tidak ada yang ditutup-tutupi." },
-  { icon: "recycle", title: "Sustainability", desc: "Tempurung sisa panen jadi energi — bukan sampah." },
-  { icon: "badge", title: "Quality", desc: "Diuji tiap batch: moisture, ash, size, purity." },
-  { icon: "handshake", title: "Partnership", desc: "Tumbuh bersama pembeli dan petani nagari." },
-  { icon: "eye", title: "Transparency", desc: "Asal tertelusur sampai ke lahan." },
+  { icon: "repeat", title: "Consistency", desc: "Predictable shipments — batch after batch." },
+  { icon: "shield", title: "Integrity", desc: "Spec matches documents. Nothing hidden." },
+  { icon: "recycle", title: "Sustainability", desc: "Harvest waste turned into energy — not trash." },
+  { icon: "badge", title: "Quality", desc: "Tested every batch: moisture, ash, size, purity." },
+  { icon: "handshake", title: "Partnership", desc: "Growing with buyers and village farmers." },
 ] as const;

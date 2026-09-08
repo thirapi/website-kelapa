@@ -29,15 +29,15 @@ const FULL_FIELDS: (keyof QuotePayload)[] = [
 ];
 
 const LABELS: Record<keyof QuotePayload, string> = {
-  name: "Nama*",
-  company: "Perusahaan",
+  name: "Name*",
+  company: "Company",
   email: "Email*",
   whatsapp: "WhatsApp",
-  product: "Produk interest",
-  volume: "Volume / kontainer",
-  country: "Negara tujuan",
-  leadTime: "Lead time target",
-  message: "Deskripsi kebutuhan",
+  product: "Product of interest",
+  volume: "Volume / containers",
+  country: "Destination country",
+  leadTime: "Target lead time",
+  message: "Requirement details",
 };
 
 function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
@@ -75,14 +75,14 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
     return (
       <div role="status" className="rounded-2xl border border-ember/40 bg-surface p-8 text-center">
         <CheckCircle2 size={40} className="mx-auto text-ember" />
-        <h3 className="font-display mt-4 text-2xl font-bold">Permintaan terkirim.</h3>
+        <h3 className="mt-4 text-2xl font-bold">Request sent.</h3>
         <p className="mt-2 text-sm text-muted">
           {demo
-            ? "Mode demo — endpoint tim nagari belum dikonfigurasi. Lanjutkan via WhatsApp agar langsung diproses."
-            : "Tim nagari akan menghubungi Anda via email/WhatsApp."}
+            ? "Demo mode — village team endpoint not configured yet. Continue via WhatsApp to proceed."
+            : "Our team will contact you via email/WhatsApp."}
           {form.product && (
             <>
-              {" "}Produk: <span className="text-paper">{productName(form.product)}</span>
+              {" "}Product: <span className="text-paper">{productName(form.product)}</span>
             </>
           )}
         </p>
@@ -94,7 +94,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
             onClick={() => track("quote_whatsapp_click", { source: "form-success" })}
             className="rounded-full bg-ember px-6 py-3 text-sm font-semibold text-base"
           >
-            Lanjut via WhatsApp
+            Continue via WhatsApp
           </a>
           <button
             onClick={() => {
@@ -103,7 +103,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
             }}
             className="rounded-full border border-paper/25 px-6 py-3 text-sm font-semibold hover:border-paper/50"
           >
-            Kirim lagi
+            Send another
           </button>
         </div>
       </div>
@@ -131,7 +131,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
                 onChange={(e) => set("product", e.target.value)}
                 className="mt-1 w-full rounded-lg border border-paper/15 bg-base px-4 py-3 text-paper"
               >
-                <option value="">Umum / belum tahu</option>
+                <option value="">General / not sure yet</option>
                 {PRODUCTS.map((p) => (
                   <option key={p.id} value={p.slug}>
                     {p.name}
@@ -154,7 +154,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
                 rows={4}
                 value={form.message}
                 onChange={(e) => set("message", e.target.value)}
-                placeholder="Spec, packaging, jadwal kirim…"
+                placeholder="Spec, packaging, delivery schedule…"
                 className="mt-1 min-h-24 w-full resize-y rounded-lg border border-paper/15 bg-base px-4 py-3 placeholder:text-muted"
               />
             </label>
@@ -186,7 +186,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
       })}
       {status === "error" && (
         <p role="alert" className="text-sm text-red-700 md:col-span-2">
-          Gagal mengirim. Coba lagi atau hubungi langsung via WhatsApp.
+          Failed to send. Try again or contact us directly via WhatsApp.
         </p>
       )}
       <button
@@ -195,7 +195,7 @@ function QuoteFormInner({ variant }: { variant: "short" | "full" }) {
         className="flex items-center justify-center gap-2 rounded-full bg-ember px-6 py-3 text-sm font-semibold whitespace-nowrap text-base outline-none transition-[background-color,opacity] focus-visible:ring-2 focus-visible:ring-paper disabled:cursor-not-allowed disabled:opacity-60 md:col-span-2"
       >
         {status === "submitting" && <Loader2 size={16} className="animate-spin" />}
-        {status === "submitting" ? "Mengirim…" : variant === "short" ? "Kirim Request Quote" : "Submit RFQ"}
+        {status === "submitting" ? "Sending…" : variant === "short" ? "Send Request Quote" : "Submit RFQ"}
       </button>
     </form>
   );
@@ -207,7 +207,7 @@ export function QuoteForm({ variant = "short" }: { variant?: "short" | "full" })
     <Suspense
       fallback={
         <div className="rounded-2xl border border-paper/15 bg-surface p-7 text-sm text-muted">
-          Memuat form…
+          Loading form…
         </div>
       }
     >

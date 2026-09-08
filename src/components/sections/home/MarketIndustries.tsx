@@ -7,9 +7,9 @@ export function MarketIndustries() {
   return (
     <Section ariaLabel="Markets" spacing="compact">
       <Reveal>
-        <p className="text-xs font-bold tracking-[0.25em] text-ember uppercase">Pasar</p>
+        <p className="text-xs font-bold tracking-[0.25em] text-ember uppercase">Markets</p>
         <h2 className="font-display mt-3 max-w-2xl text-2xl font-bold md:text-4xl">
-          Melayani Pasar Global.
+          Serving Global Markets.
         </h2>
       </Reveal>
       <Reveal delay={0.1}>

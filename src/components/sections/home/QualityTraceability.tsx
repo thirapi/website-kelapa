@@ -9,26 +9,26 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const POINTS = [
   {
-    title: "QC per batch",
-    desc: "Moisture, ash, size, purity diuji tiap batch — bukan sampling acak.",
-    src: "/assets/products/charcoal.webp",
-    alt: "Charcoal embers under quality check",
+    title: "QC per Batch",
+    desc: "Moisture, ash, size, and purity tested every batch — never random sampling.",
+    src: "/assets/sourcing/still.webp",
+    alt: "Selected coconut material under quality check",
   },
   {
-    title: "Spesifikasi terdokumentasi",
-    desc: "Spec sheet menyertai tiap shipment — buyer tahu persis yang datang.",
+    title: "Documented Specifications",
+    desc: "A spec sheet rides with every shipment — buyers know exactly what arrives.",
     src: "/assets/products/briquettes.webp",
     alt: "Briquette charcoal burn test",
   },
   {
-    title: "Asal lahan tertelusur",
-    desc: "Dari lahan petani terkelola hingga pelabuhan — rantai tercatat.",
+    title: "Traceable Origin",
+    desc: "From managed farmer groves to port — a recorded chain.",
     src: "/assets/sourcing/husking.webp",
     alt: "Hand-husking coconut at origin",
   },
   {
-    title: "Konsistensi shipment",
-    desc: "Deviasi dikontrol antar batch — repeat order terasa sama.",
+    title: "Shipment Consistency",
+    desc: "Deviation controlled across batches — repeat orders feel identical.",
     src: "/assets/sourcing/harvest.webp",
     alt: "Consistent harvest volume",
   },
@@ -62,7 +62,7 @@ export function QualityTraceability() {
     <Section ariaLabel="Quality and traceability">
       <Reveal>
         <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
-          Kualitas Tidak Terjadi Secara Kebetulan.
+          Quality Is No Accident.
         </h2>
       </Reveal>
       <div ref={root} className="mt-12 grid gap-10 md:grid-cols-2">

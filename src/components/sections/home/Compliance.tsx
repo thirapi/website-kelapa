@@ -8,9 +8,9 @@ export function Compliance() {
   return (
     <Section ariaLabel="Compliance" spacing="compact">
       <Reveal>
-        <h2 className="font-display max-w-2xl text-2xl font-bold md:text-4xl">Standar yang Kami Penuhi.</h2>
+        <h2 className="font-display max-w-2xl text-2xl font-bold md:text-4xl">The Standards We Meet.</h2>
         <p className="mt-3 max-w-xl text-muted">
-          Dokumen menyertai tiap pengiriman — bukan sekadar klaim di brosur.
+          Documents ride with every shipment — not just brochure claims.
         </p>
       </Reveal>
       <Reveal delay={0.1}>

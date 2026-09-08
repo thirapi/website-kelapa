@@ -93,7 +93,7 @@ Menunjukkan cakupan & kualitas produk — buyer percaya ada produk yang cocok un
 | 5 | Services/Product Quick Links | Navigasi cepat | List dengan ikon + anchor, bukan grid seragam |
 | 6 | FAQ | Jawab keraguan | Accordion minimal (reuse) |
 | 7 | Office/Location | Lokasi | Google Maps embed + Petunjuk Arah |
-| 8 | Social | Kanal | Icon links |
+| 8 | Social | Kanal | DITUNDA sampai akun resmi ada — section disembunyikan, bukan placeholder |
 | 9 | Closing CTA | Ajakan akhir | Reuse CTA Closing |
 
 ## 4.3 Open Questions

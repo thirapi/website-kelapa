@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container, Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
@@ -7,31 +8,40 @@ import { CERTIFICATIONS, PROCESS_STEPS } from "@/content/shared";
 
 export const metadata: Metadata = {
   title: "Process",
-  description: "Rantai pasok & QC: dari lahan ke pelabuhan.",
+  description: "Supply chain & QC: from grove to container.",
 };
 
 // Process — 7 section per 04-PRD §3
 export default function ProcessPage() {
   return (
     <div className="flex flex-1 flex-col">
-      {/* 1 Hero */}
-      <section className="relative flex min-h-[60dvh] items-center pt-24">
-        <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.12),transparent_65%)]" />
+      {/* 1 Hero — foto tungku + scrim terang */}
+      <section className="relative flex min-h-[60dvh] items-center overflow-hidden pt-24">
+        <Image
+          src="/assets/sourcing/kiln.webp"
+          alt="Traditional carbonization kiln"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-base/70 via-base/45 to-base" />
         <Container className="relative py-20">
           <p className="text-xs font-semibold tracking-widest text-ember uppercase">Our Process</p>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
-            Transparan dari Lahan hingga Kontainer.
+            Transparent from Grove to Container.
           </h1>
         </Container>
       </section>
 
-      {/* 2 Process Overview — Rundown signature */}
-      <div className="border-y border-paper/15 bg-surface-alt/60">
+      {/* 2 Process Overview — Rundown signature di band gelap */}
+      <div className="border-y border-white/10 bg-[#1f130b]">
         <Section>
           <Reveal>
-            <h2 className="font-display text-3xl font-bold md:text-5xl">Alur Inti Kami.</h2>
+            <h2 className="font-display text-3xl font-bold text-[#faf6ef] md:text-5xl">Our Core Flow.</h2>
           </Reveal>
           <Rundown
+            tone="dark"
             items={PROCESS_STEPS.map((s, i) => ({
               marker: String(i + 1).padStart(2, "0"),
               title: s.title,
@@ -52,8 +62,15 @@ export default function ProcessPage() {
               </li>
             ))}
           </ul>
-          <div className="fade-mask-radial min-h-56 rounded-2xl bg-surface-alt p-6">
-            <p className="text-sm text-muted">Visual QC (sticky crossfade Fase 3).</p>
+          <div className="fade-mask-radial relative min-h-56 overflow-hidden rounded-2xl bg-surface-alt">
+            <Image
+              src="/assets/sourcing/kiln.webp"
+              alt="Traditional charcoal kiln — carbonization site"
+              fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </Section>
@@ -62,7 +79,7 @@ export default function ProcessPage() {
       <Section spacing="compact">
         <h2 className="font-display max-w-2xl text-3xl font-bold md:text-4xl">Traceability.</h2>
         <p className="mt-4 max-w-2xl text-muted">
-          Setiap batch tercatat: asal lahan, tanggal produksi, hasil uji, dan nomor kontainer.
+          Every batch is logged: grove origin, production date, test results, and container number.
         </p>
         <div className="mt-8 max-w-xl rounded-2xl border border-paper/15 bg-surface p-6">
           <div className="flex items-center justify-between">
@@ -70,15 +87,15 @@ export default function ProcessPage() {
               Batch CK-2602-014
             </p>
             <p className="rounded-full bg-ember/10 px-3 py-1 text-xs font-bold text-ember">
-              Contoh format
+              Sample format
             </p>
           </div>
           <dl className="mt-4 space-y-2 text-sm">
             {[
-              ["Asal lahan", "Katapiang Utara, Blok 3"],
-              ["Produksi", "12 Feb 2026 · Karbonisasi Kiln 2"],
-              ["Moisture / Ash", "6,8% / 2,4%"],
-              ["Status", "Lolos QC — siap kemas"],
+              ["Grove origin", "North Katapiang, Block 3"],
+              ["Production", "Feb 12, 2026 · Carbonization Kiln 2"],
+              ["Moisture / Ash", "6.8% / 2.4%"],
+              ["Status", "QC passed — ready to pack"],
             ].map(([k, v]) => (
               <div key={k} className="flex justify-between gap-4 border-t border-paper/15 py-2">
                 <dt className="text-muted">{k}</dt>
@@ -91,8 +108,8 @@ export default function ProcessPage() {
 
       {/* 5 Sustainability */}
       <Section width="narrow" className="text-center">
-        <h2 className="font-display text-3xl font-bold md:text-5xl">“Limbah Jadi Energi.”</h2>
-        <p className="mt-4 text-muted">Tempurung — sampingan pertanian — menjadi arang bernilai ekonomi bagi nagari.</p>
+        <h2 className="font-display text-3xl font-bold md:text-5xl">“Waste Into Energy.”</h2>
+        <p className="mt-4 text-muted">Shells — farm byproduct — turned into charcoal of economic value for the village.</p>
       </Section>
 
       {/* 6 Certifications — marquee */}
@@ -110,7 +127,7 @@ export default function ProcessPage() {
       {/* 7 CTA */}
       <section className="border-t border-paper/15 py-24 md:py-32">
         <Container className="text-center">
-          <h2 className="font-display text-3xl font-bold md:text-5xl">Audit Rantai Kami Kapan Saja.</h2>
+          <h2 className="font-display text-3xl font-bold md:text-5xl">Audit Our Chain Anytime.</h2>
           <div className="mt-8">
             <Button href="/contact">Request Quote</Button>
           </div>

@@ -57,7 +57,7 @@ export function Hero() {
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-base/70 via-base/55 to-base" />
+      <div className="absolute inset-0 bg-gradient-to-b from-base/60 via-base/25 to-base" />
       <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.12),transparent_65%)]" />
       <Container className="relative py-24">
         <div data-hero-content>
@@ -75,12 +75,12 @@ export function Hero() {
               {hero.secondaryCta.label}
             </Button>
           </div>
-          {/* Trust row korporat ala Pertamina */}
-          <dl className="mt-12 flex max-w-xl flex-wrap gap-x-8 gap-y-3 border-t border-paper/15 pt-6">
+          {/* Trust row korporat */}
+          <dl className="mt-12 grid max-w-xl grid-cols-2 gap-x-8 gap-y-4 border-t border-paper/15 pt-6 sm:grid-cols-3">
             {[
-              ["100%", "Tempurung kelapa"],
-              ["Per batch", "QC terdokumentasi"],
-              ["Katapiang", "Sumatera Barat"],
+              ["100%", "Coconut shell"],
+              ["Per batch", "Documented QC"],
+              ["Katapiang", "West Sumatra"],
             ].map(([v, l]) => (
               <div key={l}>
                 <dt className="sr-only">{l}</dt>

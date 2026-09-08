@@ -93,7 +93,7 @@ export default async function ProductDetail({
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {related.map((r) => (
             <Link key={r.id} href={`/products/${r.slug}`} className="rounded-2xl border border-paper/15 bg-surface p-6 hover:border-ember/50">
-              <h3 className="font-display font-bold">{r.name}</h3>
+              <h3 className="font-bold">{r.name}</h3>
               <p className="text-sm text-muted">{r.shortDesc}</p>
             </Link>
           ))}

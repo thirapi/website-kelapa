@@ -7,23 +7,23 @@ export default function NotFound() {
       <Container className="py-32 text-center">
         <p className="tnum font-display text-7xl font-bold text-ember">404</p>
         <h1 className="font-display mt-4 text-3xl font-bold md:text-5xl">
-          Halaman tidak ditemukan.
+          Page not found.
         </h1>
         <p className="mx-auto mt-4 max-w-md text-muted">
-          URL yang Anda tuju tidak ada — mungkin dipindah atau salah ketik.
+          The URL you requested does not exist — it may have moved or been mistyped.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             href="/"
             className="rounded-full bg-ember px-6 py-3 text-sm font-semibold text-base"
           >
-            Kembali ke Home
+            Back to Home
           </Link>
           <Link
             href="/products"
             className="rounded-full border border-paper/25 px-6 py-3 text-sm font-semibold hover:border-paper/50"
           >
-            Lihat Produk
+            View Products
           </Link>
         </div>
       </Container>

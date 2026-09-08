@@ -9,7 +9,7 @@ import { MEDIA } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Katalog charcoal, briket, dan kopra — spec terdokumentasi, RFQ cepat.",
+  description: "Charcoal, briquette, and copra catalog — documented spec, fast RFQ.",
 };
 
 // Products — 8 section per 04-PRD §2 (katalog Fase 1 per 05-PRD)
@@ -17,28 +17,48 @@ export default function ProductsPage() {
   const flagship = PRODUCTS.filter((p) => p.flagship);
   return (
     <div className="flex flex-1 flex-col">
-      {/* 1 Hero */}
-      <section className="relative flex min-h-[60dvh] items-center pt-24">
-        <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.12),transparent_65%)]" />
+      {/* 1 Hero — foto briket menyala + scrim terang */}
+      <section className="relative flex min-h-[60dvh] items-center overflow-hidden pt-24">
+        <Image
+          src="/assets/products/briquettes.webp"
+          alt="Burning charcoal briquettes"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-base/70 via-base/45 to-base" />
         <Container className="relative py-20">
           <p className="text-xs font-semibold tracking-widest text-ember uppercase">Catalog</p>
           <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
-            Produk yang Siap Diskala ke Volume Anda.
+            Ready to Scale to Your Volume.
           </h1>
         </Container>
       </section>
 
       {/* 2 Category Overview — split/bento, bukan 3 kartu identik */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold md:text-4xl">Tiga Kategori, Satu Standar.</h2>
+        <h2 className="font-display text-2xl font-bold md:text-4xl">Three Categories. One Standard.</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-12">
           {CATEGORIES.map((c, i) => (
             <article
               key={c.id}
-              className={`rounded-2xl border border-paper/15 bg-surface p-7 ${i === 0 ? "md:col-span-7" : "md:col-span-5"}`}
+              className={`rounded-2xl border border-paper/15 bg-surface p-7 ${
+                i < 2 ? (i === 0 ? "md:col-span-7" : "md:col-span-5") : "md:col-span-12 md:flex md:items-center md:justify-between md:gap-8"
+              }`}
             >
-              <h3 className="font-display text-xl font-bold">{c.name}</h3>
-              <p className="mt-2 text-muted">{c.desc}</p>
+              <div>
+                <h3 className="text-xl font-bold">{c.name}</h3>
+                <p className="mt-2 max-w-xl text-muted">{c.desc}</p>
+              </div>
+              {i === 2 && (
+                <Link
+                  href="/contact"
+                  className="mt-4 inline-block shrink-0 rounded-full bg-ember px-6 py-3 text-sm font-semibold whitespace-nowrap text-base md:mt-0"
+                >
+                  Ask About Copra →
+                </Link>
+              )}
             </article>
           ))}
         </div>
@@ -64,14 +84,14 @@ export default function ProductsPage() {
                 />
               </div>
               <p className="text-[11px] font-bold tracking-widest text-ember uppercase">Flagship</p>
-              <h3 className="font-display mt-1 text-xl font-bold">{p.name}</h3>
+              <h3 className="mt-1 text-xl font-bold">{p.name}</h3>
               <p className="mt-1 text-sm text-muted">{p.shortDesc}</p>
               <p className="mt-3 text-xs text-muted">
                 MOQ {p.moq} · {p.leadTime} · {p.status}
               </p>
               <div className="mt-4 flex gap-3">
                 <Link href={`/products/${p.slug}`} className="text-sm font-semibold whitespace-nowrap text-ember hover:underline">
-                  Lihat Detail →
+                  View Details →
                 </Link>
                 <Link href={`/contact?product=${p.slug}`} className="text-sm whitespace-nowrap text-paper/70 hover:underline">
                   Request Quote
@@ -95,14 +115,14 @@ export default function ProductsPage() {
                 />
               </div>
               <div>
-                <h3 className="font-display text-lg font-bold">{p.name}</h3>
+                <h3 className="text-lg font-bold">{p.name}</h3>
                 <p className="mt-1 text-sm text-muted">{p.shortDesc}</p>
                 <p className="mt-3 text-xs text-muted">
                   MOQ {p.moq} · {p.leadTime} · {p.status}
                 </p>
                 <div className="mt-4 flex gap-3">
                   <Link href={`/products/${p.slug}`} className="text-sm font-semibold whitespace-nowrap text-ember hover:underline">
-                    Lihat Detail →
+                    View Details →
                   </Link>
                   <Link href={`/contact?product=${p.slug}`} className="text-sm whitespace-nowrap text-paper/70 hover:underline">
                     Request Quote
@@ -116,7 +136,7 @@ export default function ProductsPage() {
 
       {/* 4 Specifications */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold md:text-4xl">Standar Mutu.</h2>
+        <h2 className="font-display text-2xl font-bold md:text-4xl">Quality Standards.</h2>
         <div className="mt-8 space-y-6">
           {flagship.map((p) => (
             <div key={p.id} className="overflow-x-auto rounded-2xl border border-paper/15">
@@ -138,12 +158,12 @@ export default function ProductsPage() {
 
       {/* 5 Packaging & Logistics */}
       <Section spacing="compact">
-        <h2 className="font-display max-w-2xl text-2xl font-bold md:text-4xl">Pengemasan & Logistik.</h2>
+        <h2 className="font-display max-w-2xl text-2xl font-bold md:text-4xl">Packing & Logistics.</h2>
         <ul className="mt-6 max-w-2xl space-y-3">
           {[
-            ["package", "Karung 50 kg / 15 kg", "Untuk charcoal & kopra curah."],
-            ["badge", "Inner + karton master", "Untuk briket ritel & HoReCa."],
-            ["fileCheck", "Kontainer 20ft + dokumen", "Stuffing, fumigasi bila perlu, dokumen lengkap."],
+            ["package", "50 kg / 15 kg bags", "For bulk charcoal & copra."],
+            ["badge", "Inner + master carton", "For retail & HoReCa briquettes."],
+            ["fileCheck", "20ft container + documents", "Stuffing, fumigation if needed, full documents."],
           ].map(([icon, t, d]) => {
             const Icon = ICONS[icon as "package" | "badge" | "fileCheck"];
             return (
@@ -163,7 +183,7 @@ export default function ProductsPage() {
 
       {/* 6 Why Our Products */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold md:text-4xl">Kenapa Produk Kami.</h2>
+        <h2 className="font-display text-2xl font-bold md:text-4xl">Why Our Products.</h2>
         <ol className="mt-6 divide-y divide-paper/15 border-y border-paper/15">
           {["Screened & graded", "Low moisture, low ash", "Batch-tested", "Private label ready"].map((t, i) => (
             <li key={t} className="flex gap-4 py-4">
@@ -176,18 +196,18 @@ export default function ProductsPage() {
 
       {/* 7 Featured Products — editorial hybrid */}
       <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold md:text-4xl">Unggulan.</h2>
+        <h2 className="font-display text-2xl font-bold md:text-4xl">Featured.</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-12">
           <article className="rounded-2xl border border-paper/15 bg-surface p-8 md:col-span-8">
-            <h3 className="font-display text-2xl font-bold">{flagship[0]?.name}</h3>
+            <h3 className="text-2xl font-bold">{flagship[0]?.name}</h3>
             <p className="mt-2 text-muted">{flagship[0]?.shortDesc}</p>
             <Link href={`/products/${flagship[0]?.slug}`} className="mt-4 inline-block font-semibold text-ember">
-              Lihat Detail →
+              View Details →
             </Link>
           </article>
           <div className="md:col-span-4">
             <Link href="/contact" className="block rounded-2xl bg-ember p-8 font-semibold text-base">
-              Minta penawaran volume →
+              Get a volume quote →
             </Link>
           </div>
         </div>
@@ -196,7 +216,7 @@ export default function ProductsPage() {
       {/* 8 CTA */}
       <section className="border-t border-paper/15 py-24 md:py-32">
         <Container className="text-center">
-          <h2 className="font-display text-3xl font-bold md:text-5xl">Butuh Spec Sheet Lengkap?</h2>
+          <h2 className="font-display text-3xl font-bold md:text-5xl">Need the Full Spec Sheet?</h2>
           <div className="mt-8">
             <Button href="/contact">Request Quote</Button>
           </div>

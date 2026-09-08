@@ -45,6 +45,9 @@ export function Footer() {
         <p className="mt-10 text-xs text-muted">
           © {new Date().getFullYear()} COCO KATAPIANG · Supported by Pertamina. All rights reserved.
         </p>
+        <p className="mt-2 text-xs text-muted/70">
+          Photography: Unsplash contributors (placeholder — replacing with village originals).
+        </p>
       </Container>
     </footer>
   );

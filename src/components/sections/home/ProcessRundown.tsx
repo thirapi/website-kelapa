@@ -3,17 +3,19 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { Rundown } from "@/components/motion/Rundown";
 
-// 05 Process Rundown — 01-PRD §05 signature (scrub progress + tahap menyala)
+// 05 Process Rundown — signature di atas band gelap (ritme terang-gelap).
 export function ProcessRundown() {
   return (
-    <div className="border-y border-paper/15 bg-surface-alt/60">
+    <div className="border-y border-white/10 bg-[#1f130b]">
       <Section ariaLabel="Our process">
         <Reveal>
-          <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
-            Dari Lahan ke Pelabuhan. Terejaga di Setiap Langkah.
+          <p className="text-xs font-bold tracking-[0.25em] text-ember uppercase">Proses</p>
+          <h2 className="font-display mt-3 max-w-2xl text-3xl font-bold text-[#faf6ef] md:text-5xl">
+            From Grove to Port. Guarded at Every Step.
           </h2>
         </Reveal>
         <Rundown
+          tone="dark"
           items={PROCESS_STEPS.map((s, i) => ({
             marker: String(i + 1).padStart(2, "0"),
             title: s.title,

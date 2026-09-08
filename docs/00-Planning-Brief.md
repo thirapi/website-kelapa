@@ -4,6 +4,7 @@
 > **Amandemen brand (diputuskan):** brand utama **COCO KATAPIANG**
 > (product & commerce brand). Pertamina = kredibilitas, DEB = framework.
 > Tema warna putih hangat + coklat (lihat `02` §4.1 + `06-Anti-Slop.md`).
+> **Bahasa: full English** (diputuskan — seluruh UI & konten EN).
 > Detail distilasi: `07-Commerce-Blueprint.md`.
 
 **Versi:** 1.1 (rebrand)

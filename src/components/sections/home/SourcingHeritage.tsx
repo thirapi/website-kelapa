@@ -44,7 +44,7 @@ export function SourcingHeritage() {
       <Container>
         <Reveal>
           <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
-            Dari Tangan yang Teliti, untuk Pasar Global.
+            From Careful Hands, for Global Markets.
           </h2>
         </Reveal>
       </Container>

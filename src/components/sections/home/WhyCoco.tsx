@@ -7,34 +7,29 @@ import { ICONS, type IconName } from "@/components/ui/icons";
 const ITEMS: { icon: IconName; title: string; desc: string; big?: boolean }[] = [
   {
     icon: "repeat",
-    title: "Volume konsisten",
-    desc: "Produksi berjalan tiap minggu di nagari — dari karung eceran hingga kontainer, jadwalnya bisa dipegang.",
+    title: "Consistent volume",
+    desc: "Weekly village production — from retail sacks to containers, on a schedule you can hold.",
     big: true,
   },
   {
     icon: "percent",
-    title: "Harga langsung dari sumber",
-    desc: "Tanpa perantara berlapis. Negosiasi langsung dengan pengelola nagari.",
+    title: "Straight-from-source pricing",
+    desc: "No layered middlemen. Negotiate directly with the village team.",
   },
   {
     icon: "chat",
-    title: "Fast respon",
-    desc: "Tanya spec atau minta foto batch terbaru — dibalas via WA/email, bukan tiket.",
+    title: "Fast response",
+    desc: "Ask for specs or fresh batch photos — answered via WA/email, not tickets.",
   },
   {
     icon: "calendar",
-    title: "Lead time transparan",
-    desc: "Tanggal produksi dan kirim dikonfirmasi di awal, bukan kira-kira.",
+    title: "Transparent lead time",
+    desc: "Production and ship dates confirmed upfront — clean documents, safe packing.",
   },
   {
     icon: "origin",
-    title: "Asal tertelusur",
-    desc: "Tiap batch tercatat dari lahan petani Katapiang hingga pengemasan.",
-  },
-  {
-    icon: "fileCheck",
-    title: "Siap kirim",
-    desc: "Dokumen rapi, packing aman sampai tujuan.",
+    title: "Traceable origin",
+    desc: "Every batch logged from Katapiang farmer groves to packing.",
   },
 ];
 
@@ -42,9 +37,9 @@ export function WhyCoco() {
   return (
     <Section ariaLabel="Why COCO KATAPIANG">
       <Reveal>
-        <p className="text-xs font-bold tracking-[0.25em] text-ember uppercase">Kenapa nagari</p>
+        <p className="text-xs font-bold tracking-[0.25em] text-ember uppercase">Why the village</p>
         <h2 className="font-display mt-3 max-w-2xl text-3xl font-bold md:text-5xl">
-          Mengapa Memilih Kami.
+          Why Choose Us.
         </h2>
       </Reveal>
       <RevealStagger className="mt-12 grid gap-4 md:grid-cols-3">
@@ -62,7 +57,7 @@ export function WhyCoco() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-ember/10 text-ember">
                   <Icon size={20} strokeWidth={1.75} aria-hidden />
                 </span>
-                <h3 className="font-display text-xl font-bold">{it.title}</h3>
+                <h3 className="text-xl font-bold">{it.title}</h3>
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted">{it.desc}</p>
             </article>

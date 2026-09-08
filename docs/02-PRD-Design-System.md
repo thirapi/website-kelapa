@@ -110,10 +110,12 @@ Prinsip pengganti kartu-sejajar:
 - **Palet deviate-lah dari baseline** (yellow #FFC72C → ember orange) — keputusan ini harus diputuskan di design review SEBELUM build (lesson dari Java Management).
 
 ### 4.2 Tipografi
-- **Display/Headline:** *Fraunces* — serif hangat berkarakter heritage (ganti Space Grotesk yang terlalu techy). Headline besar 48–110px desktop, tracking sedikit rapat.
-- **Body:** *Plus Jakarta Sans* — karya desainer Indonesia, netral & bersahabat (ganti Inter). 16–18px, line-height 1.6.
+- **Satu family dua peran:** *Plus Jakarta Sans* — display 700–800 (tegas, korporat),
+  body 400–600 (ringan). Tanpa serif editorial; hierarki dari weight + ukuran.
+- Headline besar 48–110px desktop, tracking sedikit rapat.
+- Body 16–18px, line-height 1.6.
 - **Angka/rundown/counter:** tabular figures (tidak goyang saat counting).
-- Maksimal 2 family (anti-slop gate 37); italic dilarang di heading (gate 38a).
+- Maksimal 1 family (anti-slop gate 37); italic dilarang di heading (gate 38a).
 
 ### 4.3 Grid & Spacing
 - Container max ~1440px, padding responsif (24px mobile → 96px desktop).

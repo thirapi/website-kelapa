@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/motion/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollTop } from "@/components/ui/ScrollTop";
 
-// Display: Fraunces — serif hangat berkarakter heritage (bukan techy).
-// Body: Plus Jakarta Sans — karya desainer Indonesia, netral & bersahabat.
-const display = Fraunces({
+// Satu family dua peran (korporat ringan, tidak editorial):
+// display = weight tegas (700–800), body = ringan (400–600).
+const display = Plus_Jakarta_Sans({
   variable: "--font-display",
+  weight: ["700", "800"],
   subsets: ["latin"],
   display: "swap",
 });
 
 const sans = Plus_Jakarta_Sans({
   variable: "--font-sans",
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
   display: "swap",
 });

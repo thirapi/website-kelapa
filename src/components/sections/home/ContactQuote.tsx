@@ -12,7 +12,7 @@ export function ContactQuote() {
     <Section ariaLabel="Request quote">
       <Reveal>
         <h2 className="font-display max-w-2xl text-3xl font-bold md:text-5xl">
-          Diskusikan Kebutuhan Pasokan Anda.
+          Discuss Your Supply Needs.
         </h2>
       </Reveal>
       <Reveal delay={0.1}>
@@ -26,7 +26,7 @@ export function ContactQuote() {
                 onClick={() => track("quote_whatsapp_click", { source: "homepage-side" })}
                 className="text-paper underline underline-offset-4"
               >
-                Chat tim nagari
+                Chat our team
               </a>
             </p>
             <p>
@@ -35,7 +35,7 @@ export function ContactQuote() {
                 {CONTACT.emailText}
               </a>
             </p>
-            <p>Lokasi: {CONTACT.address}</p>
+            <p>Location: {CONTACT.address}</p>
           </div>
         </div>
       </Reveal>

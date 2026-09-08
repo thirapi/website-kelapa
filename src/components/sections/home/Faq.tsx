@@ -8,7 +8,7 @@ export function Faq() {
   return (
     <Section ariaLabel="FAQ" width="narrow">
       <Reveal>
-        <h2 className="font-display text-3xl font-bold md:text-5xl">Pertanyaan yang Sering Diajukan.</h2>
+        <h2 className="font-display text-3xl font-bold md:text-5xl">Frequently Asked Questions.</h2>
       </Reveal>
       <div className="mt-10">
         <FaqList items={FAQS} />

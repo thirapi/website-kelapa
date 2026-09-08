@@ -13,10 +13,18 @@ export type RundownItem = {
 // Rundown signature — Design System §2.3: garis progress terisi (scrub),
 // tahap aktif menyala; yang lewat tetap terbaca, yang belum redup.
 // Reuse: homepage Process, halaman Process, About Journey.
-// Tanpa pin (hemat motion budget); fallback statis saat reduced-motion/no-JS.
-export function Rundown({ items }: { items: readonly RundownItem[] }) {
+// tone="dark" untuk band gelap (ritme terang-gelap). Tanpa pin (hemat budget);
+// fallback statis saat reduced-motion/no-JS.
+export function Rundown({
+  items,
+  tone = "light",
+}: {
+  items: readonly RundownItem[];
+  tone?: "light" | "dark";
+}) {
   const root = useRef<HTMLOListElement>(null);
   const reduced = useReducedMotion();
+  const dark = tone === "dark";
 
   useEffect(() => {
     if (reduced || !root.current) return;
@@ -58,7 +66,12 @@ export function Rundown({ items }: { items: readonly RundownItem[] }) {
   return (
     <ol ref={root} className="relative mt-12">
       {/* track */}
-      <span aria-hidden className="absolute top-2 bottom-2 left-[7px] w-px bg-paper/10 md:left-[9px]" />
+      <span
+        aria-hidden
+        className={`absolute top-2 bottom-2 left-[7px] w-px md:left-[9px] ${
+          dark ? "bg-white/10" : "bg-paper/10"
+        }`}
+      />
       {/* fill */}
       <span
         aria-hidden
@@ -76,14 +89,24 @@ export function Rundown({ items }: { items: readonly RundownItem[] }) {
         >
           <span
             aria-hidden
-            className="absolute top-8 left-[3px] h-2.5 w-2.5 rounded-full bg-paper/20 transition-[background-color,box-shadow] duration-500 group-data-[active=true]:bg-ember group-data-[active=true]:shadow-[0_0_16px_2px_rgba(122,78,31,0.6)] md:left-[5px]"
+            className={`absolute top-8 left-[3px] h-2.5 w-2.5 rounded-full transition-[background-color,box-shadow] duration-500 group-data-[active=true]:bg-ember group-data-[active=true]:shadow-[0_0_16px_2px_rgba(122,78,31,0.55)] md:left-[5px] ${
+              dark ? "bg-white/20" : "bg-paper/20"
+            }`}
           />
           <div>
-            <p className="tnum font-display text-sm font-bold tracking-widest text-muted uppercase transition-colors duration-500 group-data-[active=true]:text-ember">
+            <p
+              className={`tnum font-display text-sm font-bold tracking-widest uppercase transition-colors duration-500 group-data-[active=true]:text-ember ${
+                dark ? "text-white/50" : "text-muted"
+              }`}
+            >
               {s.marker}
             </p>
-            <h3 className="font-display mt-1 text-xl font-bold md:text-2xl">{s.title}</h3>
-            <p className="mt-1 max-w-xl text-muted">{s.desc}</p>
+            <h3
+              className={`mt-1 text-xl font-bold md:text-2xl ${dark ? "text-[#faf6ef]" : ""}`}
+            >
+              {s.title}
+            </h3>
+            <p className={`mt-1 max-w-xl ${dark ? "text-white/65" : "text-muted"}`}>{s.desc}</p>
           </div>
         </li>
       ))}

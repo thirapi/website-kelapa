@@ -1,4 +1,5 @@
-// Katalog CMS-ready — docs/05-PRD-Ecommerce.md §2.1 + 04 §2
+// CMS-ready catalog — docs/05-PRD-Ecommerce.md §2.1 + 04 §2 (English-first)
+
 export type ProductCategory = "charcoal" | "briquettes" | "copra";
 export type ProductStatus = "available" | "pre-order" | "on-request";
 
@@ -22,17 +23,17 @@ export const CATEGORIES = [
   {
     id: "charcoal",
     name: "Coconut Shell Charcoal",
-    desc: "Raw lump charcoal untuk BBQ, industri, dan kebutuhan volume besar.",
+    desc: "Raw lump charcoal for BBQ, industry, and high-volume needs.",
   },
   {
     id: "briquettes",
     name: "Coconut Charcoal Briquettes",
-    desc: "Briket hexagon/pillow untuk shisha, BBQ retail, dan HoReCa.",
+    desc: "Hexagon/pillow briquettes for shisha, retail BBQ, and HoReCa.",
   },
   {
     id: "copra",
     name: "Copra",
-    desc: "Dried coconut (smoke/sun-dried) untuk pabrik minyak & food processing.",
+    desc: "Dried coconut (smoke/sun-dried) for oil mills & food processing.",
   },
 ] as const;
 
@@ -42,19 +43,19 @@ export const PRODUCTS: Product[] = [
     slug: "coconut-shell-charcoal-lump",
     name: "Coconut Shell Charcoal — Lump",
     category: "charcoal",
-    shortDesc: "Raw lump charcoal, high caloric, untuk BBQ & industri.",
+    shortDesc: "Raw lump charcoal, high caloric value, for BBQ & industry.",
     specs: [
       { label: "Moisture", value: "≤ 8%" },
       { label: "Ash content", value: "≤ 3%" },
       { label: "Size", value: "40–120 mm, screened" },
-      { label: "Caloric value", value: "≥ 6.500 kcal/kg" },
+      { label: "Caloric value", value: "≥ 6,500 kcal/kg" },
     ],
     packing: "15 kg bag / 20ft container",
     moq: "1 × 20ft container",
     price: "on request",
     status: "available",
-    leadTime: "14–21 hari",
-    capability: "120 ton/bulan",
+    leadTime: "14–21 days",
+    capability: "120 tons/month",
     flagship: true,
   },
   {
@@ -62,19 +63,19 @@ export const PRODUCTS: Product[] = [
     slug: "coconut-charcoal-briquettes-hexagon",
     name: "Coconut Charcoal Briquettes — Hexagon",
     category: "briquettes",
-    shortDesc: "Briket hexagon, long burn, low ash — untuk shisha & BBQ.",
+    shortDesc: "Hexagon briquettes, long burn, low ash — for shisha & BBQ.",
     specs: [
       { label: "Moisture", value: "≤ 6%" },
       { label: "Ash content", value: "≤ 2.5%" },
-      { label: "Burn time", value: "2–2.5 jam" },
+      { label: "Burn time", value: "2–2.5 hours" },
       { label: "Shape", value: "Hexagon, pillow (custom)" },
     ],
     packing: "1 kg / 10 kg inner + master carton",
     moq: "1 × 20ft container",
     price: "on request",
     status: "available",
-    leadTime: "21–28 hari",
-    capability: "80 ton/bulan",
+    leadTime: "21–28 days",
+    capability: "80 tons/month",
     flagship: true,
   },
   {
@@ -82,19 +83,19 @@ export const PRODUCTS: Product[] = [
     slug: "copra-smoke-dried",
     name: "Copra — Smoke Dried",
     category: "copra",
-    shortDesc: "Dried coconut untuk produsen minyak kelapa & food processing.",
+    shortDesc: "Dried coconut for coconut oil mills & food processing.",
     specs: [
       { label: "Moisture", value: "≤ 7%" },
-      { label: "Purity", value: "Sortir manual, low mould" },
+      { label: "Purity", value: "Hand-sorted, low mould" },
       { label: "Cut", value: "Cup / half-cut" },
       { label: "Oil yield", value: "62–65%" },
     ],
-    packing: "Jute bag 50 kg / container curah",
-    moq: "25 ton",
+    packing: "50 kg jute bag / bulk container",
+    moq: "25 tons",
     price: "on request",
     status: "on-request",
-    leadTime: "14 hari",
-    capability: "200 ton/bulan",
+    leadTime: "14 days",
+    capability: "200 tons/month",
     flagship: false,
   },
 ];

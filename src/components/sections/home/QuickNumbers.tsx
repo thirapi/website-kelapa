@@ -10,7 +10,7 @@ export function QuickNumbers() {
     <div className="border-y border-paper/15 bg-surface-alt/60">
       <Section ariaLabel="Capacity" spacing="compact">
         <Reveal>
-          <h2 className="font-display text-2xl font-bold md:text-4xl">Kapasitas yang Siap Mendukung Pasokan Anda.</h2>
+          <h2 className="font-display text-2xl font-bold md:text-4xl">Capacity Ready to Back Your Supply.</h2>
         </Reveal>
         <dl className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
           {NUMBERS.map((n, i) => (

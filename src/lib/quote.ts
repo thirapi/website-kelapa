@@ -32,12 +32,12 @@ const PHONE_RE = /^[+()\-\s\d]{8,20}$/;
 
 export function validateQuote(p: QuotePayload): QuoteErrors {
   const errors: QuoteErrors = {};
-  if (p.name.trim().length < 2) errors.name = "Isi nama lengkap (min. 2 karakter).";
-  if (!EMAIL_RE.test(p.email.trim())) errors.email = "Alamat email tidak valid.";
+  if (p.name.trim().length < 2) errors.name = "Enter your full name (min. 2 characters).";
+  if (!EMAIL_RE.test(p.email.trim())) errors.email = "Email address is invalid.";
   if (p.whatsapp.trim() && !PHONE_RE.test(p.whatsapp.trim()))
-    errors.whatsapp = "Nomor WhatsApp tidak valid.";
+    errors.whatsapp = "WhatsApp number is invalid.";
   if (!p.whatsapp.trim() && !p.company.trim())
-    errors.whatsapp = "Isi WhatsApp atau Perusahaan agar bisa dihubungi.";
+    errors.whatsapp = "Fill WhatsApp or Company so we can reach you.";
   return errors;
 }
 
@@ -48,15 +48,15 @@ export function productName(slug: string): string {
 // Pesan WA otomatis dari payload — sales/tim nagari follow-up off-platform.
 export function buildWhatsAppUrl(p: QuotePayload): string {
   const lines = [
-    "Halo COCO KATAPIANG, saya ingin meminta penawaran:",
-    `• Nama: ${p.name || "-"}`,
-    `• Perusahaan: ${p.company || "-"}`,
+    "Hello COCO KATAPIANG, I would like to request a quotation:",
+    `• Name: ${p.name || "-"}`,
+    `• Company: ${p.company || "-"}`,
     `• Email: ${p.email || "-"}`,
-    `• Produk: ${p.product ? productName(p.product) : "-"}`,
+    `• Product: ${p.product ? productName(p.product) : "-"}`,
     `• Volume: ${p.volume || "-"}`,
-    `• Negara tujuan: ${p.country || "-"}`,
+    `• Destination country: ${p.country || "-"}`,
     `• Lead time: ${p.leadTime || "-"}`,
-    p.message ? `• Catatan: ${p.message}` : null,
+    p.message ? `• Notes: ${p.message}` : null,
   ].filter(Boolean);
   const base = CONTACT.whatsapp.split("?")[0];
   return `${base}?text=${encodeURIComponent(lines.join("\n"))}`;

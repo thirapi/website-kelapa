@@ -19,7 +19,7 @@ export function CtaClosing() {
       <div className="fade-mask-linear pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(122,78,31,0.25),transparent_65%)]" />
       <Container className="relative text-center">
         <h2 className="font-display mx-auto max-w-2xl text-4xl font-bold text-[#faf6ef] md:text-6xl">
-          Siap Memenuhi Kebutuhan Produksi Anda?
+          Ready to Meet Your Production Needs?
         </h2>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button href="/contact">Request Quote</Button>
