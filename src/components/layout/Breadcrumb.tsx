@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Section";
 
 export function Breadcrumb({ trail }: { trail: { label: string; href?: string }[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-line bg-base">
+    <nav aria-label="Breadcrumb" className="border-b border-line bg-cream">
       <Container className="py-3">
         <ol className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-muted">
           <li>

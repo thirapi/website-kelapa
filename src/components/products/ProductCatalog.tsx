@@ -26,7 +26,7 @@ export function ProductCatalog() {
               className={cn(
                 "rounded-full px-5 py-2.5 text-sm font-semibold transition-[background-color,color,border-color] duration-200",
                 filter === f.value
-                  ? "bg-ink text-base"
+                  ? "bg-ink text-cream"
                   : "border border-line bg-surface text-ink hover:border-brand/50",
               )}
             >

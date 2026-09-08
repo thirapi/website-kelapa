@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-base: #ffffff;
+    --color-cream: #ffffff;
     --color-surface: #ffffff;
     --color-surface-alt: #f3f2f0;
     --color-ink: #21130c;
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-    background: var(--color-base);
+    background: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

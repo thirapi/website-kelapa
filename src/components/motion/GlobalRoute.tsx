@@ -26,7 +26,9 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
       return;
 
     const path = element.querySelector<SVGPathElement>("[data-route-path]");
-    const nodes = element.querySelectorAll("[data-route-stop]");
+    // Animate ONLY the SVG markers — the HTML legend stays static so no
+    // script can ever hide or recolor the stop names.
+    const nodes = element.querySelectorAll("[data-route-node]");
     if (!path) return;
 
     const length = path.getTotalLength();
@@ -93,7 +95,7 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
   return (
     <div
       ref={root}
-      className="mt-10 overflow-hidden rounded-2xl border border-line bg-surface p-5 md:p-8"
+      className="mt-10 overflow-hidden rounded-2xl border border-line bg-surface p-5 text-ink md:p-8"
     >
       <svg
         viewBox="0 0 1000 300"
@@ -111,15 +113,14 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
           data-route-path
         />
         {POINTS.map((point, index) => (
-          <g key={stops[index]} data-route-stop>
+          <g key={stops[index]} data-route-node>
             <circle
               cx={point.x}
               cy={point.y}
               r="24"
-              className="fill-base stroke-brand"
-              strokeWidth="3"
+              className="fill-brand"
             />
-            <circle cx={point.x} cy={point.y} r="7" className="fill-ember" />
+            <circle cx={point.x} cy={point.y} r="7" className="fill-cream" />
           </g>
         ))}
       </svg>
@@ -139,7 +140,7 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
               <p className="text-xs font-bold tabular-nums text-muted">
                 0{index + 1}
               </p>
-              <p className="text-sm font-extrabold tracking-tight md:text-base">
+              <p className="text-sm font-extrabold tracking-tight text-ink md:text-base">
                 {stop}
               </p>
             </div>

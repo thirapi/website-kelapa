@@ -16,32 +16,65 @@ export function Quality() {
   return (
     <Section className="bg-surface-alt/50">
       <Container>
-        <Eyebrow>Quality</Eyebrow>
+        <Eyebrow>Standards</Eyebrow>
         <h2 className="mt-4 max-w-2xl text-4xl font-extrabold tracking-tight md:text-5xl">
           Built on Quality.
         </h2>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {SPECS.map((s) => (
-            <div key={s.label} className="rounded-2xl border border-line bg-surface p-6 transition-[border-color] duration-200 hover:border-brand/50">
-              <p className="flex items-center gap-2 text-sm font-bold">
-                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                  <Icons.ShieldCheck size={18} aria-hidden />
-                </span>
-                {s.label}
-              </p>
-              <p className="mt-3 text-3xl font-extrabold tabular-nums tracking-tight">{s.value}</p>
-              <p className="mt-1 text-sm text-muted">{s.note}</p>
-            </div>
-          ))}
-        </div>
-        <ol className="mt-8 flex flex-wrap items-center gap-2 text-sm font-semibold">
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+          Every lot is specified, graded and verified before it ships.
+          Five gates from raw material to delivery — no lot skips one.
+        </p>
+
+        <ol className="mt-10 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {FRAMEWORK.map((f, i) => (
-            <li key={f} className="flex items-center gap-2">
-              {i > 0 && <span aria-hidden className="text-muted">→</span>}
-              <span className="rounded-full border border-line bg-surface px-4 py-2">{f}</span>
+            <li
+              key={f}
+              className="flex items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3.5 transition-[border-color] duration-200 hover:border-brand/50"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-xs font-extrabold tabular-nums text-brand">
+                {i + 1}
+              </span>
+              <span className="text-sm font-bold leading-snug">{f}</span>
             </li>
           ))}
         </ol>
+
+        <div className="mt-6 overflow-hidden rounded-2xl border border-line bg-surface">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-line bg-surface-alt/60 text-left">
+                <th scope="col" className="px-4 py-4 text-xs font-bold uppercase tracking-[0.14em] sm:px-6">
+                  Parameter
+                </th>
+                <th scope="col" className="hidden px-4 py-4 text-left text-xs font-bold uppercase tracking-[0.14em] md:table-cell">
+                  Note
+                </th>
+                <th scope="col" className="px-4 py-4 text-right text-xs font-bold uppercase tracking-[0.14em] sm:px-6">
+                  Specification
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {SPECS.map((s) => (
+                <tr key={s.label} className="border-b border-line transition-colors duration-200 last:border-0 hover:bg-surface-alt/60">
+                  <th scope="row" className="px-4 py-4 text-left sm:px-6">
+                    <span className="flex items-center gap-2.5 font-bold">
+                      <Icons.ShieldCheck size={16} aria-hidden className="shrink-0 text-brand" />
+                      {s.label}
+                    </span>
+                  </th>
+                  <td className="hidden px-4 py-4 text-muted md:table-cell">{s.note}</td>
+                  <td className="px-4 py-4 text-right font-extrabold tabular-nums sm:px-6">
+                    {s.value}
+                    <span className="mt-0.5 block text-xs font-normal text-muted md:hidden">
+                      {s.note}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Container>
     </Section>
   );

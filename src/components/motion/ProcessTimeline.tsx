@@ -73,14 +73,14 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
                 className={cn(
                   "group flex min-w-0 shrink-0 items-center justify-center gap-4 rounded-full px-3 py-3 text-left transition-[background-color,color] duration-200 sm:min-w-44 sm:justify-start sm:rounded-xl sm:px-4",
                   current
-                    ? "bg-brand text-base"
+                    ? "bg-brand text-cream"
                     : "text-ink hover:bg-surface-alt",
                 )}
               >
                 <span
                   className={cn(
                     "text-xs font-bold tabular-nums",
-                    current ? "text-base/70" : "text-ember",
+                    current ? "text-cream/70" : "text-ember",
                   )}
                 >
                   0{index + 1}

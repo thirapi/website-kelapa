@@ -109,7 +109,7 @@ export function RfqForm({
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand px-6 py-3 text-sm font-semibold text-base transition-[background-color,transform,box-shadow] duration-200 hover:bg-brand-deep hover:shadow-lg hover:shadow-brand/25 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+          className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand px-6 py-3 text-sm font-semibold text-cream transition-[background-color,transform,box-shadow] duration-200 hover:bg-brand-deep hover:shadow-lg hover:shadow-brand/25 active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
         >
           {status === "sending" ? "Sending…" : "Request a Quotation"}
         </button>

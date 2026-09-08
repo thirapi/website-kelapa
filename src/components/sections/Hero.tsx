@@ -14,7 +14,7 @@ const TRUST = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink text-base">
+    <section className="relative overflow-hidden bg-ink text-cream">
       <HeroParallax>
         <Image
           src={ASSETS["grove-hero-mobile"]}
@@ -38,7 +38,7 @@ export function Hero() {
       </HeroParallax>
       <Reveal className="relative">
         <Container className="flex min-h-[92svh] flex-col justify-end pb-16 pt-28 md:pb-20">
-          <p className="mb-5 inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border border-base/25 py-1 pl-3 pr-3 text-[11px] font-bold uppercase tracking-[0.18em] text-base/85">
+          <p className="mb-5 inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border border-cream/25 py-1 pl-3 pr-3 text-[11px] font-bold uppercase tracking-[0.18em] text-cream/85">
             <span className="hidden sm:inline">Supported by</span>
             <span className="inline-flex items-center rounded-full bg-surface px-2 py-0.5">
               <Image
@@ -59,7 +59,7 @@ export function Hero() {
           <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl md:text-7xl">
             The Value of Coconut, Reimagined.
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-base/80 md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">
             {SITE.commerce} Premium copra, shell charcoal and briquettes —
             processed in the village, specified for world buyers.
           </p>
@@ -76,10 +76,10 @@ export function Hero() {
               Start a Conversation
             </Button>
           </div>
-          <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-base/15 pt-6 md:mt-12 md:gap-4">
+          <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-cream/15 pt-6 md:mt-12 md:gap-4">
             {TRUST.map((t) => (
               <div key={t.label}>
-                <dt className="order-2 mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-base/60 sm:text-xs sm:tracking-[0.14em]">
+                <dt className="order-2 mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-cream/60 sm:text-xs sm:tracking-[0.14em]">
                   {t.label}
                 </dt>
                 <dd className="order-1 text-xl font-extrabold tabular-nums sm:text-2xl">

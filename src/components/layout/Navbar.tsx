@@ -32,7 +32,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       {!dismissed && (
-        <div className="bg-ink text-base">
+        <div className="bg-ink text-cream">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 md:px-10">
             <p className="truncate text-xs font-medium">{SITE.announcement}</p>
             <button
@@ -53,7 +53,7 @@ export function Navbar() {
             className="flex items-center gap-2.5"
             aria-label="COCO KATAPIANG home"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand text-base text-lg font-extrabold">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand text-cream text-lg font-extrabold">
               C
             </span>
             <span className="leading-none">
@@ -94,7 +94,7 @@ export function Navbar() {
             >
               <Icons.ShoppingBag size={20} />
               {count > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand px-1 text-[11px] font-bold text-base">
+                <span className="absolute -right-0.5 -top-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand px-1 text-[11px] font-bold text-cream">
                   {count}
                 </span>
               )}
@@ -123,7 +123,7 @@ export function Navbar() {
 
       {open && (
         <div
-          className="fixed inset-0 z-[60] flex flex-col bg-ink text-base lg:hidden"
+          className="fixed inset-0 z-[60] flex flex-col bg-ink text-cream lg:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Menu"
@@ -150,9 +150,9 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="border-b border-base/10 py-4 text-3xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+                className="border-b border-cream/10 py-4 text-3xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
               >
-                <span className="mr-3 text-sm font-semibold text-base/40">
+                <span className="mr-3 text-sm font-semibold text-cream/40">
                   0{i + 1}
                 </span>
                 {item.label}
@@ -163,7 +163,7 @@ export function Navbar() {
             <Button href="/contact" className="w-full" event="hero_cta_quote">
               Inquire Now
             </Button>
-            <p className="text-center text-xs text-base/60">{SITE.email}</p>
+            <p className="text-center text-xs text-cream/60">{SITE.email}</p>
           </div>
         </div>
       )}

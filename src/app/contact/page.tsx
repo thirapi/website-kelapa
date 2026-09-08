@@ -134,7 +134,7 @@ export default function ContactPage() {
               </div>
             )}
 
-            <div className="mt-6 space-y-3 rounded-2xl bg-ink p-6 text-sm text-base">
+            <div className="mt-6 space-y-3 rounded-2xl bg-ink p-6 text-sm text-cream">
               <p className="flex items-start gap-2.5">
                 <Icons.MapPin
                   size={16}

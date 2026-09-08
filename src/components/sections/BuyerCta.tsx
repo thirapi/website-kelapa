@@ -12,7 +12,7 @@ export function BuyerCta() {
           <h2 className="mt-4 max-w-xl text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
             Looking for Coconut Products from Indonesia?
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-base/75">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-cream/75">
             Send your specification, packaging and destination. Our team replies
             within 1–2 business days with availability and quotation.
           </p>

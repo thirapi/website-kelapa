@@ -7,10 +7,16 @@ PPID, whistleblowing, karier, portal mitra) TIDAK masuk — tidak ada di konten 
 
 ## 1. Token (putih + coklat, tetap)
 
-`--base #FAF6EF` · `--surface #FFFFFF` · `--surface-alt #EFE7D8` ·
-`--ink #2B1D12` · `--muted #6E5F50` (≥4,5:1) · `--brand #7A4E1F` (CTA/focus) ·
-`--palm #304B38` (badge sustainability SAJA). Rasio 70 terang / 20 gelap /
-7 hijau / 3 coklat.
+`--cream #FFFFFF` (kanvas — dulu `--base`, diganti 2026-09-09) · `--surface #FFFFFF` ·
+`--surface-alt #F3F2F0` · `--ink #21130C` · `--muted #655B55` (≥4,5:1) ·
+`--brand #4F2914` (CTA/focus) · `--brand-deep #2D170C` · `--ember #8F3F18` ·
+`--palm #294432` (badge sustainability SAJA) · `--line #D8D4D0`.
+
+> PELAJARAN KERAS (bug 2026-09-09): JANGAN PERNAH menamai token warna seperti
+> skala font Tailwind. `--color-base` membuat `text-base` bermakna ganda
+> (ukuran + warna putih) — `md:text-base` menimpa `text-ink` menjadi putih
+> hanya di desktop. Token warna terang kini `--cream` (`text-cream`,
+> `bg-cream`, `border-cream`); `text-base` murni ukuran font.
 
 ## 2. Tipografi
 

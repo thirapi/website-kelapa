@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NAV, SITE, SOCIALS } from "@/content/site";
@@ -48,22 +49,33 @@ export function Footer() {
   }, []);
 
   return (
-    <footer ref={root} className="bg-ink text-base">
+    <footer ref={root} className="bg-ink text-cream">
       <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div data-footer-reveal>
           <p className="text-lg font-extrabold tracking-tight">
             COCO KATAPIANG
           </p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-base/70">
+          <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/70">
             {SITE.commerce} Premium coconut products from Nagari Katapiang, West
             Sumatra.
           </p>
-          <p className="mt-4 inline-flex rounded-full bg-surface/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-base/80">
-            {SITE.badge}
+          <p className="mt-4 inline-flex max-w-full items-center gap-1.5 overflow-hidden whitespace-nowrap rounded-full bg-surface/10 py-1.5 pl-2 pr-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-cream/80">
+            <span className="inline-flex shrink-0 items-center rounded-full bg-surface px-1.5 py-0.5">
+              <Image
+                src="/assets/brand/pertamina.svg"
+                alt="Pertamina"
+                width={46}
+                height={11}
+                className="h-2.5 w-auto"
+                loading="lazy"
+              />
+            </span>
+            <span aria-hidden>·</span>
+            <span className="truncate">Desa Energi Berdikari</span>
           </p>
         </div>
         <nav aria-label="Shop" data-footer-reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-base/50">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-cream/50">
             Shop
           </p>
           <ul className="mt-4 space-y-2.5 text-sm font-medium">
@@ -81,7 +93,7 @@ export function Footer() {
           </ul>
         </nav>
         <nav aria-label="Company" data-footer-reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-base/50">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-cream/50">
             Company
           </p>
           <ul className="mt-4 space-y-2.5 text-sm font-medium">
@@ -108,10 +120,10 @@ export function Footer() {
           </ul>
         </nav>
         <div data-footer-reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-base/50">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-cream/50">
             Contact
           </p>
-          <ul className="mt-4 space-y-2.5 text-sm text-base/80">
+          <ul className="mt-4 space-y-2.5 text-sm text-cream/80">
             <li>{SITE.address}</li>
             <li>
               <a
@@ -123,29 +135,19 @@ export function Footer() {
             </li>
             <li>{SITE.whatsapp}</li>
           </ul>
-          <div className="mt-4 flex gap-2">
-            {SOCIALS.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                onClick={onLink}
-                aria-label={s.label}
-                className="rounded-full border border-base/20 px-3 py-1.5 text-xs font-semibold transition-colors duration-200 hover:border-base/50"
-              >
-                {s.label}
-              </a>
-            ))}
-          </div>
+          <p className="mt-4 text-xs text-cream/50">
+            {SOCIALS.map((s) => s.label).join(" · ")} — channels forthcoming.
+          </p>
         </div>
       </Container>
-      <div className="border-t border-base/10">
+      <div className="border-t border-cream/10">
         <Container
-          className="flex flex-col gap-2 py-5 text-xs text-base/50 sm:flex-row sm:items-center sm:justify-between"
+          className="flex flex-col gap-2 py-5 text-xs text-cream/50 sm:flex-row sm:items-center sm:justify-between"
           data-footer-reveal
         >
           <p>© 2026 COCO KATAPIANG, Nagari Katapiang, Indonesia.</p>
           <p>
-            Photography: site imagery placeholders pending stakeholder assets.
+            Imagery: licensed stock; original Katapiang photography forthcoming.
           </p>
         </Container>
       </div>

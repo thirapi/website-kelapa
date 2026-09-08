@@ -57,8 +57,15 @@ berlabel sampai foto stakeholder tiba · radius hanya full/xl/2xl · ikon Lucide
   endpoint = materi stakeholder (`00-§4`). Backend Exantara = keputusan eksternal.
 
 ## 6. Library aset stock (SELESAI 2026-09-08)
-
 - `public/assets/` — 22 WebP (~3.1 MB): `hero/` 3, `origin/` 2, `products/` 10,
   `process/` 7. Manifest + kredit: `public/assets/CREDITS.md`.
 - Komponen MASIH render `Placeholder` — wiring `next/image` (`sizes`, lazy kecuali
   LCP, `priority` hero) adalah task berikutnya, cocok untuk model standar.
+
+## 7. Bug `text-base` & QA visual (SELESAI 2026-09-09)
+
+- Token `--color-base` di-rename → `--color-cream` di 16 file + `globals.css`
+  (aturan di `01`). `text-base` kini murni ukuran font.
+- Playwright + Chromium terpasang (devDep) untuk screenshot & cek computed style:
+  `node <script>.cjs` dengan `require("playwright")` dari root proyek.
+  Dev server: `http://localhost:3000` (milik sesi lain — koordinasikan sebelum kill).

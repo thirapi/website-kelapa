@@ -23,8 +23,10 @@
    Packaging → Delivery + unduh spec sheet (butuh file).
 8. **Pertamina/CSR** — "Growing Local Potential with Purpose." + SUPPORTED BY
    Pertamina / DEB + Learn About Our Impact. (Bukan headline utama.)
-9. **Impact** — "Business That Creates More Than Products." angka besar
-   (XXX sampai data riil) + kalimat penutup komunitas.
+9. **Impact** — "Business That Creates More Than Products." 3 kartu pilar
+   (Income/Work/Traceability) + kalimat penutup + link /impact + catatan
+   "dashboard angka terbit setelah terverifikasi". (Angka besar XXX HANYA di
+   halaman /impact — di home angka pending terbaca rusak, jadi tidak dipakai.)
 10. **Global** — "From Indonesia to the World." animasi peta
     Katapiang → Sumbar → Indonesia → pasar global. Frasa resmi:
     "Building toward global markets." (tanpa klaim negara spesifik).
