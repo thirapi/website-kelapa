@@ -17,7 +17,7 @@ export function BuyerCta() {
             within 1–2 business days with availability and quotation.
           </p>
         </div>
-        className="rounded-2xl bg-white p-6 text-ink shadow-2xl shadow-black/15 md:p-8"
+        <div className="rounded-2xl bg-white p-6 text-ink shadow-2xl shadow-black/15 md:p-8">
           <RfqForm compact />
         </div>
       </Container>
