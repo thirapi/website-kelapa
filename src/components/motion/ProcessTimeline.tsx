@@ -2,14 +2,15 @@
 
 import { useId, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { SiteImage } from "@/components/ui/SiteImage";
+import type { AssetKey } from "@/content/assets";
 import { Icons } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 
 export interface ProcessStep {
   name: string;
   desc: string;
-  photo: string;
+  photo: AssetKey;
 }
 
 export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
@@ -119,10 +120,12 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
               ease: [0.16, 1, 0.3, 1],
             }}
           >
-            <Placeholder
-              label={active.photo}
+            <SiteImage
+              asset={active.photo}
+              alt={`${active.name} — ${active.desc}`}
               ratio="aspect-[16/9] lg:aspect-[16/8]"
               className="rounded-none"
+              sizes="(max-width: 1024px) 100vw, 60vw"
             />
             <div className="p-6 md:p-8">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-ember">

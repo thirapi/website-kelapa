@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { ProcessTimeline } from "@/components/motion/ProcessTimeline";
+import { ProcessTimeline, type ProcessStep } from "@/components/motion/ProcessTimeline";
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
 import { Icons } from "@/components/ui/icons";
 
@@ -10,41 +10,41 @@ export const metadata: Metadata = {
     "Seven gates from coconut to container — our process timeline and quality framework.",
 };
 
-const STEPS = [
+const STEPS: ProcessStep[] = [
   {
     name: "Source",
     desc: "Selected mature coconuts from Katapiang groves.",
-    photo: "Sourcing — grove photo",
+    photo: "grove-fruit",
   },
   {
     name: "Select",
     desc: "Grading by size, maturity and soundness.",
-    photo: "Selection — grading photo",
+    photo: "select-coconut",
   },
   {
     name: "Process",
     desc: "Dehusking, splitting and kernel preparation.",
-    photo: "Processing — dehusking photo",
+    photo: "copra-split",
   },
   {
     name: "Dry",
     desc: "Sun-drying on raised racks to ≤ 7% moisture.",
-    photo: "Drying — racks photo",
+    photo: "coast-hero",
   },
   {
     name: "Control",
     desc: "Batch checks: moisture, ash, fixed carbon.",
-    photo: "Quality control — lab photo",
+    photo: "shell-texture",
   },
   {
     name: "Pack",
     desc: "Graded packing — bulk, bag or private label.",
-    photo: "Packing — bags photo",
+    photo: "sack-burlap",
   },
   {
     name: "Deliver",
     desc: "Container loading for domestic & export.",
-    photo: "Loading — container photo",
+    photo: "port-cranes",
   },
 ];
 

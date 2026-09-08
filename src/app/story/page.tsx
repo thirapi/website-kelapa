@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { SiteImage } from "@/components/ui/SiteImage";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function StoryPage() {
       />
       <Section>
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <Placeholder label="Katapiang origin — story photo" ratio="aspect-[4/3]" />
+          <SiteImage asset="grove-rows" alt="Rows of coconut palms in Katapiang" ratio="aspect-[4/3]" />
           <div>
             <Eyebrow>Origin</Eyebrow>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl">
@@ -78,7 +78,7 @@ export default function StoryPage() {
               <Button href="/impact">See our impact</Button>
             </div>
           </div>
-          <Placeholder label="Team at work — people photo" ratio="aspect-[4/3]" />
+          <SiteImage asset="copra-hands" alt="Hands holding freshly cracked coconut in Katapiang" ratio="aspect-[4/3]" />
         </Container>
       </Section>
     </>

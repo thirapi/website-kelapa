@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ARTICLES } from "@/content/articles";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Container, Section } from "@/components/ui/Section";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { SiteImage } from "@/components/ui/SiteImage";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -35,7 +35,7 @@ export default function JournalPage() {
               href={`/journal/${a.slug}`}
               className="group overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-brand/50"
             >
-              <Placeholder label={`${a.title} — cover`} ratio="aspect-[16/9]" className="rounded-none" />
+              <SiteImage asset={a.cover} alt={a.title} ratio="aspect-[16/9]" className="rounded-none" sizes="(max-width: 768px) 100vw, 50vw" />
               <div className="p-6">
                 <p className="text-xs font-bold">
                   <span className="uppercase tracking-[0.14em] text-ember">{a.category}</span>

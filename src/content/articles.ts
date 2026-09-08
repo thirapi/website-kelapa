@@ -1,3 +1,5 @@
+import type { AssetKey } from "@/content/assets";
+
 export type ArticleCategory =
   | "Origin"
   | "Coconut"
@@ -12,6 +14,7 @@ export interface Article {
   category: ArticleCategory;
   title: string;
   excerpt: string;
+  cover: AssetKey;
   date: string;
   author: string;
   body: string[];
@@ -25,6 +28,7 @@ export const ARTICLES: Article[] = [
     title: "From Katapiang: Where Our Story Begins",
     excerpt:
       "A coastal village in West Sumatra, generations of coconut farmers, and the idea that nothing should go to waste.",
+    cover: "grove-rows",
     date: "2026-08-12",
     author: "COCO KATAPIANG",
     body: [
@@ -40,6 +44,7 @@ export const ARTICLES: Article[] = [
     title: "One Fruit, Five Products: The Anatomy of Value",
     excerpt:
       "Kernel, shell, husk, water, trunk — how a single coconut becomes a portfolio.",
+    cover: "copra-hands",
     date: "2026-08-20",
     author: "COCO KATAPIANG",
     body: [
@@ -55,6 +60,7 @@ export const ARTICLES: Article[] = [
     title: "Why Moisture Content Decides Copra Quality",
     excerpt:
       "The single number buyers ask about first — and how sun-drying discipline controls it.",
+    cover: "coast-hero",
     date: "2026-08-28",
     author: "COCO KATAPIANG",
     body: [
@@ -70,6 +76,7 @@ export const ARTICLES: Article[] = [
     title: "New Harvest Lots Available for Q4",
     excerpt:
       "Fresh copra and shell charcoal lots open for quotation. Made-to-order briquette slots for Q4.",
+    cover: "sacks-pile",
     date: "2026-09-01",
     author: "COCO KATAPIANG",
     body: [

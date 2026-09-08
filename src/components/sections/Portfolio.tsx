@@ -3,7 +3,7 @@
 import { DeckSlider } from "@/components/motion/DeckSlider";
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
 import { ArrowLink } from "@/components/ui/Button";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { SiteImage } from "@/components/ui/SiteImage";
 import { PRODUCTS } from "@/content/products";
 import { track } from "@/lib/analytics";
 import Link from "next/link";
@@ -32,10 +32,12 @@ export function Portfolio() {
             onClick={() => track("product_line_click", { product: p.slug })}
             className="group w-[78vw] max-w-sm shrink-0 snap-start overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-brand/50 sm:w-80"
           >
-            <Placeholder
-              label={`${p.name} — product photo`}
+            <SiteImage
+              asset={p.image}
+              alt={p.name}
               ratio="aspect-[4/3]"
               className="rounded-none"
+              sizes="(max-width: 640px) 78vw, 320px"
             />
             <div className="p-6">
               <p className="text-xs font-bold tabular-nums text-muted">

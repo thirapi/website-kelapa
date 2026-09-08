@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getArticle, ARTICLES } from "@/content/articles";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Container, Section } from "@/components/ui/Section";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { SiteImage } from "@/components/ui/SiteImage";
 
 export function generateStaticParams() {
   return ARTICLES.map((a) => ({ slug: a.slug }));
@@ -48,7 +48,7 @@ export default async function ArticlePage({
           </p>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">{article.title}</h1>
           <p className="mt-4 text-lg leading-relaxed text-muted">{article.excerpt}</p>
-          <Placeholder label={`${article.title} — cover`} ratio="aspect-[16/9]" className="mt-8" />
+          <SiteImage asset={article.cover} alt={article.title} ratio="aspect-[16/9]" className="mt-8" sizes="(max-width: 768px) 100vw, 768px" />
           <div className="mt-8 space-y-5 text-[17px] leading-relaxed text-ink/90">
             {article.body.map((p, i) => (
               <p key={i}>{p}</p>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getProduct, PRODUCTS } from "@/content/products";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { SiteImage } from "@/components/ui/SiteImage";
 import { AddToInquiry } from "@/components/inquiry/AddToInquiry";
 import { RfqForm } from "@/components/forms/RfqForm";
 import { Icons } from "@/components/ui/icons";
@@ -39,10 +39,10 @@ export default async function ProductDetailPage({
       <Section>
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
-            <Placeholder label={`${product.name} — gallery main`} ratio="aspect-[4/3]" />
+            <SiteImage asset={product.gallery[0]} alt={product.name} ratio="aspect-[4/3]" sizes="(max-width: 1024px) 100vw, 50vw" />
             <div className="mt-4 grid grid-cols-3 gap-4">
-              {[1, 2, 3].map((i) => (
-                <Placeholder key={i} label={`${product.name} — view ${i}`} ratio="aspect-square" />
+              {product.gallery.slice(1, 4).map((g) => (
+                <SiteImage key={g} asset={g} alt={`${product.name} detail`} ratio="aspect-square" sizes="(max-width: 1024px) 33vw, 200px" />
               ))}
             </div>
           </div>
@@ -122,7 +122,7 @@ export default async function ProductDetailPage({
             {related.map((p) => (
               <Link key={p.slug} href={`/products/${p.slug}`} className="group flex items-center gap-5 rounded-2xl border border-line bg-surface p-5 transition-[border-color] duration-200 hover:border-brand/50">
                 <div className="w-28 shrink-0">
-                  <Placeholder label={p.name} ratio="aspect-square" />
+                  <SiteImage asset={p.image} alt={p.name} ratio="aspect-square" sizes="112px" />
                 </div>
                 <div>
                   <h3 className="text-lg font-extrabold tracking-tight transition-colors duration-200 group-hover:text-brand">{p.name}</h3>

@@ -1,9 +1,10 @@
 import { HeroParallax } from "@/components/motion/HeroParallax";
 import { Reveal } from "@/components/motion/Reveal";
+import Image from "next/image";
 import { Container } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/content/site";
-import { Placeholder } from "@/components/ui/Placeholder";
+import { ASSETS } from "@/content/assets";
 
 const TRUST = [
   { value: "100%", label: "Traceable to Katapiang groves" },
@@ -15,10 +16,14 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-white">
       <HeroParallax>
-        <Placeholder
-          label="Cinematic Katapiang grove — hero media"
-          ratio="h-full w-full"
-          className="h-full rounded-none opacity-50"
+        <Image
+          src={ASSETS["grove-hero"]}
+          alt="Coconut groves of Nagari Katapiang at golden hour"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="h-full w-full object-cover opacity-50"
         />
         <div className="absolute inset-0 bg-ink/45" />
       </HeroParallax>
