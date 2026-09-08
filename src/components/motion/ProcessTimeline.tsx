@@ -71,7 +71,7 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
                   }
                 }}
                 className={cn(
-                  "group flex min-w-44 items-center gap-4 rounded-xl px-4 py-3 text-left transition-[background-color,color] duration-200 lg:min-w-0",
+                  "group flex min-w-0 shrink-0 items-center justify-center gap-4 rounded-full px-3 py-3 text-left transition-[background-color,color] duration-200 sm:min-w-44 sm:justify-start sm:rounded-xl sm:px-4",
                   current
                     ? "bg-brand text-base"
                     : "text-ink hover:bg-surface-alt",
@@ -85,15 +85,15 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
                 >
                   0{index + 1}
                 </span>
-                <span className="font-extrabold tracking-tight">
+                <span className="hidden font-extrabold tracking-tight sm:inline">
                   {step.name}
                 </span>
                 <Icons.ArrowRight
                   size={16}
                   aria-hidden
                   className={cn(
-                    "ml-auto transition-transform duration-200",
-                    current && "translate-x-1",
+                    "ml-auto hidden transition-transform duration-200 group-hover:translate-x-1 sm:block",
+                    current && "sm:translate-x-1",
                   )}
                 />
               </button>
@@ -112,13 +112,26 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={active.name}
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: reduceMotion ? 0 : -8 }}
-            transition={{
-              duration: reduceMotion ? 0 : 0.28,
-              ease: [0.16, 1, 0.3, 1],
+            variants={{
+              enter: {
+                opacity: 0,
+                y: reduceMotion ? 0 : 12,
+                transition: { duration: reduceMotion ? 0 : 0.28, ease: [0.16, 1, 0.3, 1] },
+              },
+              center: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: reduceMotion ? 0 : 0.28, ease: [0.16, 1, 0.3, 1] },
+              },
+              exit: {
+                opacity: 0,
+                y: reduceMotion ? 0 : -8,
+                transition: { duration: reduceMotion ? 0 : 0.1, ease: "easeIn" },
+              },
             }}
+            initial="enter"
+            animate="center"
+            exit="exit"
           >
             <SiteImage
               asset={active.photo}
