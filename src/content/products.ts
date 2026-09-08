@@ -1,105 +1,123 @@
-// CMS-ready catalog — docs/05-PRD-Ecommerce.md §2.1 + 04 §2 (English-first)
+export type ProductCategory = "copra" | "charcoal" | "oil" | "future";
 
-export type ProductCategory = "charcoal" | "briquettes" | "copra";
-export type ProductStatus = "available" | "pre-order" | "on-request";
-
-export type Product = {
-  id: string;
+export interface Product {
   slug: string;
   name: string;
+  tagline: string;
   category: ProductCategory;
   shortDesc: string;
   specs: { label: string; value: string }[];
-  packing: string;
+  packingOptions: string[];
   moq: string;
-  price: string;
-  status: ProductStatus;
-  leadTime: string;
-  capability: string;
-  flagship: boolean;
-};
-
-export const CATEGORIES = [
-  {
-    id: "charcoal",
-    name: "Coconut Shell Charcoal",
-    desc: "Raw lump charcoal for BBQ, industry, and high-volume needs.",
-  },
-  {
-    id: "briquettes",
-    name: "Coconut Charcoal Briquettes",
-    desc: "Hexagon/pillow briquettes for shisha, retail BBQ, and HoReCa.",
-  },
-  {
-    id: "copra",
-    name: "Copra",
-    desc: "Dried coconut (smoke/sun-dried) for oil mills & food processing.",
-  },
-] as const;
+  price: string | null;
+  availability: "In stock" | "Made to order" | "Coming soon";
+  flagship?: boolean;
+}
 
 export const PRODUCTS: Product[] = [
   {
-    id: "p1",
-    slug: "coconut-shell-charcoal-lump",
-    name: "Coconut Shell Charcoal — Lump",
-    category: "charcoal",
-    shortDesc: "Raw lump charcoal, high caloric value, for BBQ & industry.",
-    specs: [
-      { label: "Moisture", value: "≤ 8%" },
-      { label: "Ash content", value: "≤ 3%" },
-      { label: "Size", value: "40–120 mm, screened" },
-      { label: "Caloric value", value: "≥ 6,500 kcal/kg" },
-    ],
-    packing: "15 kg bag / 20ft container",
-    moq: "1 × 20ft container",
-    price: "on request",
-    status: "available",
-    leadTime: "14–21 days",
-    capability: "120 tons/month",
-    flagship: true,
-  },
-  {
-    id: "p2",
-    slug: "coconut-charcoal-briquettes-hexagon",
-    name: "Coconut Charcoal Briquettes — Hexagon",
-    category: "briquettes",
-    shortDesc: "Hexagon briquettes, long burn, low ash — for shisha & BBQ.",
-    specs: [
-      { label: "Moisture", value: "≤ 6%" },
-      { label: "Ash content", value: "≤ 2.5%" },
-      { label: "Burn time", value: "2–2.5 hours" },
-      { label: "Shape", value: "Hexagon, pillow (custom)" },
-    ],
-    packing: "1 kg / 10 kg inner + master carton",
-    moq: "1 × 20ft container",
-    price: "on request",
-    status: "available",
-    leadTime: "21–28 days",
-    capability: "80 tons/month",
-    flagship: true,
-  },
-  {
-    id: "p3",
-    slug: "copra-smoke-dried",
-    name: "Copra — Smoke Dried",
+    slug: "copra",
+    name: "Copra",
+    tagline: "Sun-dried coconut kernels, graded for oil milling.",
     category: "copra",
-    shortDesc: "Dried coconut for coconut oil mills & food processing.",
+    shortDesc:
+      "Premium sun-dried copra from selected Katapiang coconuts — consistent moisture, clean cut, ready for milling.",
     specs: [
       { label: "Moisture", value: "≤ 7%" },
-      { label: "Purity", value: "Hand-sorted, low mould" },
-      { label: "Cut", value: "Cup / half-cut" },
-      { label: "Oil yield", value: "62–65%" },
+      { label: "Oil content", value: "≥ 62%" },
+      { label: "Cut", value: "Whole / halves" },
+      { label: "Packaging", value: "50 kg PP bags" },
+      { label: "Origin", value: "Katapiang, West Sumatra" },
     ],
-    packing: "50 kg jute bag / bulk container",
-    moq: "25 tons",
-    price: "on request",
-    status: "on-request",
-    leadTime: "14 days",
-    capability: "200 tons/month",
-    flagship: false,
+    packingOptions: ["Bulk 50 kg PP bags", "Custom buyer bags"],
+    moq: "1 × 20ft container",
+    price: null,
+    availability: "In stock",
+    flagship: true,
+  },
+  {
+    slug: "coconut-shell-charcoal",
+    name: "Coconut Shell Charcoal",
+    tagline: "High fixed-carbon charcoal from mature shells.",
+    category: "charcoal",
+    shortDesc:
+      "Dense, long-burning charcoal carbonized from mature coconut shells — the raw material for premium briquettes and activated carbon.",
+    specs: [
+      { label: "Fixed carbon", value: "≥ 75%" },
+      { label: "Ash content", value: "≤ 3%" },
+      { label: "Moisture", value: "≤ 8%" },
+      { label: "Size", value: "Lump, graded" },
+      { label: "Origin", value: "Katapiang, West Sumatra" },
+    ],
+    packingOptions: ["Bulk 25 kg bags", "Jumbo bags"],
+    moq: "1 × 20ft container",
+    price: null,
+    availability: "In stock",
+  },
+  {
+    slug: "briquettes",
+    name: "Coconut Briquettes",
+    tagline: "Smokeless, long-burning fuel for shisha & BBQ.",
+    category: "charcoal",
+    shortDesc:
+      "Odorless, smokeless briquettes pressed from shell charcoal — steady heat for shisha lounges, grills and food industry.",
+    specs: [
+      { label: "Fixed carbon", value: "≥ 80%" },
+      { label: "Ash content", value: "≤ 2.5%" },
+      { label: "Burn time", value: "≥ 2 hours" },
+      { label: "Shapes", value: "Cube, finger, hexagonal" },
+      { label: "Origin", value: "Katapiang, West Sumatra" },
+    ],
+    packingOptions: ["1 kg inner boxes", "10/20 kg master cartons", "Private label"],
+    moq: "1 × 20ft container",
+    price: null,
+    availability: "Made to order",
+    flagship: true,
+  },
+  {
+    slug: "coconut-oil",
+    name: "Coconut Oil",
+    tagline: "RBD coconut oil for food & industrial use.",
+    category: "oil",
+    shortDesc:
+      "Refined coconut oil milled from our own copra. Food-grade and industrial grades in bulk packaging.",
+    specs: [
+      { label: "Grade", value: "RBD, food & industrial" },
+      { label: "Packaging", value: "Jerry cans, drums, flexitank" },
+      { label: "Origin", value: "Katapiang, West Sumatra" },
+    ],
+    packingOptions: ["19 L jerry cans", "200 L drums", "Flexitank"],
+    moq: "On request",
+    price: null,
+    availability: "Coming soon",
+  },
+  {
+    slug: "virgin-coconut-oil",
+    name: "Virgin Coconut Oil",
+    tagline: "Cold-pressed VCO for wellness & cosmetics.",
+    category: "future",
+    shortDesc:
+      "Cold-pressed virgin coconut oil from fresh kernels — in development for wellness, food and cosmetics buyers.",
+    specs: [
+      { label: "Method", value: "Cold-pressed" },
+      { label: "Packaging", value: "TBD" },
+      { label: "Origin", value: "Katapiang, West Sumatra" },
+    ],
+    packingOptions: ["TBD"],
+    moq: "On request",
+    price: null,
+    availability: "Coming soon",
   },
 ];
 
-export function getProduct(slug: string) {
+export const PRODUCT_FILTERS = [
+  { value: "all", label: "All" },
+  { value: "copra", label: "Copra" },
+  { value: "charcoal", label: "Charcoal" },
+  { value: "oil", label: "Oil" },
+  { value: "future", label: "Future" },
+] as const;
+
+export function getProduct(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);
 }

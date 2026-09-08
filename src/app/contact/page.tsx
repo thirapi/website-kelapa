@@ -1,157 +1,186 @@
-import type { Metadata } from "next";
-import { CONTACT } from "@/content/site";
-import { FAQS } from "@/content/shared";
+"use client";
+
+import { useState } from "react";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Container, Section } from "@/components/ui/Section";
-import { FaqList } from "@/components/ui/FaqList";
-import { QuoteForm } from "@/components/forms/QuoteForm";
-import { ICONS } from "@/components/ui/icons";
+import { RfqForm } from "@/components/forms/RfqForm";
+import { useInquiry } from "@/components/inquiry/InquiryProvider";
+import { SITE } from "@/content/site";
+import { Accordion } from "@/components/ui/Accordion";
+import { Icons } from "@/components/ui/icons";
+import { cn } from "@/lib/cn";
+import type { RfqPayload } from "@/lib/inquiry";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Request quote: fast response for your volume needs.",
-};
+const TYPES = [
+  {
+    value: "buyer",
+    label: "Buyer",
+    desc: "Bulk orders, private label, quotations.",
+  },
+  {
+    value: "supplier",
+    label: "Supplier",
+    desc: "Sell coconuts or materials to us.",
+  },
+  {
+    value: "partner",
+    label: "Partner",
+    desc: "Distribution, CSR & program collaboration.",
+  },
+  {
+    value: "general",
+    label: "General",
+    desc: "Press, visits & everything else.",
+  },
+] as const;
 
-// Contact — 9 section per 04-PRD §4
+const FAQS = [
+  {
+    question: "How do I order?",
+    answer:
+      "Add products to your inquiry list, submit the form with quantity, specification, packaging and destination — we reply within 1–2 business days.",
+  },
+  {
+    question: "What is the minimum order?",
+    answer:
+      "One 20ft container per product line for export. Smaller trial lots can be discussed.",
+  },
+  {
+    question: "Do you offer private label?",
+    answer:
+      "Yes — briquettes and oil support custom packaging and buyer branding.",
+  },
+  {
+    question: "How is the price set?",
+    answer:
+      "Prices are quoted per lot based on specification, volume, packaging and destination. Use the form for a quotation.",
+  },
+  {
+    question: "Where do you ship?",
+    answer:
+      "Domestic Indonesia and export by sea container. Tell us your destination port for freight options.",
+  },
+];
+
 export default function ContactPage() {
+  const [type, setType] = useState<RfqPayload["inquiryType"]>("buyer");
+  const { lines, remove } = useInquiry();
+
   return (
-    <div className="flex flex-1 flex-col">
-      {/* 1 Hero */}
-      <section className="pt-24">
-        <Container className="pt-20 pb-10">
-          <p className="text-xs font-semibold tracking-widest text-ember uppercase">Contact</p>
-          <h1 className="font-display mt-4 max-w-3xl text-4xl font-bold md:text-6xl">
-            Tell Us Your Volume Needs.
-          </h1>
-        </Container>
-      </section>
+    <>
+      <PageHeader
+        eyebrow="Contact"
+        title="Start a Conversation."
+        intro="Buyers, suppliers, partners — tell us what you need. Real replies from Katapiang, within 1–2 business days."
+        trail={[{ label: "Contact" }]}
+      />
+      <Section>
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
+          <div>
+            <div
+              className="grid grid-cols-2 gap-2"
+              role="group"
+              aria-label="Inquiry type"
+            >
+              {TYPES.map((t) => (
+                <button
+                  key={t.value}
+                  type="button"
+                  onClick={() => setType(t.value)}
+                  aria-pressed={type === t.value}
+                  className={cn(
+                    "rounded-2xl border p-4 text-left transition-[border-color,background-color] duration-200",
+                    type === t.value
+                      ? "border-brand bg-brand/5"
+                      : "border-line bg-surface hover:border-brand/50",
+                  )}
+                >
+                  <span className="block text-sm font-extrabold">
+                    {t.label}
+                  </span>
+                  <span className="mt-1 block text-xs leading-relaxed text-muted">
+                    {t.desc}
+                  </span>
+                </button>
+              ))}
+            </div>
 
-      {/* 2 Let's Talk */}
-      <Section spacing="none" className="pb-8">
-        <p className="max-w-2xl text-lg text-muted">
-          Importer, trader, or purchasing — send your spec & target schedule, we reply with
-          a quotation + lead time.
-        </p>
-      </Section>
+            {lines.length > 0 && (
+              <div className="mt-6 rounded-2xl border border-line bg-surface p-5">
+                <h2 className="text-sm font-bold uppercase tracking-[0.14em]">
+                  Your inquiry list ({lines.length})
+                </h2>
+                <ul className="mt-3 space-y-2">
+                  {lines.map((l) => (
+                    <li
+                      key={l.product}
+                      className="flex items-center justify-between gap-3 text-sm"
+                    >
+                      <span>
+                        <span className="font-semibold">{l.product}</span>
+                        <span className="text-muted"> — {l.quantity}</span>
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => remove(l.product)}
+                        aria-label={`Remove ${l.product}`}
+                        className="rounded-full p-1.5 transition-colors duration-200 hover:bg-surface-alt"
+                      >
+                        <Icons.X size={15} />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-      {/* 3 Contact Info — WA unggulan full-width, sisanya 2 kolom */}
-      <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Direct Contact.</h2>
-        <a href={CONTACT.whatsapp} className="mt-6 flex items-center justify-between gap-4 rounded-2xl bg-ember p-6 text-base transition-[background-color] hover:bg-[#8d5c28] md:p-7">
-          <span className="flex items-center gap-4">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15">
-              <ICONS.wa size={22} aria-hidden />
-            </span>
-            <span>
-              <span className="font-display block text-xl font-bold">Village WhatsApp</span>
-              <span className="text-sm opacity-80">Fastest response — WIB business hours</span>
-            </span>
-          </span>
-          <span aria-hidden className="font-display text-3xl font-bold">→</span>
-        </a>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <a href={CONTACT.email} className="flex items-center gap-4 rounded-2xl border border-paper/15 bg-surface p-6 transition-[border-color] hover:border-ember/50">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ember/10 text-ember">
-              <ICONS.mail size={22} aria-hidden />
-            </span>
-            <span>
-              <span className="block font-bold">Email</span>
-              <span className="text-sm text-muted">{CONTACT.emailText}</span>
-            </span>
-          </a>
-          <div className="flex items-center gap-4 rounded-2xl border border-paper/15 bg-surface p-6">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-ember/10 text-ember">
-              <ICONS.pin size={22} aria-hidden />
-            </span>
-            <span>
-              <span className="block font-bold">Address</span>
-              <span className="text-sm text-muted">{CONTACT.address}</span>
-            </span>
+            <div className="mt-6 space-y-3 rounded-2xl bg-ink p-6 text-sm text-base">
+              <p className="flex items-start gap-2.5">
+                <Icons.MapPin
+                  size={16}
+                  className="mt-0.5 shrink-0"
+                  aria-hidden
+                />
+                {SITE.address}
+              </p>
+              <p className="flex items-center gap-2.5">
+                <Icons.Mail size={16} className="shrink-0" aria-hidden />
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="underline-offset-4 hover:underline"
+                >
+                  {SITE.email}
+                </a>
+              </p>
+              <p className="flex items-center gap-2.5">
+                <Icons.Phone size={16} className="shrink-0" aria-hidden />
+                {SITE.whatsapp}
+              </p>
+            </div>
           </div>
-        </div>
-      </Section>
 
-      {/* 4 Request Quote Form */}
-      <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Request Quote Form.</h2>
-        <div className="mt-6">
-          <QuoteForm variant="full" />
-        </div>
-        {/* Waspada penipuan — pola Pertamina, tanpa rute baru */}
-        <div className="mt-6 flex gap-4 rounded-2xl border border-ember/30 bg-ember/5 p-5">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-ember/10 text-ember">
-            <ICONS.shield size={20} aria-hidden />
-          </span>
-          <p className="text-sm leading-relaxed text-muted">
-            <span className="font-bold text-paper">Beware of fraud.</span> Official transactions
-            only go through the contacts on this page. Our team never asks for
-            transfers to personal accounts.
-          </p>
-        </div>
-      </Section>
-
-      {/* 5 Quick Links */}
-      <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Quick Links.</h2>
-        <ul className="mt-4 space-y-2">
-          {[
-            ["Charcoal →", "/products"],
-            ["Briquettes →", "/products"],
-            ["Copra →", "/products"],
-            ["Process & QC →", "/process"],
-          ].map(([label, href]) => (
-            <li key={label}>
-              <a href={href} className="text-paper/80 hover:text-ember">
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* 6 FAQ */}
-      <Section spacing="compact" width="narrow">
-        <h2 className="font-display text-2xl font-bold">FAQ.</h2>
-        <div className="mt-6">
-          <FaqList items={FAQS} />
-        </div>
-      </Section>
-
-      {/* 7 Office/Location — embed tanpa API key; ganti mapsQuery saat alamat final */}
-      <Section spacing="compact">
-        <h2 className="font-display text-2xl font-bold">Location.</h2>
-        <div className="mt-6 overflow-hidden rounded-2xl border border-paper/15">
-          <iframe
-            title="Nagari Katapiang location map"
-            src={`https://maps.google.com/maps?q=${encodeURIComponent(CONTACT.mapsQuery)}&z=5&output=embed`}
-            loading="lazy"
-            className="min-h-64 w-full border-0 grayscale-[35%] contrast-[1.05]"
-          />
-        </div>
-        <p className="mt-3 text-sm text-muted">
-          {CONTACT.address} ·{" "}
-          <a
-            href={`https://www.google.com/maps/search/${encodeURIComponent(CONTACT.mapsQuery)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-ember underline underline-offset-4"
-          >
-            Open in Google Maps →
-          </a>
-        </p>
-      </Section>
-
-      {/* 8 Closing CTA */}
-      <section className="border-t border-paper/15 py-24 md:py-32">
-        <Container className="text-center">
-          <h2 className="font-display text-3xl font-bold md:text-5xl">Ready to Talk Today?</h2>
-          <a
-            href={CONTACT.whatsapp}
-            className="mt-8 inline-block rounded-full bg-ember px-8 py-3 text-sm font-semibold text-base"
-          >
-            Chat WhatsApp
-          </a>
+          <div className="rounded-2xl border border-line bg-surface p-6 md:p-8">
+            <h2 className="text-xl font-extrabold tracking-tight">
+              {TYPES.find((t) => t.value === type)?.label} inquiry
+            </h2>
+            <p className="mb-6 mt-1 text-sm text-muted">
+              {TYPES.find((t) => t.value === type)?.desc}
+            </p>
+            <RfqForm inquiryType={type} compact={type !== "buyer"} />
+          </div>
         </Container>
-      </section>
-    </div>
+      </Section>
+
+      <Section className="bg-surface-alt/50">
+        <Container className="max-w-3xl">
+          <h2 className="text-3xl font-extrabold tracking-tight">
+            Frequently asked.
+          </h2>
+          <div className="mt-6">
+            <Accordion items={FAQS} />
+          </div>
+        </Container>
+      </Section>
+    </>
   );
 }

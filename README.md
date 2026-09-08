@@ -1,34 +1,24 @@
-# COCO KATAPIANG — Produk Kelapa Indonesia
+# COCO KATAPIANG — Dokumentasi Desain & Build
 
-**Brand:** COCO KATAPIANG — product & commerce brand dari Nagari Katapiang, Padang Pariaman.
-**Program:** binaan Pertamina melalui Desa Energi Berdikari (DEB) — credibility layer, bukan headline.
+**Stack (dikunci):** Next.js App Router + TypeScript + Tailwind v4 +
+GSAP (scroll) + Framer Motion (state) + Lenis. Aturan: satu properti,
+satu library (§01-4, §06-3).
 
-**Stack:** Next.js (App Router) + Tailwind v4 + GSAP + Framer Motion + Lenis
-
-Dokumentasi pengembangan di folder `docs/`:
+**Brand:** COCO KATAPIANG — premium B2B commerce kelapa, Nagari Katapiang.
+**Desain:** disuling dari `pertamina.com` (struktur & pola saja).
+**Konten:** mengacu `referensi.md` (blueprint commerce). Yang tak ada di
+keduanya — investor, subholding, PPID, whistleblowing, karier, portal mitra —
+sengaja DIBUANG dari docs.
 
 | # | Dokumen | Isi |
 |---|---------|-----|
-| 00 | `00-Planning-Brief.md` | Brand, persona, benchmark, KPI, direction |
-| 01 | `01-PRD-Landing-Page.md` | Spec section-by-section homepage |
-| 02 | `02-PRD-Design-System.md` | "Tropical Heritage" theme, motion DNA, layout rules |
-| 03 | `03-Workflow-Development.md` | Tech stack, phases, GSAP/Framer division of labor |
-| 04 | `04-PRD-Other-Pages.md` | About, Products, Process, Contact |
-| 05 | `05-PRD-Ecommerce.md` | Product catalog, cart, checkout |
-| 06 | `06-Anti-Slop.md` | Patokan anti-AI-slop (dari nutlope/hallmark) + checklist pre-push |
-| 07 | `07-Commerce-Blueprint.md` | Suling blueprint commerce eksternal: adopsi vs konflik vs backlog |
-| 08 | `08-Referensi-Standar-Web.md` | Bar properness ala F1/Pertamina/Stripe: standar + checklist |
-| 09 | `09-Shot-List-Foto.md` | Daftar 15 foto asli yang harus diambil tim nagari |
+| 00 | `docs/00-Brief.md` | Brand architecture, program DEB, bahasa, KPI, open questions |
+| 01 | `docs/01-Design-System.md` | Tema "Corporate Heritage", token, motion, aturan layout |
+| 02 | `docs/02-Arsitektur-Informasi.md` | Navigasi, footer kolom, routing |
+| 03 | `docs/03-Halaman.md` | Spec section per halaman |
+| 04 | `docs/04-Model-Konten.md` | Kontrak CMS: produk, artikel, metrik, RFQ |
+| 05 | `docs/05-Fase-Build.md` | Tahapan build dan status eksekusi |
+| 06 | `docs/06-Checklist-QA.md` | Warisan pra-wipe: struktur folder, standar section, motion, tracking, SEO, budget, shot-list |
+| 07 | `docs/07-Progress-Handoff.md` | Status fase + peta file + keputusan terkunci (untuk AI penerus) |
 
----
-
-## Cara Pengembangan (Flow — dari Java Management)
-
-1. **Dokumentasi dulu** — PRD lengkap sebelum kode (di folder `docs/`).
-2. **Design System fix** — warna, tipografi, motion DNA, "no uniform cards" rule.
-3. **Phased development** — Static → Light reveal → Signature interaction → Data/Integrasi → QA → Deploy.
-4. **Library split rule** — GSAP = scroll-linked; Framer Motion = state-triggered. Tidak pernah keduanya mengontrol properti sama pada elemen sama.
-5. **Content data decoupled** dari komponen, mudah migrasi CMS.
-6. **Anti-slop** — cek `docs/06-Anti-Slop.md` sebelum push (grep `transition-all` harus kosong).
-
-Lihat `docs/03-Workflow-Development.md` untuk detail teknis & urutan kerja.
+> Status: **Fase 0–3 selesai (2026-09-08)** — fondasi, seluruh route statis, motion ringan, dan signature motion sudah terverifikasi. Berikutnya: Fase 4 (integrasi dan QA visual).

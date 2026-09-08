@@ -1,42 +1,45 @@
-import { Hero } from "@/components/sections/home/Hero";
-import { ProductLines } from "@/components/sections/home/ProductLines";
-import { QuickNumbers } from "@/components/sections/home/QuickNumbers";
-import { QualityTraceability } from "@/components/sections/home/QualityTraceability";
-import { ProcessRundown } from "@/components/sections/home/ProcessRundown";
-import { Compliance } from "@/components/sections/home/Compliance";
-import { WhyCoco } from "@/components/sections/home/WhyCoco";
-import { SourcingHeritage } from "@/components/sections/home/SourcingHeritage";
-import { Testimonials } from "@/components/sections/home/Testimonials";
-import { MarketIndustries } from "@/components/sections/home/MarketIndustries";
-import { Faq } from "@/components/sections/home/Faq";
-import { ContactQuote } from "@/components/sections/home/ContactQuote";
-import { CtaClosing } from "@/components/sections/home/CtaClosing";
-import { EmberWipe } from "@/components/motion/EmberWipe";
+import type { Metadata } from "next";
+import { Hero } from "@/components/sections/Hero";
+import { Commodity } from "@/components/sections/Commodity";
+import { Portfolio } from "@/components/sections/Portfolio";
+import { Commerce } from "@/components/sections/Commerce";
+import { Origin } from "@/components/sections/Origin";
+import { Process } from "@/components/sections/Process";
+import { Quality } from "@/components/sections/Quality";
+import { Pertamina } from "@/components/sections/Pertamina";
+import { Impact } from "@/components/sections/Impact";
+import { Global } from "@/components/sections/Global";
+import { BuyerCta } from "@/components/sections/BuyerCta";
+import { Marquee } from "@/components/ui/Marquee";
 
-// Homepage — 14 section per 01-PRD-Landing-Page.md (Footer di layout = §14).
-// EmberWipe di 3 boundary (§2.2): Hero→ProductLines, Process→Why, CTA→Footer.
-export default function Home() {
+export const metadata: Metadata = {
+  title: "COCO KATAPIANG — Source Coconut Products from Indonesia",
+  description:
+    "Premium B2B coconut products from Nagari Katapiang, West Sumatra: copra, shell charcoal and briquettes.",
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-1 flex-col">
+    <>
       <Hero />
-      <EmberWipe>
-        <ProductLines />
-      </EmberWipe>
-      <QuickNumbers />
-      <QualityTraceability />
-      <ProcessRundown />
-      <Compliance />
-      <EmberWipe>
-        <WhyCoco />
-      </EmberWipe>
-      <SourcingHeritage />
-      <Testimonials />
-      <MarketIndustries />
-      <Faq />
-      <ContactQuote />
-      <EmberWipe>
-        <CtaClosing />
-      </EmberWipe>
-    </div>
+      <Marquee
+        items={[
+          "Single-origin sourcing",
+          "Batch-level quality",
+          "Bulk & private label",
+          "Processed in Katapiang",
+        ]}
+      />
+      <Commodity />
+      <Portfolio />
+      <Commerce />
+      <Origin />
+      <Process />
+      <Quality />
+      <Pertamina />
+      <Impact />
+      <Global />
+      <BuyerCta />
+    </>
   );
 }

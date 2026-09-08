@@ -1,82 +1,53 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { SmoothScrollProvider } from "@/components/motion/SmoothScrollProvider";
+import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ScrollTop } from "@/components/ui/ScrollTop";
 
-// Satu family dua peran (korporat ringan, tidak editorial):
-// display = weight tegas (700–800), body = ringan (400–600).
-const display = Plus_Jakarta_Sans({
-  variable: "--font-display",
-  weight: ["700", "800"],
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
-});
-
-const sans = Plus_Jakarta_Sans({
   variable: "--font-sans",
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nagarikatapiang.id"),
   title: {
-    default: "COCO KATAPIANG — The Value of Coconut, Reimagined",
+    default: "COCO KATAPIANG — Source Coconut Products from Indonesia",
     template: "%s — COCO KATAPIANG",
   },
   description:
-    "COCO KATAPIANG — coconut processing & products from Katapiang, West Sumatra, Indonesia. Supported by Pertamina through Desa Energi Berdikari.",
+    "Premium coconut products from Nagari Katapiang, West Sumatra. Copra, shell charcoal and briquettes for B2B buyers worldwide.",
+  metadataBase: new URL("https://cocokatapiang.id"),
   openGraph: {
+    type: "website",
+    siteName: "COCO KATAPIANG",
     title: "COCO KATAPIANG — The Value of Coconut, Reimagined",
     description:
-      "Coconut products from Indonesia: shell charcoal, briquettes, copra.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "COCO KATAPIANG — The Value of Coconut, Reimagined",
-    description: "Source coconut products from Indonesia.",
+      "Premium coconut products from Indonesia. Copra, shell charcoal, briquettes.",
   },
 };
 
-// Organization schema — 01-PRD §5 SEO
-const ORG_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "COCO KATAPIANG",
-  description: "Coconut processing & products from West Sumatra, Indonesia. A Pertamina-supported Desa Energi Berdikari initiative.",
-  email: "info@nagarikatapiang.id",
-  address: { "@type": "PostalAddress", addressLocality: "Katapiang", addressRegion: "Sumatera Barat", addressCountry: "ID" },
-};
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${display.variable} ${sans.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col bg-base text-paper">
+    <html lang="en" className={jakarta.variable}>
+      <body className="bg-base text-ink antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[200] focus:rounded-full focus:bg-ember focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-base"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2 focus:text-sm focus:text-base"
         >
           Skip to content
         </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
-        />
-        <SmoothScrollProvider>
+        <Providers>
           <Navbar />
-          <main id="main" className="flex flex-1 flex-col">{children}</main>
+          <main id="main">{children}</main>
           <Footer />
-          <ScrollTop />
-        </SmoothScrollProvider>
+        </Providers>
       </body>
     </html>
   );

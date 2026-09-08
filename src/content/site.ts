@@ -1,16 +1,25 @@
-export const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+export const NAV = [
   { label: "Products", href: "/products" },
+  { label: "Our Story", href: "/story" },
   { label: "Process", href: "/process" },
-  { label: "Contact", href: "/contact" },
+  { label: "Impact", href: "/impact" },
+  { label: "Journal", href: "/journal" },
 ] as const;
 
-export const CONTACT = {
-  whatsapp: "https://wa.me/6200000000000",
-  email: "mailto:info@nagarikatapiang.id",
-  emailText: "info@nagarikatapiang.id",
-  address: "Nagari Katapiang, Padang Pariaman, Sumatera Barat",
-  // Ganti dengan alamat balai/gudang final bila sudah ditetapkan
-  mapsQuery: "Katapiang, Batang Anai, Padang Pariaman",
+export const SITE = {
+  name: "COCO KATAPIANG",
+  tagline: "The Value of Coconut, Reimagined.",
+  commerce: "Source Coconut Products from Indonesia.",
+  badge: "A Pertamina-supported Desa Energi Berdikari initiative",
+  email: "hello@cocokatapiang.id",
+  whatsapp: "+62 800-0000-0000",
+  address: "Nagari Katapiang, Padang Pariaman, West Sumatra, Indonesia",
+  announcement: "New harvest lots available — copra & shell charcoal. Request a quotation today.",
 } as const;
+
+export const SOCIALS = [
+  { label: "Instagram", href: "#" },
+  { label: "LinkedIn", href: "#" },
+  { label: "TikTok", href: "#" },
+  { label: "YouTube", href: "#" },
+] as const;

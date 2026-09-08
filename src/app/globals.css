@@ -1,123 +1,99 @@
 @import "tailwindcss";
 
 @theme {
-  /* Nagari Katapiang — putih & coklat (base terang, tinta coklat tua) */
-  --color-base: #faf6ef;
-  --color-surface: #ffffff;
-  --color-surface-alt: #efe7d8;
-  --color-ember: #7a4e1f;
-  --color-ember-glow: #7a4e1f;
-  --color-palm: #5f7a4e;
-  --color-paper: #2b1d12;
-  --color-muted: #6e5f50;
+    --color-base: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f3f2f0;
+    --color-ink: #21130c;
+    --color-muted: #655b55;
+    --color-brand: #4f2914;
+    --color-brand-deep: #2d170c;
+    --color-ember: #8f3f18;
+    --color-palm: #294432;
+    --color-line: #d8d4d0;
 
-  --font-display: var(--font-display), "Space Grotesk", sans-serif;
-  --font-sans: var(--font-sans), "Inter", sans-serif;
-
-  --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
-
-  --animate-marquee: marquee 40s linear infinite;
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
-:root {
-  --background: var(--color-base);
-  --foreground: var(--color-paper);
+/* ---------- base ---------- */
+html,
+body {
+    overflow-x: clip;
 }
 
 html {
-  scroll-behavior: smooth;
-  overflow-x: clip; /* gate 34: clip di html DAN body */
-}
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-base);
-  color: var(--color-paper);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: clip;
+    background: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--color-ember);
-  color: var(--color-base);
+    background: var(--color-brand);
+    color: #ffffff;
 }
 
-/* Form focus ring — instan (tanpa transisi), 1px border konstan semua state */
-input,
-select,
-textarea {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-}
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline-color: var(--color-ember);
+:focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
-/* tabular figures untuk counter/rundown — Design System §4.2 */
-.tnum {
-  font-variant-numeric: tabular-nums;
+img {
+    max-width: 100%;
 }
 
-/* Fade Mask utilities — Design System §2.4 */
-.fade-mask-linear {
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
+.surface-card {
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    box-shadow: 0 12px 36px rgb(33 19 12 / 0.06);
 }
 
-.fade-mask-radial {
-  -webkit-mask-image: radial-gradient(
-    ellipse at center,
-    black 55%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(ellipse at center, black 55%, transparent 100%);
+.surface-card:hover {
+    box-shadow: 0 16px 44px rgb(33 19 12 / 0.1);
 }
 
+/* ---------- media fade into stage (never hard rectangles) ---------- */
+.fade-mask {
+    -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+}
+
+/* ---------- marquee ---------- */
+@keyframes marquee-loop {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-track {
+    animation: marquee-loop 28s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track.marquee-paused {
+    animation-play-state: paused;
+}
+
+/* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-  /* Marquee: diam total (durasi ~nol bikin spin liar) */
-  .animate-marquee {
-    animation: none !important;
-    transform: none !important;
-  }
+    html {
+        scroll-behavior: auto;
+    }
+    .marquee-track {
+        animation: none;
+        transform: none;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
