@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, useRef, useState } from "react";
+import { Children, useCallback, useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Icons } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
@@ -22,6 +22,8 @@ export function DeckSlider({
   const items = Children.toArray(children);
   const deck = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
   const reduceMotion = useReducedMotion();
 
   const move = (direction: -1 | 1) => {
@@ -33,7 +35,7 @@ export function DeckSlider({
     });
   };
 
-  const updateActive = () => {
+  const updateActive = useCallback(() => {
     const node = deck.current;
     if (!node) return;
     const cards = Array.from(node.children) as HTMLElement[];
@@ -47,7 +49,16 @@ export function DeckSlider({
       { index: 0, distance: Number.POSITIVE_INFINITY },
     );
     setActive(nearest.index);
-  };
+    const max = node.scrollWidth - node.clientWidth;
+    setAtStart(node.scrollLeft <= 4);
+    setAtEnd(node.scrollLeft >= max - 4);
+  }, []);
+
+  useEffect(() => {
+    updateActive();
+    window.addEventListener("resize", updateActive);
+    return () => window.removeEventListener("resize", updateActive);
+  }, [updateActive]);
 
   return (
     <div className={cn("relative", className)}>
@@ -65,9 +76,10 @@ export function DeckSlider({
       <button
         type="button"
         onClick={() => move(-1)}
+        disabled={atStart}
         aria-label="Previous product"
         className={cn(
-          "absolute top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/90 shadow-lg shadow-black/10 backdrop-blur transition-[border-color,color,transform] duration-200 hover:border-brand/50 hover:text-brand active:translate-y-[calc(-50%+1px)] md:flex",
+          "absolute top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/90 shadow-lg shadow-black/10 backdrop-blur transition-[border-color,color,transform,opacity] duration-200 hover:border-brand/50 hover:text-brand active:translate-y-[calc(-50%+1px)] disabled:cursor-default disabled:opacity-0 md:flex",
           contained ? "left-3" : "left-4 lg:left-8",
         )}
       >
@@ -76,9 +88,10 @@ export function DeckSlider({
       <button
         type="button"
         onClick={() => move(1)}
+        disabled={atEnd}
         aria-label="Next product"
         className={cn(
-          "absolute top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/90 shadow-lg shadow-black/10 backdrop-blur transition-[border-color,color,transform] duration-200 hover:border-brand/50 hover:text-brand active:translate-y-[calc(-50%+1px)] md:flex",
+          "absolute top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/90 shadow-lg shadow-black/10 backdrop-blur transition-[border-color,color,transform,opacity] duration-200 hover:border-brand/50 hover:text-brand active:translate-y-[calc(-50%+1px)] disabled:cursor-default disabled:opacity-0 md:flex",
           contained ? "right-3" : "right-4 lg:right-8",
         )}
       >

@@ -19,7 +19,7 @@ export function Commerce() {
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {sellable.map((p) => (
-            <article key={p.slug} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color] duration-200 hover:border-brand/50">
+            <article key={p.slug} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-brand/50 hover:shadow-lg hover:shadow-black/10">
               <SiteImage asset={p.image} alt={p.name} ratio="aspect-[4/3]" className="rounded-none" sizes="(max-width: 768px) 100vw, 33vw" />
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between gap-2 text-xs font-bold">
