@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { Icons } from "@/components/ui/icons";
@@ -30,7 +31,7 @@ export function Navbar() {
   }, [open, close]);
 
   return (
-    <header className="sticky top-0 z-50">
+    <>
       {!dismissed && (
         <div className="bg-ink text-cream">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 md:px-10">
@@ -46,6 +47,7 @@ export function Navbar() {
           </div>
         </div>
       )}
+      <header className="sticky top-0 z-50">
       <div className="border-b border-line bg-surface/95 shadow-[0_4px_24px_rgba(33,19,12,0.04)] backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 md:h-[72px] md:px-10">
           <Link
@@ -53,15 +55,22 @@ export function Navbar() {
             className="flex items-center gap-2.5"
             aria-label="COCO KATAPIANG home"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand text-cream text-lg font-extrabold">
-              C
+            <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl">
+              <Image
+                src="/assets/brand/coco-mark.svg"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9"
+                priority
+              />
             </span>
             <span className="leading-none">
               <span className="block text-[15px] font-extrabold tracking-tight">
                 COCO KATAPIANG
               </span>
               <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
-                Katapiang · Indonesia
+                West Sumatra · Indonesia
               </span>
             </span>
           </Link>
@@ -167,6 +176,7 @@ export function Navbar() {
           </div>
         </div>
       )}
-    </header>
+      </header>
+    </>
   );
 }
