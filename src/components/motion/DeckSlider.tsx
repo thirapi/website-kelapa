@@ -55,7 +55,7 @@ export function DeckSlider({
         ref={deck}
         onScroll={updateActive}
         className={cn(
-          "flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+          "flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 pt-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
           contained ? "px-1" : "px-6 md:px-10",
         )}
       >
