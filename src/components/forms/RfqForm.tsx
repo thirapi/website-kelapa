@@ -97,11 +97,11 @@ export function RfqForm({
       <p aria-live="polite" className="min-h-5 text-sm sm:col-span-2">
         {status === "error" && waLink && (
           <span>
-            Online submit is unavailable —{" "}
+            Online submit is unavailable.{" "}
             <a href={waLink} target="_blank" rel="noreferrer" className="font-semibold text-brand underline underline-offset-4" onClick={() => track("quote_whatsapp_click")}>
               continue via WhatsApp
             </a>
-            .
+            {" "}instead.
           </span>
         )}
       </p>

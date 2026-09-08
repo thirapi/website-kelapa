@@ -6,14 +6,14 @@ import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Our Story",
-  description: "From Katapiang village to world buyers — the origin and journey of COCO KATAPIANG.",
+  description: "From Katapiang village to world buyers: the origin and journey of COCO KATAPIANG.",
 };
 
 const JOURNEY = [
   { year: "Village roots", text: "Generations of coconut farming in Nagari Katapiang, Padang Pariaman." },
-  { year: "The idea", text: "Every part of the coconut has value — waste becomes product." },
+  { year: "The idea", text: "Every part of the coconut has value. Waste becomes product." },
   { year: "DEB backing", text: "Pertamina's Desa Energi Berdikari framework turns village energy into village industry." },
-  { year: "Today", text: "Copra, shell charcoal and briquettes — specified for world buyers." },
+  { year: "Today", text: "Copra, shell charcoal and briquettes, specified for world buyers." },
 ];
 
 export default function StoryPage() {
@@ -35,7 +35,7 @@ export default function StoryPage() {
             </h2>
             <p className="mt-4 leading-relaxed text-ink/80">
               Nagari Katapiang sits on the coast of Padang Pariaman, West Sumatra.
-              Coconut palms shape daily life here — and for generations, much of each
+              Coconut palms shape daily life here, and for generations, much of each
               harvest&apos;s value left the village unprocessed.
             </p>
             <p className="mt-3 leading-relaxed text-ink/80">
@@ -52,15 +52,23 @@ export default function StoryPage() {
           <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl">
             How we got here.
           </h2>
-          <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {JOURNEY.map((j, i) => (
-              <li key={j.year} className="rounded-2xl border border-line bg-surface p-6">
-                <p className="text-xs font-bold tabular-nums text-ember">0{i + 1}</p>
-                <h3 className="mt-2 text-lg font-extrabold tracking-tight">{j.year}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{j.text}</p>
-              </li>
-            ))}
-          </ol>
+          <div className="relative mt-10">
+            <span
+              aria-hidden
+              className="absolute left-0 right-0 top-11 hidden h-px bg-brand/30 lg:block"
+            />
+            <ol className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {JOURNEY.map((j, i) => (
+                <li key={j.year} className="rounded-2xl border border-line bg-surface p-6">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand text-sm font-extrabold tabular-nums text-cream ring-4 ring-surface">
+                    0{i + 1}
+                  </span>
+                  <h3 className="mt-4 text-lg font-extrabold tracking-tight text-ink">{j.year}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{j.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </Container>
       </Section>
       <Section>
@@ -71,7 +79,7 @@ export default function StoryPage() {
               The hands behind the product.
             </h2>
             <p className="mt-4 leading-relaxed text-ink/80">
-              Farmer suppliers, processors, graders and packers — all from Katapiang and
+              Farmer suppliers, processors, graders and packers, all from Katapiang and
               surroundings. Team profiles with photos follow once stakeholder materials arrive.
             </p>
             <div className="mt-6">

@@ -14,8 +14,8 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "COCO KATAPIANG — Source Coconut Products from Indonesia",
-    template: "%s — COCO KATAPIANG",
+    default: "COCO KATAPIANG: Source Coconut Products from Indonesia",
+    template: "%s | COCO KATAPIANG",
   },
   description:
     "Premium coconut products from Nagari Katapiang, West Sumatra. Copra, shell charcoal and briquettes for B2B buyers worldwide.",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "COCO KATAPIANG",
-    title: "COCO KATAPIANG — The Value of Coconut, Reimagined",
+    title: "COCO KATAPIANG: The Value of Coconut, Reimagined",
     description:
       "Premium coconut products from Indonesia. Copra, shell charcoal, briquettes.",
   },

@@ -6,7 +6,7 @@ import { Icons } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 
 // Standard deck card width (see docs/01-§5 Lebar). Total track content must
-// exceed the viewport at every breakpoint — peek is the swipe affordance.
+// exceed the viewport at every breakpoint: peek is the swipe affordance.
 export const deckCardClass =
   "w-[78vw] max-w-md shrink-0 snap-start sm:w-[42vw] lg:w-[31vw]";
 

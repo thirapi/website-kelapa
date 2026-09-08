@@ -1,4 +1,4 @@
-# 06 — Checklist QA (warisan docs pra-wipe, tetap berlaku)
+# 06: Checklist QA (warisan docs pra-wipe, tetap berlaku)
 
 ## 1. Struktur folder (kontrak build)
 
@@ -38,7 +38,7 @@ public/assets/             # hero/ · products/ · sourcing/ · brand/ (WebP)
 `hero_cta_quote` · `hero_cta_explore` · `product_line_click` ·
 `numbers_section_viewed` · `testimonial_slide_change` · `faq_item_open` ·
 `quote_submit` · `quote_whatsapp_click` · `closing_cta_quote` ·
-`footer_link_click` — via `lib/analytics:track`, tanpa hardcode gtag di komponen.
+`footer_link_click`: via `lib/analytics:track`, tanpa hardcode gtag di komponen.
 
 ## 5. SEO (warisan, tetap)
 

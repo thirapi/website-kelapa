@@ -7,9 +7,9 @@ import { SITE } from "@/content/site";
 import { ASSETS } from "@/content/assets";
 
 const TRUST = [
-  { value: "100%", label: "Traceable to Katapiang groves" },
-  { value: "3+", label: "Export-ready product lines" },
-  { value: "B2B", label: "Bulk, private-label & custom packing" },
+  { value: "100%", label: "Traceable to Katapiang groves", short: "Traceable" },
+  { value: "3+", label: "Export-ready product lines", short: "Export-ready" },
+  { value: "B2B", label: "Bulk, private-label & custom packing", short: "Bulk & label" },
 ];
 
 export function Hero() {
@@ -60,7 +60,7 @@ export function Hero() {
             The Value of Coconut, Reimagined.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-cream/80 md:text-lg">
-            {SITE.commerce} Premium copra, shell charcoal and briquettes —
+            {SITE.commerce} Premium copra, shell charcoal and briquettes,
             processed in the village, specified for world buyers.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -79,8 +79,9 @@ export function Hero() {
           <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-cream/15 pt-6 md:mt-12 md:gap-4">
             {TRUST.map((t) => (
               <div key={t.label}>
-                <dt className="order-2 mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-cream/60 sm:text-xs sm:tracking-[0.14em]">
-                  {t.label}
+                <dt className="order-2 mt-1 whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.12em] text-cream/60 sm:text-xs sm:tracking-[0.14em]">
+                  <span className="sm:hidden">{t.short}</span>
+                  <span className="hidden sm:inline">{t.label}</span>
                 </dt>
                 <dd className="order-1 text-xl font-extrabold tabular-nums sm:text-2xl">
                   {t.value}

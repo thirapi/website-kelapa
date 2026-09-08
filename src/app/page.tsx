@@ -13,7 +13,7 @@ import { BuyerCta } from "@/components/sections/BuyerCta";
 import { Marquee } from "@/components/ui/Marquee";
 
 export const metadata: Metadata = {
-  title: "COCO KATAPIANG — Source Coconut Products from Indonesia",
+  title: "COCO KATAPIANG: Source Coconut Products from Indonesia",
   description:
     "Premium B2B coconut products from Nagari Katapiang, West Sumatra: copra, shell charcoal and briquettes.",
 };

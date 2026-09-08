@@ -12,7 +12,7 @@ export function Global() {
           From Indonesia to the World.
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-          Building toward global markets — one verified lot at a time.
+          Building toward global markets, one verified lot at a time.
         </p>
         <GlobalRoute stops={STOPS} />
       </Container>

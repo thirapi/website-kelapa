@@ -14,6 +14,11 @@ const POINTS = [
   { x: 910, y: 75 },
 ];
 
+const ROUTE_PATH =
+  "M90 235 C190 220 230 125 340 125 S515 235 640 205 S790 100 910 75";
+
+const STOP_ICONS = [Icons.Sprout, Icons.Truck, Icons.Globe2, Icons.Ship] as const;
+
 export function GlobalRoute({ stops }: { stops: string[] }) {
   const root = useRef<HTMLDivElement>(null);
 
@@ -104,7 +109,7 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
         className="h-auto w-full overflow-visible"
       >
         <path
-          d="M90 235 C190 220 230 125 340 125 S515 235 640 205 S790 100 910 75"
+          d={ROUTE_PATH}
           fill="none"
           stroke="currentColor"
           strokeWidth="4"
@@ -120,32 +125,44 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
               r="24"
               className="fill-brand"
             />
-            <circle cx={point.x} cy={point.y} r="7" className="fill-cream" />
+            <text
+              x={point.x}
+              y={point.y + 1}
+              textAnchor="middle"
+              dominantBaseline="central"
+              fontSize="14"
+              fontWeight="800"
+              className="fill-cream"
+            >
+              0{index + 1}
+            </text>
           </g>
         ))}
       </svg>
       <ol className="mt-2 grid grid-cols-2 gap-4 md:grid-cols-4">
-        {stops.map((stop, index) => (
-          <li
-            key={stop}
-            data-route-stop
-            className="flex items-start gap-2.5 border-t border-line pt-4"
-          >
-            <Icons.Globe2
-              size={17}
-              className="mt-0.5 shrink-0 text-brand"
-              aria-hidden
-            />
-            <div>
-              <p className="text-xs font-bold tabular-nums text-muted">
-                0{index + 1}
-              </p>
-              <p className="text-sm font-extrabold tracking-tight text-ink md:text-base">
-                {stop}
-              </p>
-            </div>
-          </li>
-        ))}
+        {stops.map((stop, index) => {
+          const StopIcon = STOP_ICONS[index % STOP_ICONS.length];
+          return (
+            <li
+              key={stop}
+              className="flex items-start gap-2.5 border-t border-line pt-4"
+            >
+              <StopIcon
+                size={17}
+                className="mt-0.5 shrink-0 text-brand"
+                aria-hidden
+              />
+              <div>
+                <p className="text-xs font-bold tabular-nums text-muted">
+                  0{index + 1}
+                </p>
+                <p className="text-sm font-extrabold tracking-tight text-ink md:text-base">
+                  {stop}
+                </p>
+              </div>
+            </li>
+          );
+        })}
       </ol>
     </div>
   );

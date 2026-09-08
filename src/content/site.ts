@@ -15,7 +15,7 @@ export const SITE = {
   email: "hello@cocokatapiang.id",
   whatsapp: "+62 800-0000-0000",
   address: "Nagari Katapiang, Padang Pariaman, West Sumatra, Indonesia",
-  announcement: "New harvest lots available — copra & shell charcoal. Request a quotation today.",
+  announcement: "New harvest lots available: copra & shell charcoal. Request a quotation today.",
 } as const;
 
 export const SOCIALS = [

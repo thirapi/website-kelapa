@@ -22,7 +22,7 @@ export function Quality() {
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
           Every lot is specified, graded and verified before it ships.
-          Five gates from raw material to delivery — no lot skips one.
+          Five gates from raw material to delivery. No lot skips one.
         </p>
 
         <ol className="mt-10 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">

@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { ProcessTimeline, type ProcessStep } from "@/components/motion/ProcessTimeline";
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
+import { SiteImage } from "@/components/ui/SiteImage";
 import { Icons } from "@/components/ui/icons";
+import { cn } from "@/lib/cn";
+import type { AssetKey } from "@/content/assets";
 
 export const metadata: Metadata = {
   title: "Process & Quality",
   description:
-    "Seven gates from coconut to container — our process timeline and quality framework.",
+    "Seven gates from coconut to container: our process timeline and quality framework.",
 };
 
-const STEPS: ProcessStep[] = [
+const STEPS: { name: string; desc: string; photo: AssetKey }[] = [
   {
     name: "Source",
     desc: "Selected mature coconuts from Katapiang groves.",
@@ -38,7 +40,7 @@ const STEPS: ProcessStep[] = [
   },
   {
     name: "Pack",
-    desc: "Graded packing — bulk, bag or private label.",
+    desc: "Graded packing: bulk, bag or private label.",
     photo: "sack-burlap",
   },
   {
@@ -71,12 +73,53 @@ export default function ProcessPage() {
       <PageHeader
         eyebrow="Process & quality"
         title="From Coconut to Value."
-        intro="Seven gates. Every lot passes all of them before it ships — documented, batch by batch."
+        intro="Seven gates. Every lot passes all of them before it ships. Documented, batch by batch."
         trail={[{ label: "Process" }]}
       />
-      <Section>
+      <Section className="pt-10 md:pt-14">
         <Container>
-          <ProcessTimeline steps={STEPS} />
+          <ol className="relative">
+            <span
+              aria-hidden
+              className="absolute bottom-10 left-4 top-10 w-px bg-brand/25 md:left-1/2"
+            />
+            {STEPS.map((s, i) => {
+              const left = i % 2 === 0;
+              return (
+                <li
+                  key={s.name}
+                  className={cn(
+                    "relative py-8 pl-14 md:w-1/2 md:py-10 md:pl-0",
+                    left ? "md:pr-14" : "md:ml-auto md:pl-14",
+                  )}
+                >
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute top-8 flex h-9 w-9 items-center justify-center rounded-full bg-brand text-xs font-extrabold tabular-nums text-cream ring-4 ring-cream md:top-10",
+                      "left-0",
+                      left ? "md:left-auto md:-right-[18px]" : "md:-left-[18px]",
+                    )}
+                  >
+                    {i + 1}
+                  </span>
+                  <SiteImage
+                    asset={s.photo}
+                    alt={`${s.name}: ${s.desc}`}
+                    ratio="aspect-[4/3]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-ember">
+                    Step {i + 1} of {STEPS.length}
+                  </p>
+                  <h2 className="mt-2 text-2xl font-extrabold tracking-tight md:text-3xl">
+                    {s.name}
+                  </h2>
+                  <p className="mt-2 leading-relaxed text-muted">{s.desc}</p>
+                </li>
+              );
+            })}
+          </ol>
         </Container>
       </Section>
       <Section className="bg-surface-alt/50">

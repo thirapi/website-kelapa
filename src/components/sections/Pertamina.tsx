@@ -16,7 +16,7 @@ export function Pertamina() {
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
               COCO KATAPIANG grows within Pertamina&apos;s Desa Energi Berdikari
-              framework — village energy independence turned into village industry.
+              framework: village energy independence turned into village industry.
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <Image

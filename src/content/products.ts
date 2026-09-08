@@ -25,7 +25,7 @@ export const PRODUCTS: Product[] = [
     tagline: "Sun-dried coconut kernels, graded for oil milling.",
     category: "copra",
     shortDesc:
-      "Premium sun-dried copra from selected Katapiang coconuts — consistent moisture, clean cut, ready for milling.",
+      "Premium sun-dried copra from selected Katapiang coconuts, consistent moisture, clean cut, ready for milling.",
     image: "copra-split",
     gallery: ["copra-split", "copra-hands", "copra-table", "grove-fruit"],
     specs: [
@@ -47,7 +47,7 @@ export const PRODUCTS: Product[] = [
     tagline: "High fixed-carbon charcoal from mature shells.",
     category: "charcoal",
     shortDesc:
-      "Dense, long-burning charcoal carbonized from mature coconut shells — the raw material for premium briquettes and activated carbon.",
+      "Dense, long-burning charcoal carbonized from mature coconut shells: the raw material for premium briquettes and activated carbon.",
     image: "charcoal-fire",
     gallery: ["charcoal-fire", "embers-close", "shell-texture", "kiln-embers"],
     specs: [
@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
     tagline: "Smokeless, long-burning fuel for shisha & BBQ.",
     category: "charcoal",
     shortDesc:
-      "Odorless, smokeless briquettes pressed from shell charcoal — steady heat for shisha lounges, grills and food industry.",
+      "Odorless, smokeless briquettes pressed from shell charcoal, steady heat for shisha lounges, grills and food industry.",
     image: "briquettes-grill",
     gallery: ["briquettes-grill", "charcoal-dark", "embers-close", "sacks-pile"],
     specs: [
@@ -109,7 +109,7 @@ export const PRODUCTS: Product[] = [
     tagline: "Cold-pressed VCO for wellness & cosmetics.",
     category: "future",
     shortDesc:
-      "Cold-pressed virgin coconut oil from fresh kernels — in development for wellness, food and cosmetics buyers.",
+      "Cold-pressed virgin coconut oil from fresh kernels, in development for wellness, food and cosmetics buyers.",
     image: "vco-bottle",
     gallery: ["vco-bottle", "oil-bottle", "copra-hands", "grove-fruit"],
     specs: [

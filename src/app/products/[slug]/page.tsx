@@ -107,7 +107,7 @@ export default async function ProductDetailPage({
             <div>
               <h2 className="text-3xl font-extrabold tracking-tight">Request this product.</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                Tell us quantity, specification, packaging and destination — we reply within 1–2 business days.
+                Tell us quantity, specification, packaging and destination. We reply within 1–2 business days.
               </p>
             </div>
             <RfqForm fixedProduct={product.name} />

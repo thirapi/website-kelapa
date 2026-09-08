@@ -136,7 +136,7 @@ export function Footer() {
             <li>{SITE.whatsapp}</li>
           </ul>
           <p className="mt-4 text-xs text-cream/50">
-            {SOCIALS.map((s) => s.label).join(" · ")} — channels forthcoming.
+            {SOCIALS.map((s) => s.label).join(" · ")}: channels forthcoming.
           </p>
         </div>
       </Container>

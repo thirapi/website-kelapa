@@ -19,11 +19,11 @@ export interface RfqPayload extends Record<string, unknown> {
 export function buildWhatsAppLink(payload: RfqPayload): string {
   const number = process.env.NEXT_PUBLIC_WA_NUMBER ?? "6280000000000";
   const lines = [
-    "New inquiry — COCO KATAPIANG",
+    "New inquiry: COCO KATAPIANG",
     `Type: ${payload.inquiryType}`,
     `Name: ${payload.name} (${payload.company})`,
     `Email: ${payload.email}`,
-    ...payload.items.map((i) => `• ${i.product} — ${i.quantity}`),
+    ...payload.items.map((i) => `• ${i.product}: ${i.quantity}`),
     payload.specification ? `Spec: ${payload.specification}` : "",
     payload.packaging ? `Packaging: ${payload.packaging}` : "",
     payload.destination ? `Destination: ${payload.destination}` : "",

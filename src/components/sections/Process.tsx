@@ -38,7 +38,7 @@ export function Process() {
           ))}
           <li className="col-span-2 flex items-center bg-brand p-4 text-cream sm:p-6 lg:col-span-1">
             <Link href="/process" className="text-sm font-semibold leading-relaxed">
-              Seven gates. Every lot passes all of them — explore the timeline →
+              Seven gates. Every lot passes all of them. Explore the timeline →
             </Link>
           </li>
         </ol>

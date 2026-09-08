@@ -32,9 +32,9 @@ export const ARTICLES: Article[] = [
     date: "2026-08-12",
     author: "COCO KATAPIANG",
     body: [
-      "Nagari Katapiang sits on the coast of Padang Pariaman, West Sumatra — a place where coconut palms have shaped daily life for generations.",
+      "Nagari Katapiang sits on the coast of Padang Pariaman, West Sumatra, a place where coconut palms have shaped daily life for generations.",
       "COCO KATAPIANG began with a simple observation: every part of the coconut has value. The kernel becomes copra and oil. The shell becomes charcoal and briquettes. What the village once treated as waste, we now treat as product.",
-      "This journal follows that journey — from grove to global buyer.",
+      "This journal follows that journey, from grove to global buyer.",
     ],
     references: [],
   },
@@ -43,7 +43,7 @@ export const ARTICLES: Article[] = [
     category: "Coconut",
     title: "One Fruit, Five Products: The Anatomy of Value",
     excerpt:
-      "Kernel, shell, husk, water, trunk — how a single coconut becomes a portfolio.",
+      "Kernel, shell, husk, water, trunk: how a single coconut becomes a portfolio.",
     cover: "copra-hands",
     date: "2026-08-20",
     author: "COCO KATAPIANG",
@@ -59,14 +59,14 @@ export const ARTICLES: Article[] = [
     category: "Process",
     title: "Why Moisture Content Decides Copra Quality",
     excerpt:
-      "The single number buyers ask about first — and how sun-drying discipline controls it.",
+      "The single number buyers ask about first, and how sun-drying discipline controls it.",
     cover: "coast-hero",
     date: "2026-08-28",
     author: "COCO KATAPIANG",
     body: [
       "Ask any copra buyer what they check first and the answer is moisture. Above the threshold, oil yield drops and spoilage risk rises.",
       "Our process controls it the traditional way, done with discipline: selected kernels, raised drying racks, turning schedules, and batch checks before packing.",
-      "Every lot we ship is dried to ≤ 7% moisture — verified before it leaves Katapiang.",
+      "Every lot we ship is dried to ≤ 7% moisture, verified before it leaves Katapiang.",
     ],
     references: [],
   },
@@ -81,7 +81,7 @@ export const ARTICLES: Article[] = [
     author: "COCO KATAPIANG",
     body: [
       "New harvest lots are now open: sun-dried copra and graded shell charcoal, ready for inspection and quotation.",
-      "Briquette production runs made-to-order — reserve Q4 slots early for private-label and bulk orders.",
+      "Briquette production runs made-to-order. Reserve Q4 slots early for private-label and bulk orders.",
       "Contact our team with your specification, packaging and destination for a quotation.",
     ],
     references: [],

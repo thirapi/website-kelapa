@@ -48,7 +48,7 @@ export function Impact() {
           })}
         </div>
         <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted">
-          Every container shipped keeps value in the village — farmer income,
+          Every container shipped keeps value in the village: farmer income,
           processing jobs, and a reason for the next generation to stay.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">

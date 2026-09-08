@@ -7,33 +7,21 @@ import { Container, Section } from "@/components/ui/Section";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { AddToInquiry } from "@/components/inquiry/AddToInquiry";
 import { track } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
+import { FilterPills } from "@/components/ui/FilterPills";
 
 export function ProductCatalog() {
   const [filter, setFilter] = useState<ProductCategory | "all">("all");
   const list = filter === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.category === filter);
 
   return (
-    <Section>
+    <Section className="pt-10 md:pt-14">
       <Container>
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter products">
-          {PRODUCT_FILTERS.map((f) => (
-            <button
-              key={f.value}
-              type="button"
-              onClick={() => setFilter(f.value as ProductCategory | "all")}
-              aria-pressed={filter === f.value}
-              className={cn(
-                "rounded-full px-5 py-2.5 text-sm font-semibold transition-[background-color,color,border-color] duration-200",
-                filter === f.value
-                  ? "bg-ink text-cream"
-                  : "border border-line bg-surface text-ink hover:border-brand/50",
-              )}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
+        <FilterPills
+          label="Filter products"
+          options={PRODUCT_FILTERS}
+          value={filter}
+          onChange={setFilter}
+        />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((p) => (
             <article key={p.slug} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color] duration-200 hover:border-brand/50">

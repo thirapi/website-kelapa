@@ -38,7 +38,7 @@ const FAQS = [
   {
     question: "How do I order?",
     answer:
-      "Add products to your inquiry list, submit the form with quantity, specification, packaging and destination — we reply within 1–2 business days.",
+      "Add products to your inquiry list, submit the form with quantity, specification, packaging and destination. We reply within 1–2 business days.",
   },
   {
     question: "What is the minimum order?",
@@ -48,7 +48,7 @@ const FAQS = [
   {
     question: "Do you offer private label?",
     answer:
-      "Yes — briquettes and oil support custom packaging and buyer branding.",
+      "Yes, briquettes and oil support custom packaging and buyer branding.",
   },
   {
     question: "How is the price set?",
@@ -71,7 +71,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Start a Conversation."
-        intro="Buyers, suppliers, partners — tell us what you need. Real replies from Katapiang, within 1–2 business days."
+        intro="Buyers, suppliers, partners: tell us what you need. Real replies from Katapiang, within 1–2 business days."
         trail={[{ label: "Contact" }]}
       />
       <Section>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                     >
                       <span>
                         <span className="font-semibold">{l.product}</span>
-                        <span className="text-muted"> — {l.quantity}</span>
+                        <span className="text-muted">: {l.quantity}</span>
                       </span>
                       <button
                         type="button"

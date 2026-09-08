@@ -9,7 +9,7 @@ export function Marquee({ items }: { items: string[] }) {
   const reduceMotion = useReducedMotion();
   const [paused, setPaused] = useState(false);
   const shouldPause = paused || reduceMotion;
-  // Repeat the set so ONE HALF alone exceeds any viewport — otherwise the
+  // Repeat the set so ONE HALF alone exceeds any viewport; otherwise the
   // -50% loop leaves an empty gap on wide screens.
   const sequence = [...items, ...items, ...items];
 

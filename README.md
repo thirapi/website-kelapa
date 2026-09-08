@@ -1,13 +1,13 @@
-# COCO KATAPIANG — Dokumentasi Desain & Build
+# COCO KATAPIANG: Dokumentasi Desain & Build
 
 **Stack (dikunci):** Next.js App Router + TypeScript + Tailwind v4 +
 GSAP (scroll) + Framer Motion (state) + Lenis. Aturan: satu properti,
 satu library (§01-4, §06-3).
 
-**Brand:** COCO KATAPIANG — premium B2B commerce kelapa, Nagari Katapiang.
+**Brand:** COCO KATAPIANG: premium B2B commerce kelapa, Nagari Katapiang.
 **Desain:** disuling dari `pertamina.com` (struktur & pola saja).
 **Konten:** mengacu `referensi.md` (blueprint commerce). Yang tak ada di
-keduanya — investor, subholding, PPID, whistleblowing, karier, portal mitra —
+keduanya: investor, subholding, PPID, whistleblowing, karier, portal mitra:
 sengaja DIBUANG dari docs.
 
 | # | Dokumen | Isi |
@@ -21,4 +21,4 @@ sengaja DIBUANG dari docs.
 | 06 | `docs/06-Checklist-QA.md` | Warisan pra-wipe: struktur folder, standar section, motion, tracking, SEO, budget, shot-list |
 | 07 | `docs/07-Progress-Handoff.md` | Status fase + peta file + keputusan terkunci (untuk AI penerus) |
 
-> Status: **Fase 0–3 selesai (2026-09-08)** — fondasi, seluruh route statis, motion ringan, dan signature motion sudah terverifikasi. Berikutnya: Fase 4 (integrasi dan QA visual).
+> Status: **Fase 0–3 selesai (2026-09-08)**: fondasi, seluruh route statis, motion ringan, dan signature motion sudah terverifikasi. Berikutnya: Fase 4 (integrasi dan QA visual).

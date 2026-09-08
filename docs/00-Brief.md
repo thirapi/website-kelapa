@@ -1,14 +1,14 @@
-# 00 — Brief
+# 00: Brief
 
 ## 1. Brand (dari `referensi.md`)
 
-**COCO KATAPIANG** — premium B2B commerce brand pengolahan kelapa,
+**COCO KATAPIANG**: premium B2B commerce brand pengolahan kelapa,
 Nagari Katapiang, Padang Pariaman, Sumatera Barat. Binaan Pertamina
 via Desa Energi Berdikari (DEB).
 
 Hierarki: COCO KATAPIANG (produk & commerce) → Pertamina (kredibilitas) →
 DEB (framework) → Impact (ekonomi lokal). Pengunjung harus merasa membeli
-dari **produsen Indonesia yang serius** — bukan dari "program CSR".
+dari **produsen Indonesia yang serius**, bukan dari "program CSR".
 
 - Tagline primer: *The Value of Coconut, Reimagined.*
 - Commerce: *Source Coconut Products from Indonesia.*
@@ -32,7 +32,7 @@ carbon, size, packing, origin).
 - [ ] Foto asli (close-up kelapa, tangan memproses, tekstur kopra/tempurung,
   produksi, landscape Katapiang, warehouse, packaging, shipping).
 - [ ] Angka riil: MT kelapa, supplier, orang terlibat, jumlah produk (section Impact
-  memakai XXX sampai ada — tanpa angka karangan).
+  memakai XXX sampai ada, tanpa angka karangan).
 - [ ] Harga/MOQ/availability per produk; harga tampil atau "on request".
 - [ ] Kontak resmi: WA business, email, alamat, koordinat Maps; akun sosmed.
 - [ ] Profil anggota tim (foto + peran) untuk Our Story.

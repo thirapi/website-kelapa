@@ -1,9 +1,9 @@
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
 
 const PARTS = [
-  { part: "Kernel", value: "Copra & oil — the calorie core." },
-  { part: "Shell", value: "Charcoal & briquettes — dense carbon." },
-  { part: "Husk", value: "Fibre & growing media — next frontier." },
+  { part: "Kernel", value: "Copra & oil, the calorie core." },
+  { part: "Shell", value: "Charcoal & briquettes, dense carbon." },
+  { part: "Husk", value: "Fibre & growing media, next frontier." },
   { part: "Water", value: "Beverage & processing input." },
 ];
 
