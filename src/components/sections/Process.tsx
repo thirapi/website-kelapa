@@ -25,7 +25,7 @@ export function Process() {
         </div>
         <ol className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
           {STEPS.map((s, i) => (
-            <li key={s.name}>
+            <li key={s.name} className={i === STEPS.length - 1 ? "col-span-2 lg:col-span-1" : undefined}>
               <Link
                 href="/process"
                 className="block h-full bg-surface p-4 transition-colors duration-200 hover:bg-surface-alt sm:p-6"
