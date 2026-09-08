@@ -5,12 +5,19 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Icons } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 
+// Standard deck card width (see docs/01-§5 Lebar). Total track content must
+// exceed the viewport at every breakpoint — peek is the swipe affordance.
+export const deckCardClass =
+  "w-[78vw] max-w-md shrink-0 snap-start sm:w-[42vw] lg:w-[31vw]";
+
 export function DeckSlider({
   children,
   className,
+  contained = false,
 }: {
   children: React.ReactNode;
   className?: string;
+  contained?: boolean;
 }) {
   const items = Children.toArray(children);
   const deck = useRef<HTMLDivElement>(null);
@@ -44,31 +51,39 @@ export function DeckSlider({
 
   return (
     <div className={cn("relative", className)}>
-      <div className="mx-auto mb-4 flex max-w-7xl items-center justify-end gap-2 px-6 md:px-10">
-        <button
-          type="button"
-          onClick={() => move(-1)}
-          aria-label="Previous product"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface transition-[border-color,color] duration-200 hover:border-brand/50 hover:text-brand"
-        >
-          <Icons.ChevronLeft size={19} aria-hidden />
-        </button>
-        <button
-          type="button"
-          onClick={() => move(1)}
-          aria-label="Next product"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface transition-[border-color,color] duration-200 hover:border-brand/50 hover:text-brand"
-        >
-          <Icons.ChevronRight size={19} aria-hidden />
-        </button>
-      </div>
       <div
         ref={deck}
         onScroll={updateActive}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 md:px-10"
+        className={cn(
+          "flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+          contained ? "px-1" : "px-6 md:px-10",
+        )}
       >
         {items}
+        <span aria-hidden className="w-1 shrink-0" />
       </div>
+      <button
+        type="button"
+        onClick={() => move(-1)}
+        aria-label="Previous product"
+        className={cn(
+          "absolute top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/90 shadow-lg shadow-black/10 backdrop-blur transition-[border-color,color,transform] duration-200 hover:border-brand/50 hover:text-brand active:translate-y-[calc(-50%+1px)] md:flex",
+          contained ? "left-3" : "left-4 lg:left-8",
+        )}
+      >
+        <Icons.ChevronLeft size={20} aria-hidden />
+      </button>
+      <button
+        type="button"
+        onClick={() => move(1)}
+        aria-label="Next product"
+        className={cn(
+          "absolute top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-line bg-surface/90 shadow-lg shadow-black/10 backdrop-blur transition-[border-color,color,transform] duration-200 hover:border-brand/50 hover:text-brand active:translate-y-[calc(-50%+1px)] md:flex",
+          contained ? "right-3" : "right-4 lg:right-8",
+        )}
+      >
+        <Icons.ChevronRight size={20} aria-hidden />
+      </button>
       <div className="mt-5 flex justify-center gap-1.5" aria-hidden>
         {items.map((_, index) => (
           <motion.span

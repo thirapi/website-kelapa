@@ -58,3 +58,12 @@ ini = slop.
 - **Ikon**: Lucide SAJA via registri tunggal; `size 20-22`, stroke 1.75;
   sebaris judul (bukan tile), dalam kotak `rounded-xl brand/10`.
 - **Angka**: selalu `tabular-nums`; counter ≤2 detik, format lokal.
+- **Lebar**: Container `max-w-7xl` + `px-6/md:px-10` · heading `max-w-2xl` ·
+  body artikel `max-w-3xl` · panel form `max-w-3xl`.
+- **Deck** (track geser horizontal, cth. Portfolio): dua mode — bleed (track
+  full-bleed di luar Container, padding tepi = padding container) atau contained
+  (track di dalam Container, prop `contained`). Kartu
+  `w-[78vw] sm:w-[42vw] lg:w-[31vw] max-w-md`, `gap-5`, spacer ujung. Aturan:
+  total isi track WAJIB melebihi viewport/container di semua breakpoint
+  (peek = affordance geser). Konstanta: `deckCardClass` di `DeckSlider.tsx` —
+  jangan tulis manual.

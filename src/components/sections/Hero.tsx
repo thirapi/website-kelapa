@@ -47,7 +47,7 @@ export function Hero() {
               href="/contact"
               variant="secondary"
               event="hero_cta_quote"
-              className="border-white/30 text-base hover:border-white/60 hover:text-base"
+              className="border-white/60 bg-white/15 text-white backdrop-blur-sm hover:border-white hover:bg-white/25 hover:text-white"
             >
               Start a Conversation
             </Button>
