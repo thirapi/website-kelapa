@@ -14,8 +14,17 @@ const TRUST = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink text-white">
+    <section className="relative overflow-hidden bg-ink text-base">
       <HeroParallax>
+        <Image
+          src={ASSETS["grove-hero-mobile"]}
+          alt="Coconut groves of Nagari Katapiang at golden hour"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="h-full w-full object-cover opacity-50 md:hidden"
+        />
         <Image
           src={ASSETS["grove-hero"]}
           alt="Coconut groves of Nagari Katapiang at golden hour"
@@ -23,42 +32,57 @@ export function Hero() {
           priority
           fetchPriority="high"
           sizes="100vw"
-          className="h-full w-full object-cover opacity-50"
+          className="hidden h-full w-full object-cover opacity-50 md:block"
         />
         <div className="absolute inset-0 bg-ink/45" />
       </HeroParallax>
       <Reveal className="relative">
         <Container className="flex min-h-[92svh] flex-col justify-end pb-16 pt-28 md:pb-20">
-          <p className="mb-5 inline-flex w-fit items-center rounded-full border border-white/25 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-white/85">
-            {SITE.badge}
+          <p className="mb-5 inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border border-base/25 py-1 pl-3 pr-3 text-[11px] font-bold uppercase tracking-[0.18em] text-base/85">
+            <span className="hidden sm:inline">Supported by</span>
+            <span className="inline-flex items-center rounded-full bg-surface px-2 py-0.5">
+              <Image
+                src="/assets/brand/pertamina.svg"
+                alt="Pertamina"
+                width={52}
+                height={12}
+                className="h-3 w-auto"
+                priority
+              />
+            </span>
+            <span className="hidden sm:inline" aria-hidden>
+              ·
+            </span>
+            <span className="hidden sm:inline">Desa Energi Berdikari</span>
+            <span className="sm:hidden">Desa Energi Berdikari</span>
           </p>
-          <h1 className="max-w-3xl text-5xl font-extrabold leading-[1.02] tracking-tight md:text-7xl">
+          <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl md:text-7xl">
             The Value of Coconut, Reimagined.
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-base/80 md:text-lg">
             {SITE.commerce} Premium copra, shell charcoal and briquettes —
             processed in the village, specified for world buyers.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href="/products" event="hero_cta_explore">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button href="/products" event="hero_cta_explore" className="w-full sm:w-auto">
               Explore Products
             </Button>
             <Button
               href="/contact"
-              variant="secondary"
+              variant="secondaryDark"
               event="hero_cta_quote"
-              className="border-white/60 bg-white/15 text-white backdrop-blur-sm hover:border-white hover:bg-white/25 hover:text-white"
+              className="w-full sm:w-auto"
             >
               Start a Conversation
             </Button>
           </div>
-          <dl className="mt-12 grid grid-cols-1 gap-4 border-t border-white/15 pt-6 sm:grid-cols-3">
+          <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-base/15 pt-6 md:mt-12 md:gap-4">
             {TRUST.map((t) => (
               <div key={t.label}>
-                <dt className="order-2 mt-1 text-xs font-medium uppercase tracking-[0.14em] text-white/60">
+                <dt className="order-2 mt-1 text-[10px] font-medium uppercase tracking-[0.12em] text-base/60 sm:text-xs sm:tracking-[0.14em]">
                   {t.label}
                 </dt>
-                <dd className="order-1 text-2xl font-extrabold tabular-nums">
+                <dd className="order-1 text-xl font-extrabold tabular-nums sm:text-2xl">
                   {t.value}
                 </dd>
               </div>

@@ -6,7 +6,8 @@ Total ~3.1 MB / 22 files. Licenses: Unsplash License + Pexels License
 
 | File | Use | Credit |
 |---|---|---|
-| `hero/grove-hero.webp` (1920×1080) | Home hero main | Unsplash |
+| `hero/grove-hero.webp` (1920×1080, q80) | Home hero main (desktop) | Unsplash |
+| `hero/grove-hero-mobile.webp` (1080×1620, q80) | Home hero (mobile portrait) | Unsplash |
 | `hero/grove-rows.webp` (1920×1080) | Home hero alt / story | Alex Bunday / Unsplash |
 | `hero/coast-hero.webp` (1920×1078) | Home hero alt / global | Melisa Popanicic / Unsplash |
 | `origin/palms-beach.webp` (1600×900) | Origin section / story | Unsplash |
@@ -28,6 +29,8 @@ Total ~3.1 MB / 22 files. Licenses: Unsplash License + Pexels License
 | `process/sacks-pile.webp` | Warehouse / commerce | Unsplash |
 | `process/port-cranes.webp` | Process: deliver | Unsplash |
 | `process/port-ship.webp` | Global / deliver | Wolfgang Weiser / Unsplash |
+
+| `brand/pertamina.svg` (6 KB) | Official Pertamina logo (Wikimedia Commons, PD-textlogo; trademark of Pertamina — nominative use as supported initiative) | Pertamina |
 
 > Replace with stakeholder photography when available (see `docs/06-7`).
 > Components still render `Placeholder` — wiring `next/image` to these files is the next task.

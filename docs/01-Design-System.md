@@ -44,10 +44,13 @@ ini = slop.
 - **Radius**: `full` (button, chip, badge, dots) · `rounded-xl` (kotak ikon, input)
   · `rounded-2xl` (kartu, gambar, panel form). Dilarang radius lain.
 - **Button**: tinggi 44px (`py-3`), `px-6`, `text-sm semibold`, `rounded-full`,
-  `whitespace-nowrap`, ikon `gap-1.5/2` + panah gerak hover. Varian:
-  primary (brand fill + teks terang + lift hover) vs secondary
-  (border + shift hover). Focus ring instan, pressed-in `translate-y-px`,
-  disabled 3-sinyal.
+  `whitespace-nowrap`, ikon `gap-1.5/2` + panah gerak hover. Tiga varian resmi:
+  primary (brand fill + teks terang + lift hover), secondary
+  (border + shift hover, HANYA di permukaan terang), secondaryDark
+  (cream solid + teks ink, WAJIB untuk semua tombol di permukaan gelap —
+  frosted/transparan di atas foto dilarang karena gagal kontras).
+  Dilarang override warna manual di pemakaian — tambah varian bila perlu.
+  Focus ring instan, pressed-in `translate-y-px`, disabled 3-sinyal.
 - **Section**: `py-24/md:py-32` default · `py-16/md:py-24` compact ·
   band gelap hanya momen signature (max ~20% halaman).
 - **Eyebrow** (maks 2/halaman): `text-xs font-bold tracking-[0.25em]
@@ -67,3 +70,8 @@ ini = slop.
   total isi track WAJIB melebihi viewport/container di semua breakpoint
   (peek = affordance geser). Konstanta: `deckCardClass` di `DeckSlider.tsx` —
   jangan tulis manual.
+- **Responsif** (mobile-first): H1 `text-4xl sm:text-5xl md:text-7xl` · H2 section
+  `text-4xl md:text-5xl` (panel sempit: mulai `text-3xl`) · badge/teks panjang
+  wajib versi pendek mobile (`hidden sm:inline` / `sm:hidden`) · hero memakai
+  aset portrait khusus mobile (`grove-hero-mobile`), bukan crop paksa landscape ·
+  teks di atas gelap selalu token `base` (bukan `white`), panel terang `surface`.

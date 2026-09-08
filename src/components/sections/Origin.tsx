@@ -4,7 +4,7 @@ import { SiteImage } from "@/components/ui/SiteImage";
 
 export function Origin() {
   return (
-    <Section compact className="bg-ink text-white">
+    <Section compact className="bg-ink text-base">
       <Container>
         <SiteImage
           asset="palms-beach"
@@ -17,11 +17,7 @@ export function Origin() {
           <h2 className="max-w-2xl text-4xl font-extrabold tracking-tight md:text-5xl">
             From Katapiang. Where Our Story Begins.
           </h2>
-          <Button
-            href="/story"
-            variant="secondary"
-            className="border-white/30 text-base hover:border-white/60 hover:text-base"
-          >
+          <Button href="/story" variant="secondaryDark">
             Discover Our Story
           </Button>
         </div>

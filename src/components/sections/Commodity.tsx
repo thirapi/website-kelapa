@@ -11,7 +11,7 @@ export function Commodity() {
   return (
     <Section>
       <Container>
-        <Eyebrow>Commodity</Eyebrow>
+        <Eyebrow>Anatomy</Eyebrow>
         <h2 className="mt-4 max-w-2xl text-4xl font-extrabold tracking-tight md:text-5xl">
           More Than a Commodity. We See Value in Every Part.
         </h2>

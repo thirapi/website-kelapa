@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container, Section } from "@/components/ui/Section";
 import { ArrowLink } from "@/components/ui/Button";
 
@@ -17,12 +18,18 @@ export function Pertamina() {
               COCO KATAPIANG grows within Pertamina&apos;s Desa Energi Berdikari
               framework — village energy independence turned into village industry.
             </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {["Pertamina", "Desa Energi Berdikari"].map((b) => (
-                <span key={b} className="rounded-full bg-surface-alt px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-ink">
-                  {b}
-                </span>
-              ))}
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <Image
+                src="/assets/brand/pertamina.svg"
+                alt="Pertamina"
+                width={132}
+                height={31}
+                className="h-8 w-auto"
+                loading="lazy"
+              />
+              <span className="rounded-full bg-surface-alt px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-ink">
+                Desa Energi Berdikari
+              </span>
             </div>
           </div>
           <ArrowLink href="/impact">Learn about our impact</ArrowLink>

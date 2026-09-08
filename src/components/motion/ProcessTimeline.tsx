@@ -80,7 +80,7 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
                 <span
                   className={cn(
                     "text-xs font-bold tabular-nums",
-                    current ? "text-white/70" : "text-ember",
+                    current ? "text-base/70" : "text-ember",
                   )}
                 >
                   0{index + 1}

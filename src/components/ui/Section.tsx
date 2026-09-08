@@ -33,7 +33,7 @@ export function Section({
       id={id}
       className={cn(
         compact ? "py-16 md:py-24" : "py-24 md:py-32",
-        dark ? "bg-ink text-white" : "bg-base text-ink",
+        dark ? "bg-ink text-base" : "bg-base text-ink",
         className,
       )}
     >

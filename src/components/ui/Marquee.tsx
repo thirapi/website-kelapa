@@ -9,6 +9,9 @@ export function Marquee({ items }: { items: string[] }) {
   const reduceMotion = useReducedMotion();
   const [paused, setPaused] = useState(false);
   const shouldPause = paused || reduceMotion;
+  // Repeat the set so ONE HALF alone exceeds any viewport — otherwise the
+  // -50% loop leaves an empty gap on wide screens.
+  const sequence = [...items, ...items, ...items];
 
   return (
     <div
@@ -28,9 +31,9 @@ export function Marquee({ items }: { items: string[] }) {
               aria-hidden={copy === 1}
               className="flex shrink-0 items-center"
             >
-              {items.map((item) => (
+              {sequence.map((item, i) => (
                 <li
-                  key={`${copy}-${item}`}
+                  key={`${copy}-${i}`}
                   className="flex items-center text-xs font-bold uppercase tracking-[0.18em] text-ink"
                 >
                   <span

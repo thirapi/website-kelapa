@@ -5,13 +5,16 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { track } from "@/lib/analytics";
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "secondary" | "secondaryDark";
 
 const styles: Record<Variant, string> = {
   primary:
-    "bg-brand text-white hover:bg-brand-deep hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/20 active:translate-y-px",
+    "bg-brand text-base hover:bg-brand-deep hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/25 active:translate-y-px",
   secondary:
-    "border border-ink/25 bg-transparent text-ink hover:border-brand/60 hover:text-brand-deep active:translate-y-px",
+    "border border-ink/25 bg-transparent text-ink hover:-translate-y-0.5 hover:border-brand/60 hover:text-brand-deep hover:shadow-lg hover:shadow-black/10 active:translate-y-px",
+  // Solid cream on dark surfaces — guaranteed contrast, no frosted washout.
+  secondaryDark:
+    "border border-base bg-base text-ink hover:-translate-y-0.5 hover:border-surface hover:bg-surface hover:text-ink hover:shadow-lg hover:shadow-black/30 active:translate-y-px",
 };
 
 export function Button({
@@ -71,7 +74,7 @@ export function ArrowLink({
       onClick={() => event && track(event)}
       className={cn(
         "group inline-flex items-center gap-1.5 text-sm font-semibold",
-        dark ? "text-white" : "text-brand",
+        dark ? "text-base" : "text-brand",
       )}
     >
       <span className="underline-offset-4 group-hover:underline">

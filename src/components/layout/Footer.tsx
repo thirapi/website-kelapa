@@ -48,22 +48,22 @@ export function Footer() {
   }, []);
 
   return (
-    <footer ref={root} className="bg-ink text-white">
+    <footer ref={root} className="bg-ink text-base">
       <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div data-footer-reveal>
           <p className="text-lg font-extrabold tracking-tight">
             COCO KATAPIANG
           </p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/70">
+          <p className="mt-3 max-w-xs text-sm leading-relaxed text-base/70">
             {SITE.commerce} Premium coconut products from Nagari Katapiang, West
             Sumatra.
           </p>
-          <p className="mt-4 inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80">
+          <p className="mt-4 inline-flex rounded-full bg-surface/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-base/80">
             {SITE.badge}
           </p>
         </div>
         <nav aria-label="Shop" data-footer-reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-base/50">
             Shop
           </p>
           <ul className="mt-4 space-y-2.5 text-sm font-medium">
@@ -81,7 +81,7 @@ export function Footer() {
           </ul>
         </nav>
         <nav aria-label="Company" data-footer-reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-base/50">
             Company
           </p>
           <ul className="mt-4 space-y-2.5 text-sm font-medium">
@@ -108,10 +108,10 @@ export function Footer() {
           </ul>
         </nav>
         <div data-footer-reveal>
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-base/50">
             Contact
           </p>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/80">
+          <ul className="mt-4 space-y-2.5 text-sm text-base/80">
             <li>{SITE.address}</li>
             <li>
               <a
@@ -130,7 +130,7 @@ export function Footer() {
                 href={s.href}
                 onClick={onLink}
                 aria-label={s.label}
-                className="rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold transition-colors duration-200 hover:border-white/50"
+                className="rounded-full border border-base/20 px-3 py-1.5 text-xs font-semibold transition-colors duration-200 hover:border-base/50"
               >
                 {s.label}
               </a>
@@ -138,9 +138,9 @@ export function Footer() {
           </div>
         </div>
       </Container>
-      <div className="border-t border-white/10">
+      <div className="border-t border-base/10">
         <Container
-          className="flex flex-col gap-2 py-5 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between"
+          className="flex flex-col gap-2 py-5 text-xs text-base/50 sm:flex-row sm:items-center sm:justify-between"
           data-footer-reveal
         >
           <p>© 2026 COCO KATAPIANG, Nagari Katapiang, Indonesia.</p>

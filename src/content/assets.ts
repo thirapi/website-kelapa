@@ -1,6 +1,7 @@
 // Central map of local stock assets. See public/assets/CREDITS.md.
 export const ASSETS = {
   "grove-hero": "/assets/hero/grove-hero.webp",
+  "grove-hero-mobile": "/assets/hero/grove-hero-mobile.webp",
   "grove-rows": "/assets/hero/grove-rows.webp",
   "coast-hero": "/assets/hero/coast-hero.webp",
   "palms-beach": "/assets/origin/palms-beach.webp",

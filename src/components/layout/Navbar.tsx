@@ -32,21 +32,21 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       {!dismissed && (
-        <div className="bg-ink text-white">
+        <div className="bg-ink text-base">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 md:px-10">
             <p className="truncate text-xs font-medium">{SITE.announcement}</p>
             <button
               type="button"
               onClick={() => setDismissed(true)}
               aria-label="Dismiss announcement"
-              className="rounded-full p-1 transition-colors duration-200 hover:bg-white/10"
+              className="rounded-full p-1 transition-colors duration-200 hover:bg-surface/10"
             >
               <Icons.X size={14} />
             </button>
           </div>
         </div>
       )}
-      <div className="border-b border-line bg-white/95 shadow-[0_4px_24px_rgba(33,19,12,0.04)] backdrop-blur">
+      <div className="border-b border-line bg-surface/95 shadow-[0_4px_24px_rgba(33,19,12,0.04)] backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 md:h-[72px] md:px-10">
           <Link
             href="/"
@@ -136,7 +136,7 @@ export function Navbar() {
               type="button"
               onClick={close}
               aria-label="Close menu"
-              className="rounded-full p-2.5 transition-colors duration-200 hover:bg-white/10"
+              className="rounded-full p-2.5 transition-colors duration-200 hover:bg-surface/10"
             >
               <Icons.X size={22} />
             </button>
@@ -150,9 +150,9 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={close}
-                className="border-b border-white/10 py-4 text-3xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+                className="border-b border-base/10 py-4 text-3xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
               >
-                <span className="mr-3 text-sm font-semibold text-white/40">
+                <span className="mr-3 text-sm font-semibold text-base/40">
                   0{i + 1}
                 </span>
                 {item.label}
@@ -163,7 +163,7 @@ export function Navbar() {
             <Button href="/contact" className="w-full" event="hero_cta_quote">
               Inquire Now
             </Button>
-            <p className="text-center text-xs text-white/60">{SITE.email}</p>
+            <p className="text-center text-xs text-base/60">{SITE.email}</p>
           </div>
         </div>
       )}
