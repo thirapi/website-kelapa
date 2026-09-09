@@ -32,5 +32,13 @@ Total ~3.1 MB / 22 files. Licenses: Unsplash License + Pexels License
 
 | `brand/pertamina.svg` (6 KB) | Official Pertamina logo (Wikimedia Commons, PD-textlogo; trademark of Pertamina — nominative use as supported initiative) | Pertamina |
 
-> Replace with stakeholder photography when available (see `docs/06-7`).
-> Components still render `Placeholder` — wiring `next/image` to these files is the next task.
+> Replace stock with stakeholder photography when available (see `docs/06-7`).
+
+## Video (Mixkit Stock Video Free License, commercial OK)
+
+| File | Use | Source |
+|---|---|---|
+| `hero/hero-grove-aerial.mp4` + `.webm` (1280x720, 12s, H.264/VP9, muted loop) | Home hero main | Mixkit #44366, aerial beach sunset palms |
+| `hero/hero-grove-aerial-poster.jpg` | Video poster (LCP) | Same, frame extract |
+| `hero/hero-drone-short.mp4` + `.webm` (1280x720, 8.8s) | Home hero alt | Mixkit #44376, dynamic drone sunny beach |
+| `hero/hero-drone-short-poster.jpg` | Video poster (LCP) | Same, frame extract |

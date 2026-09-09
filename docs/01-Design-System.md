@@ -53,8 +53,8 @@ ini = slop.
   `whitespace-nowrap`, ikon `gap-1.5/2` + panah gerak hover. Tiga varian resmi:
   primary (brand fill + teks terang + lift hover), secondary
   (border + shift hover, HANYA di permukaan terang), secondaryDark
-  (cream solid + teks ink, WAJIB untuk semua tombol di permukaan gelap:
-  frosted/transparan di atas foto dilarang karena gagal kontras).
+  (outline transparan + border/teks cream, hover mengisi cream:
+  WAJIB untuk semua tombol di permukaan gelap, satu bahasa mobile-desktop).
   Dilarang override warna manual di pemakaian: tambah varian bila perlu.
   Focus ring instan, pressed-in `translate-y-px`, disabled 3-sinyal.
 - **Section**: `py-24/md:py-32` default · `py-16/md:py-24` compact ·

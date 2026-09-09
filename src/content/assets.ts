@@ -2,6 +2,7 @@
 export const ASSETS = {
   "grove-hero": "/assets/hero/grove-hero.webp",
   "grove-hero-mobile": "/assets/hero/grove-hero-mobile.webp",
+  "hero-video-poster": "/assets/hero/hero-grove-aerial-poster.jpg",
   "grove-rows": "/assets/hero/grove-rows.webp",
   "coast-hero": "/assets/hero/coast-hero.webp",
   "palms-beach": "/assets/origin/palms-beach.webp",

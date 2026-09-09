@@ -1,9 +1,11 @@
 export const NAV = [
+  { label: "Home", href: "/" },
   { label: "Products", href: "/products" },
   { label: "Our Story", href: "/story" },
   { label: "Process", href: "/process" },
   { label: "Impact", href: "/impact" },
   { label: "Journal", href: "/journal" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const SITE = {

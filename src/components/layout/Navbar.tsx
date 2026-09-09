@@ -34,13 +34,26 @@ export function Navbar() {
     <>
       {!dismissed && (
         <div className="bg-ink text-cream">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2 md:px-10">
-            <p className="truncate text-xs font-medium">{SITE.announcement}</p>
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 py-2 pl-6 pr-4 md:px-10">
+            <p className="hidden truncate text-xs font-medium sm:block">
+              {SITE.announcement}
+            </p>
+            <div className="relative flex-1 overflow-hidden sm:hidden" aria-label={SITE.announcement}>
+              <div className="marquee-track flex w-max items-center gap-8">
+                {[0, 1].map((copy) => (
+                  <span key={copy} aria-hidden={copy === 1} className="flex items-center gap-8 whitespace-nowrap text-xs font-medium">
+                    {[0, 1, 2].map((i) => (
+                      <span key={i}>{SITE.announcement}</span>
+                    ))}
+                  </span>
+                ))}
+              </div>
+            </div>
             <button
               type="button"
               onClick={() => setDismissed(true)}
               aria-label="Dismiss announcement"
-              className="rounded-full p-1 transition-colors duration-200 hover:bg-surface/10"
+              className="shrink-0 rounded-full p-1 transition-colors duration-200 hover:bg-surface/10"
             >
               <Icons.X size={14} />
             </button>
@@ -70,13 +83,13 @@ export function Navbar() {
                 COCO KATAPIANG
               </span>
               <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
-                West Sumatra · Indonesia
+                The world of coconut
               </span>
             </span>
           </Link>
 
           <nav
-            className="hidden items-center gap-7 lg:flex"
+            className="hidden items-center gap-5 lg:flex xl:gap-7"
             aria-label="Primary"
           >
             {NAV.map((item) => (

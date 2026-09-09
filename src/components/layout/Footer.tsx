@@ -108,15 +108,6 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/contact"
-                onClick={onLink}
-                className="transition-colors duration-200 hover:text-surface-alt"
-              >
-                Contact
-              </Link>
-            </li>
           </ul>
         </nav>
         <div data-footer-reveal>

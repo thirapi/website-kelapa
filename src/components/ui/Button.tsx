@@ -12,9 +12,9 @@ const styles: Record<Variant, string> = {
     "bg-brand text-cream hover:bg-brand-deep hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand/25 active:translate-y-px",
   secondary:
     "border border-ink/25 bg-transparent text-ink hover:-translate-y-0.5 hover:border-brand/60 hover:text-brand-deep hover:shadow-lg hover:shadow-black/10 active:translate-y-px",
-  // Solid cream on dark surfaces: guaranteed contrast, no frosted washout.
+  // Outline on dark surfaces: transparent + cream border/text, fills cream on hover.
   secondaryDark:
-    "border border-cream bg-cream text-ink hover:-translate-y-0.5 hover:border-surface hover:bg-surface hover:text-ink hover:shadow-lg hover:shadow-black/30 active:translate-y-px",
+    "border-2 border-cream bg-transparent text-cream hover:-translate-y-0.5 hover:border-cream hover:bg-cream hover:text-ink hover:shadow-lg hover:shadow-black/30 active:translate-y-px",
 };
 
 export function Button({
