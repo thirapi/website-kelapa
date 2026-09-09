@@ -27,7 +27,7 @@ export function Hero() {
           className="h-full w-full object-cover opacity-50 md:hidden"
         />
         <HeroVideo />
-        <div className="absolute inset-0 bg-ink/45" />
+        <div className="absolute inset-0 bg-ink/60" />
       </HeroParallax>
       <Reveal className="relative">
         <Container className="flex min-h-[92svh] flex-col justify-end pb-16 pt-28 md:pb-20">

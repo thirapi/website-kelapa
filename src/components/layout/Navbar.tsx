@@ -184,24 +184,24 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={close}
-                  className="flex items-center gap-4 border-b border-cream/10 py-3.5 transition-colors duration-200 hover:text-surface-alt"
+                  className="flex items-center gap-4 border-b border-cream/10 py-2.5 transition-colors duration-200 hover:text-surface-alt"
                 >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-surface/10 text-cream">
-                    <NavIcon size={20} aria-hidden />
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-surface/10 text-cream">
+                    <NavIcon size={17} aria-hidden />
                   </span>
-                  <span className="text-2xl font-extrabold tracking-tight">
+                  <span className="text-xl font-extrabold tracking-tight">
                     {item.label}
                   </span>
                 </Link>
               );
             })}
           </nav>
-          <div className="space-y-3 px-6 pb-10">
+          <div className="space-y-2.5 px-6 pb-7">
             <a
               href="/company-profile.pdf"
               download="COCO-KATAPIANG-Company-Profile.pdf"
               onClick={close}
-              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand px-6 py-4 text-base font-semibold text-cream transition-[background-color,transform,box-shadow] duration-200 hover:bg-brand-deep active:translate-y-px"
+              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand px-6 py-3 text-base font-semibold text-cream transition-[background-color,transform,box-shadow] duration-200 hover:bg-brand-deep active:translate-y-px"
             >
               <Icons.FileText size={18} aria-hidden />
               Download Company Profile
@@ -209,7 +209,7 @@ export function Navbar() {
             <Link
               href="/contact"
               onClick={close}
-              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-cream bg-transparent px-6 py-4 text-base font-semibold text-cream transition-[background-color,color] duration-200 active:bg-cream/10"
+              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-cream bg-transparent px-6 py-3 text-base font-semibold text-cream transition-[background-color,color] duration-200 active:bg-cream/10"
             >
               Contact us
             </Link>
