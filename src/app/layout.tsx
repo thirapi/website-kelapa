@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/layout/Navbar";
+import { GlobalBuyerCta } from "@/components/sections/GlobalBuyerCta";
 import { Footer } from "@/components/layout/Footer";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -45,7 +46,10 @@ export default function RootLayout({
         </a>
         <Providers>
           <Navbar />
-          <main id="main">{children}</main>
+          <main id="main">
+            {children}
+            <GlobalBuyerCta />
+          </main>
           <Footer />
         </Providers>
       </body>

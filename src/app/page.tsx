@@ -9,7 +9,6 @@ import { Quality } from "@/components/sections/Quality";
 import { Pertamina } from "@/components/sections/Pertamina";
 import { Impact } from "@/components/sections/Impact";
 import { Global } from "@/components/sections/Global";
-import { BuyerCta } from "@/components/sections/BuyerCta";
 import { Marquee } from "@/components/ui/Marquee";
 
 export const metadata: Metadata = {
@@ -39,7 +38,6 @@ export default function HomePage() {
       <Pertamina />
       <Impact />
       <Global />
-      <BuyerCta />
     </>
   );
 }

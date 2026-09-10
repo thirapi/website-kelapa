@@ -7,19 +7,49 @@ export interface PillOption<T extends string> {
   label: string;
 }
 
-// Single-line horizontally scrollable filter pills (see docs/01 Jarak & Deck).
-// Used by product catalog and journal — do not build one-off variants.
+// Filter pills. Default: single-line horizontally scrollable (see docs/01 Jarak & Deck).
+// With `wrap`: pills wrap onto multiple lines instead of scrolling (F1-style
+// category row). Used by product catalog (scroll) and journal (wrap): do not
+// build one-off variants.
 export function FilterPills<T extends string>({
   options,
   value,
   onChange,
   label,
+  wrap = false,
 }: {
   options: readonly PillOption<T>[];
   value: T;
   onChange: (value: T) => void;
   label: string;
+  wrap?: boolean;
 }) {
+  const pillCls = (active: boolean) =>
+    cn(
+      "whitespace-nowrap rounded-full px-4 py-1.5 text-[13px] font-semibold transition-[background-color,color] duration-200",
+      active ? "bg-ink text-cream" : "bg-ink/5 text-ink hover:bg-ink/10",
+    );
+
+  const pills = options.map((o) => (
+    <button
+      key={o.value}
+      type="button"
+      onClick={() => onChange(o.value)}
+      aria-pressed={value === o.value}
+      className={pillCls(value === o.value)}
+    >
+      {o.label}
+    </button>
+  ));
+
+  if (wrap) {
+    return (
+      <div role="group" aria-label={label} className="flex flex-wrap gap-2">
+        {pills}
+      </div>
+    );
+  }
+
   return (
     <div
       role="group"
@@ -33,12 +63,7 @@ export function FilterPills<T extends string>({
             type="button"
             onClick={() => onChange(o.value)}
             aria-pressed={value === o.value}
-            className={cn(
-              "whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition-[background-color,color,border-color] duration-200",
-              value === o.value
-                ? "bg-ink text-cream"
-                : "border border-line bg-surface text-ink hover:border-brand/50",
-            )}
+            className={pillCls(value === o.value)}
           >
             {o.label}
           </button>
