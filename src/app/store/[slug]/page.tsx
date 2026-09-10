@@ -35,7 +35,7 @@ export default async function ProductDetailPage({
 
   return (
     <>
-      <Breadcrumb trail={[{ label: "Products", href: "/products" }, { label: product.name }]} />
+      <Breadcrumb trail={[{ label: "Store", href: "/store" }, { label: product.name }]} />
       <Section>
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
@@ -120,7 +120,7 @@ export default async function ProductDetailPage({
           <h2 className="text-3xl font-extrabold tracking-tight">Related products</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {related.map((p) => (
-              <Link key={p.slug} href={`/products/${p.slug}`} className="group flex items-center gap-5 rounded-2xl border border-line bg-surface p-5 transition-[border-color] duration-200 hover:border-brand/50">
+              <Link key={p.slug} href={`/store/${p.slug}`} className="group flex items-center gap-5 rounded-2xl border border-line bg-surface p-5 transition-[border-color] duration-200 hover:border-brand/50">
                 <div className="w-28 shrink-0">
                   <SiteImage asset={p.image} alt={p.name} ratio="aspect-square" sizes="112px" />
                 </div>

@@ -5,21 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
-import { Icons, type IconName } from "@/components/ui/icons";
+import { Icons } from "@/components/ui/icons";
 import { NAV, SITE } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { useInquiry } from "@/components/inquiry/InquiryProvider";
-
-const NAV_ICONS: Record<string, IconName> = {
-  "/": "House",
-  "/products": "Package",
-  "/story": "Sprout",
-  "/process": "Factory",
-  "/impact": "Leaf",
-  "/journal": "FileText",
-  "/contact": "Mail",
-};
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -132,6 +122,14 @@ export function Navbar() {
               )}
             </Link>
             <Button
+              href="/store"
+              variant="secondary"
+              event="hero_cta_explore"
+              className="hidden sm:inline-flex"
+            >
+              Store
+            </Button>
+            <Button
               href="/contact"
               event="hero_cta_quote"
               className="hidden sm:inline-flex"
@@ -177,26 +175,26 @@ export function Navbar() {
             className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto px-6 py-4"
             aria-label="Mobile"
           >
-            {NAV.map((item) => {
-              const NavIcon = Icons[NAV_ICONS[item.href] ?? "ArrowRight"];
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={close}
-                  className="flex items-center gap-4 border-b border-cream/10 py-2.5 transition-colors duration-200 hover:text-surface-alt"
-                >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-surface/10 text-cream">
-                    <NavIcon size={17} aria-hidden />
-                  </span>
-                  <span className="text-xl font-extrabold tracking-tight">
-                    {item.label}
-                  </span>
-                </Link>
-              );
-            })}
+            {NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={close}
+                className="border-b border-cream/10 py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
           <div className="space-y-2.5 px-6 pb-7">
+            <Link
+              href="/store"
+              onClick={close}
+              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cream px-6 py-3 text-base font-semibold text-ink transition-[background-color,transform] duration-200 hover:bg-surface-alt active:translate-y-px"
+            >
+              <Icons.ShoppingBag size={18} aria-hidden />
+              Visit Store
+            </Link>
             <a
               href="/company-profile.pdf"
               download="COCO-KATAPIANG-Company-Profile.pdf"

@@ -57,8 +57,8 @@ export function Hero() {
             processed in the village, specified for world buyers.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Button href="/products" event="hero_cta_explore" className="w-full py-4 text-base sm:w-auto sm:py-3 sm:text-sm">
-              Explore Products
+            <Button href="/store" event="hero_cta_explore" className="w-full py-4 text-base sm:w-auto sm:py-3 sm:text-sm">
+              Visit Store
             </Button>
             <Button
               href="/contact"

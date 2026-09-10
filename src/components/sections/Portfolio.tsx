@@ -20,15 +20,15 @@ export function Portfolio() {
               Meet Our Coconut Portfolio.
             </h2>
           </div>
-          <ArrowLink href="/products" event="product_line_click">
-            View all products
+          <ArrowLink href="/store" event="product_line_click">
+            Visit store
           </ArrowLink>
         </div>
       <DeckSlider contained className="mt-10">
         {PRODUCTS.map((p, i) => (
           <Link
             key={p.slug}
-            href={`/products/${p.slug}`}
+            href={`/store/${p.slug}`}
             onClick={() => track("product_line_click", { product: p.slug })}
             className={`group ${deckCardClass} overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-brand/50`}
           >

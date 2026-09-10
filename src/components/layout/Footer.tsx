@@ -9,6 +9,7 @@ import type { ComponentType } from "react";
 import { NAV, SITE, SOCIALS } from "@/content/site";
 import { PRODUCTS } from "@/content/products";
 import { Container } from "@/components/ui/Section";
+import { FooterMarquee } from "@/components/layout/FooterMarquee";
 import { Icons } from "@/components/ui/icons";
 import {
   InstagramIcon,
@@ -76,6 +77,7 @@ export function Footer() {
 
   return (
     <footer ref={root} className="bg-ink text-cream">
+      <FooterMarquee />
       <Container className="grid gap-10 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1.2fr]">
         <div data-footer-reveal>
           <p className="text-lg font-extrabold tracking-tight">
@@ -108,7 +110,7 @@ export function Footer() {
             {PRODUCTS.map((p) => (
               <li key={p.slug}>
                 <Link
-                  href={`/products/${p.slug}`}
+                  href={`/store/${p.slug}`}
                   onClick={onLink}
                   className="transition-colors duration-200 hover:text-surface-alt"
                 >
@@ -118,7 +120,7 @@ export function Footer() {
             ))}
             <li>
               <Link
-                href="/products"
+                href="/store"
                 onClick={onLink}
                 className="font-semibold text-cream transition-colors duration-200 hover:text-surface-alt"
               >

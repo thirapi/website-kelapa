@@ -33,7 +33,7 @@ export function ProductCatalog() {
                 </div>
                 <h2 className="mt-2 text-xl font-extrabold tracking-tight">
                   <Link
-                    href={`/products/${p.slug}`}
+                    href={`/store/${p.slug}`}
                     onClick={() => track("product_line_click", { product: p.slug })}
                     className="transition-colors duration-200 hover:text-brand"
                   >
@@ -65,7 +65,7 @@ export function ProductCatalog() {
                         <AddToInquiry product={p.name} />
                       </div>
                       <Link
-                        href={`/products/${p.slug}`}
+                        href={`/store/${p.slug}`}
                         className="inline-flex items-center justify-center whitespace-nowrap rounded-full border border-ink/25 px-6 py-3 text-sm font-semibold transition-[border-color,color] duration-200 hover:border-brand/60 hover:text-brand-deep"
                       >
                         View

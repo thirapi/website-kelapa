@@ -27,7 +27,7 @@ export function Commerce() {
                   <span className="rounded-full bg-palm/10 px-2.5 py-1 text-palm">{p.availability}</span>
                 </div>
                 <h3 className="mt-2 text-xl font-extrabold tracking-tight">
-                  <Link href={`/products/${p.slug}`} className="transition-colors duration-200 hover:text-brand">
+                  <Link href={`/store/${p.slug}`} className="transition-colors duration-200 hover:text-brand">
                     {p.name}
                   </Link>
                 </h3>
