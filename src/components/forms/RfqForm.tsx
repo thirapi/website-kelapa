@@ -15,11 +15,9 @@ type Status = "idle" | "sending" | "sent" | "error";
 export function RfqForm({
   fixedProduct,
   inquiryType = "buyer",
-  compact = false,
 }: {
   fixedProduct?: string;
   inquiryType?: RfqPayload["inquiryType"];
-  compact?: boolean;
 }) {
   const { lines, clear } = useInquiry();
   const [status, setStatus] = useState<Status>("idle");
@@ -68,7 +66,7 @@ export function RfqForm({
   }
 
   return (
-    <form onSubmit={onSubmit} className={cn("grid gap-3", compact ? "sm:grid-cols-2" : "sm:grid-cols-2")}>
+    <form onSubmit={onSubmit} className="grid gap-3 sm:grid-cols-2">
       {!fixedProduct && lines.length === 0 && (
         <select name="product" required aria-label="Product" className={cn(inputCls, "sm:col-span-2")} defaultValue="">
           <option value="" disabled>Select product</option>
@@ -86,14 +84,10 @@ export function RfqForm({
       <input name="company" required placeholder="Company" autoComplete="organization" className={inputCls} aria-label="Company" />
       <input name="email" required type="email" placeholder="Business email" autoComplete="email" className={inputCls} aria-label="Business email" />
       <input name="whatsapp" required placeholder="WhatsApp number" autoComplete="tel" className={inputCls} aria-label="WhatsApp number" />
-      {!compact && (
-        <>
-          <input name="specification" placeholder="Specification (grade, size…)" className={inputCls} aria-label="Specification" />
-          <input name="packaging" placeholder="Packaging preference" className={inputCls} aria-label="Packaging" />
-          <input name="destination" placeholder="Destination port / country" className={inputCls} aria-label="Destination" />
-          <input name="deliveryDate" placeholder="Target delivery date" className={inputCls} aria-label="Target delivery date" />
-        </>
-      )}
+      <input name="specification" placeholder="Specification (grade, size…)" className={inputCls} aria-label="Specification" />
+      <input name="packaging" placeholder="Packaging preference" className={inputCls} aria-label="Packaging" />
+      <input name="destination" placeholder="Destination port / country" className={inputCls} aria-label="Destination" />
+      <input name="deliveryDate" placeholder="Target delivery date" className={inputCls} aria-label="Target delivery date" />
       <p aria-live="polite" className="min-h-5 text-sm sm:col-span-2">
         {status === "error" && waLink && (
           <span>

@@ -18,7 +18,7 @@ export function BuyerCta() {
           </p>
         </div>
         <div className="rounded-2xl bg-surface p-6 text-ink shadow-2xl shadow-black/15 md:p-8">
-          <RfqForm compact />
+          <RfqForm />
         </div>
       </Container>
     </Section>

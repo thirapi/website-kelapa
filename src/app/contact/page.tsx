@@ -156,6 +156,23 @@ export default function ContactPage() {
                 <Icons.Phone size={16} className="shrink-0" aria-hidden />
                 {SITE.whatsapp}
               </p>
+              <div className="overflow-hidden rounded-xl pt-1">
+                <iframe
+                  title="Map: Nagari Katapiang, Padang Pariaman"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=100.10%2C-0.62%2C100.22%2C-0.50&layer=mapnik&marker=-0.56%2C100.16"
+                  className="h-56 w-full border-0"
+                  loading="lazy"
+                />
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Nagari+Katapiang,+Padang+Pariaman,+West+Sumatra"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 font-semibold underline-offset-4 hover:underline"
+              >
+                Get directions
+                <Icons.ArrowUpRight size={15} aria-hidden />
+              </a>
             </div>
           </div>
 
@@ -166,7 +183,7 @@ export default function ContactPage() {
             <p className="mb-6 mt-1 text-sm text-muted">
               {TYPES.find((t) => t.value === type)?.desc}
             </p>
-            <RfqForm inquiryType={type} compact={type !== "buyer"} />
+            <RfqForm inquiryType={type} />
           </div>
         </Container>
       </Section>
