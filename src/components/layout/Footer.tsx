@@ -216,7 +216,6 @@ export function Footer() {
               );
             })}
           </ul>
-          <p className="mt-3 text-xs text-cream/50">Channels forthcoming.</p>
         </div>
       </Container>
       <div className="border-t border-cream/10">
@@ -239,17 +238,6 @@ export function Footer() {
                 />
               </span>
             </span>
-          </p>
-          <p>
-            <a
-              href="https://exantara.com"
-              target="_blank"
-              rel="noreferrer"
-              onClick={onLink}
-              className="transition-colors duration-200 hover:text-surface-alt"
-            >
-              Built on Exantara
-            </a>
           </p>
         </Container>
       </div>
