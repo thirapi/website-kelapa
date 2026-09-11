@@ -11,11 +11,25 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { useInquiry } from "@/components/inquiry/InquiryProvider";
 
+const ABOUT_LINKS = [
+  { label: "Our Story", href: "/story" },
+  { label: "Process", href: "/process" },
+  { label: "Impact", href: "/impact" },
+  { label: "Journal", href: "/journal" },
+] as const;
+
+const ABOUT_HREFS = ABOUT_LINKS.map((l) => l.href);
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const pathname = usePathname();
   const { count } = useInquiry();
+  const [aboutOpen, setAboutOpen] = useState<boolean | null>(null);
+  const aboutChild = ABOUT_HREFS.some(
+    (href) => pathname === href || pathname.startsWith(`${href}/`),
+  );
+  const isAboutOpen = aboutOpen ?? aboutChild;
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -175,16 +189,62 @@ export function Navbar() {
             className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto px-6 py-4"
             aria-label="Mobile"
           >
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={close}
-                className="border-b border-cream/10 py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+            <Link
+              href="/"
+              onClick={close}
+              className="border-b border-cream/10 py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+            >
+              Home
+            </Link>
+            <div className="border-b border-cream/10">
+              <button
+                type="button"
+                onClick={() => setAboutOpen((v) => !v)}
+                aria-expanded={isAboutOpen}
+                className="flex w-full items-center justify-between py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
               >
-                {item.label}
-              </Link>
-            ))}
+                About
+                <Icons.ChevronDown
+                  size={20}
+                  aria-hidden
+                  className={cn(
+                    "shrink-0 text-cream/60 transition-transform duration-200",
+                    isAboutOpen && "rotate-180",
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  "grid transition-[grid-template-rows] duration-300 ease-out",
+                  isAboutOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                )}
+              >
+                <div className="overflow-hidden">
+                  {ABOUT_LINKS.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={close}
+                      className="flex items-center gap-3 py-2.5 pl-1 text-lg font-bold text-cream/75 transition-colors duration-200 hover:text-cream"
+                    >
+                      <span
+                        className="h-1.5 w-1.5 shrink-0 rounded-full bg-cream/40"
+                        aria-hidden
+                      />
+                      {item.label}
+                    </Link>
+                  ))}
+                  <span className="block pb-2" aria-hidden />
+                </div>
+              </div>
+            </div>
+            <Link
+              href="/contact"
+              onClick={close}
+              className="border-b border-cream/10 py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+            >
+              Contact
+            </Link>
           </nav>
           <div className="space-y-2.5 px-6 pb-7">
             <Link
@@ -204,14 +264,6 @@ export function Navbar() {
               <Icons.FileText size={18} aria-hidden />
               Download Company Profile
             </a>
-            <Link
-              href="/contact"
-              onClick={close}
-              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full border-2 border-cream bg-transparent px-6 py-3 text-base font-semibold text-cream transition-[background-color,color] duration-200 active:bg-cream/10"
-            >
-              Contact us
-            </Link>
-            <p className="text-center text-xs text-cream/60">{SITE.email}</p>
           </div>
         </div>
       )}
