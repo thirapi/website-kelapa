@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { HeroVideo } from "@/components/sections/HeroVideo";
 import Image from "next/image";
 import { Container } from "@/components/ui/Section";
+import { PertaminaBadge } from "@/components/ui/PertaminaBadge";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/content/site";
 import { ASSETS } from "@/content/assets";
@@ -31,24 +32,7 @@ export function Hero() {
       </HeroParallax>
       <Reveal className="relative">
         <Container className="flex min-h-[92svh] flex-col justify-end pb-16 pt-28 md:pb-20">
-          <p className="mb-5 inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border border-cream/25 py-1 pl-3 pr-3 text-[10px] font-bold uppercase tracking-[0.16em] text-cream">
-            <span className="hidden sm:inline">Supported by</span>
-            <span className="inline-flex items-center rounded-full bg-surface px-2 py-0.5">
-              <Image
-                src="/assets/brand/pertamina.svg"
-                alt="Pertamina"
-                width={52}
-                height={12}
-                className="h-3 w-auto"
-                priority
-              />
-            </span>
-            <span className="hidden sm:inline" aria-hidden>
-              ·
-            </span>
-            <span className="hidden sm:inline">DEB Nagari Katapiang</span>
-            <span className="sm:hidden">DEB Nagari Katapiang</span>
-          </p>
+          <PertaminaBadge priority className="mb-5" />
           <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl md:text-7xl">
             The Value of Coconut, Reimagined.
           </h1>

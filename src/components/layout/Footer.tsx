@@ -9,6 +9,7 @@ import type { ComponentType } from "react";
 import { NAV, SITE, SOCIALS } from "@/content/site";
 import { PRODUCTS } from "@/content/products";
 import { Container } from "@/components/ui/Section";
+import { PertaminaBadge } from "@/components/ui/PertaminaBadge";
 import { FooterMarquee } from "@/components/layout/FooterMarquee";
 import { Icons } from "@/components/ui/icons";
 import {
@@ -87,20 +88,7 @@ export function Footer() {
             {SITE.commerce} Premium coconut products from Nagari Katapiang, West
             Sumatra.
           </p>
-          <p className="mt-4 inline-flex max-w-full items-center gap-1.5 overflow-hidden whitespace-nowrap rounded-full bg-surface/10 py-1.5 pl-2 pr-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-cream/80">
-            <span className="inline-flex shrink-0 items-center rounded-full bg-surface px-1.5 py-0.5">
-              <Image
-                src="/assets/brand/pertamina.svg"
-                alt="Pertamina"
-                width={46}
-                height={11}
-                className="h-2.5 w-auto"
-                loading="lazy"
-              />
-            </span>
-            <span aria-hidden>·</span>
-            <span className="truncate">Desa Energi Berdikari</span>
-          </p>
+          <PertaminaBadge compact className="mt-4" />
         </div>
         <nav aria-label="Shop" data-footer-reveal>
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-cream/50">

@@ -7,7 +7,7 @@ export function FooterMarquee() {
   return (
     <div
       aria-hidden="true"
-      className="overflow-hidden border-b border-cream/10 bg-linear-to-r from-brand-deep via-ember to-palm py-5 md:py-7"
+      className="overflow-hidden border-b border-cream/10 bg-linear-to-r from-[#D9A188] via-[#8F352B] to-[#D59064] py-5 md:py-7"
     >
       <div className="marquee-track flex w-max items-center hover:[animation-play-state:paused]">
         {[0, 1].map((copy) => (

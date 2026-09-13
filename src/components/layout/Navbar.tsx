@@ -18,18 +18,12 @@ const ABOUT_LINKS = [
   { label: "Journal", href: "/journal" },
 ] as const;
 
-const ABOUT_HREFS = ABOUT_LINKS.map((l) => l.href);
-
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const pathname = usePathname();
   const { count } = useInquiry();
-  const [aboutOpen, setAboutOpen] = useState<boolean | null>(null);
-  const aboutChild = ABOUT_HREFS.some(
-    (href) => pathname === href || pathname.startsWith(`${href}/`),
-  );
-  const isAboutOpen = aboutOpen ?? aboutChild;
+  const [langOpen, setLangOpen] = useState(false);
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -43,6 +37,24 @@ export function Navbar() {
       document.body.style.overflow = "";
     };
   }, [open, close]);
+
+  useEffect(() => {
+    if (!langOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest("[data-lang]")) {
+        setLangOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLangOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [langOpen]);
 
   return (
     <>
@@ -106,26 +118,32 @@ export function Navbar() {
             className="hidden items-center gap-5 lg:flex xl:gap-7"
             aria-label="Primary"
           >
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-sm font-semibold transition-colors duration-200 hover:text-brand",
-                  pathname === item.href || pathname.startsWith(item.href + "/")
-                    ? "text-brand"
-                    : "text-ink",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) => {
+              const active =
+                pathname === item.href || pathname.startsWith(item.href + "/");
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "relative py-1 text-sm font-semibold transition-colors duration-200 hover:text-brand",
+                    "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:rounded-full after:bg-brand after:transition-transform after:duration-200",
+                    active
+                      ? "text-brand after:scale-x-100"
+                      : "text-ink after:scale-x-0 hover:after:scale-x-100",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 xl:gap-2">
             <Link
               href="/contact"
-              className="relative hidden rounded-full p-2.5 transition-colors duration-200 hover:bg-surface-alt sm:flex"
+              className="relative flex rounded-full p-2.5 transition-colors duration-200 hover:bg-surface-alt"
               aria-label={`Inquiry list, ${count} items`}
             >
               <Icons.ShoppingBag size={20} />
@@ -135,20 +153,72 @@ export function Navbar() {
                 </span>
               )}
             </Link>
+            <a
+              href="/company-profile.pdf"
+              download="COCO-KATAPIANG-Company-Profile.pdf"
+              title="Download Company Profile"
+              aria-label="Download Company Profile"
+              className="hidden rounded-full p-2.5 transition-colors duration-200 hover:bg-surface-alt hover:text-brand-deep xl:inline-flex"
+            >
+              <Icons.FilePlus size={20} aria-hidden />
+            </a>
+            <div data-lang className="relative hidden xl:block">
+              <button
+                type="button"
+                onClick={() => setLangOpen((v) => !v)}
+                aria-haspopup="menu"
+                aria-expanded={langOpen}
+                aria-label="Language: English"
+                className="inline-flex items-center gap-1 rounded-full px-3 py-2.5 text-sm font-semibold text-ink transition-colors duration-200 hover:bg-surface-alt hover:text-brand-deep"
+              >
+                EN
+                <Icons.ChevronDown
+                  size={14}
+                  aria-hidden
+                  className={cn(
+                    "transition-transform duration-200",
+                    langOpen && "rotate-180",
+                  )}
+                />
+              </button>
+              {langOpen && (
+                <div
+                  role="menu"
+                  aria-label="Language"
+                  className="absolute right-0 top-full z-50 mt-2 w-52 overflow-hidden rounded-2xl border border-line bg-surface py-1.5 shadow-xl shadow-black/10"
+                >
+                  <p
+                    role="menuitem"
+                    aria-current="true"
+                    className="flex items-center justify-between px-4 py-2.5 text-sm font-semibold"
+                  >
+                    English
+                    <Icons.Check
+                      size={15}
+                      aria-hidden
+                      className="text-brand"
+                    />
+                  </p>
+                  <p
+                    role="menuitem"
+                    aria-disabled="true"
+                    title="Coming soon"
+                    className="flex items-center justify-between px-4 py-2.5 text-sm text-muted"
+                  >
+                    Bahasa Indonesia
+                    <span className="rounded-full bg-surface-alt px-2 py-0.5 text-[11px] font-bold">
+                      Soon
+                    </span>
+                  </p>
+                </div>
+              )}
+            </div>
             <Button
               href="/store"
-              variant="secondary"
               event="hero_cta_explore"
               className="hidden sm:inline-flex"
             >
               Store
-            </Button>
-            <Button
-              href="/contact"
-              event="hero_cta_quote"
-              className="hidden sm:inline-flex"
-            >
-              Inquire
             </Button>
             <button
               type="button"
@@ -192,61 +262,45 @@ export function Navbar() {
             <Link
               href="/"
               onClick={close}
-              className="border-b border-cream/10 py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+              className="border-b border-cream/10 py-2.5 text-xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
             >
               Home
             </Link>
-            <div className="border-b border-cream/10">
-              <button
-                type="button"
-                onClick={() => setAboutOpen((v) => !v)}
-                aria-expanded={isAboutOpen}
-                className="flex w-full items-center justify-between py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
-              >
+            <div className="border-b border-cream/10 py-2.5">
+              <p className="text-xl font-extrabold tracking-tight text-cream/90">
                 About
-                <Icons.ChevronDown
-                  size={20}
-                  aria-hidden
-                  className={cn(
-                    "shrink-0 text-cream/60 transition-transform duration-200",
-                    isAboutOpen && "rotate-180",
-                  )}
-                />
-              </button>
-              <div
-                className={cn(
-                  "grid transition-[grid-template-rows] duration-300 ease-out",
-                  isAboutOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                )}
-              >
-                <div className="overflow-hidden">
-                  {ABOUT_LINKS.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={close}
-                      className="flex items-center gap-3 py-2.5 pl-1 text-lg font-bold text-cream/75 transition-colors duration-200 hover:text-cream"
-                    >
-                      <span
-                        className="h-1.5 w-1.5 shrink-0 rounded-full bg-cream/40"
-                        aria-hidden
-                      />
-                      {item.label}
-                    </Link>
-                  ))}
-                  <span className="block pb-2" aria-hidden />
-                </div>
+              </p>
+              <div className="mt-0.5">
+                {ABOUT_LINKS.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={close}
+                    className="group flex items-center gap-3 py-2 pl-1 text-[15px] font-bold text-cream/75 transition-colors duration-200 hover:text-cream"
+                  >
+                    <span
+                      className="h-1.5 w-1.5 shrink-0 rounded-full bg-cream/40 transition-colors duration-200 group-hover:bg-cream"
+                      aria-hidden
+                    />
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </div>
             <Link
               href="/contact"
               onClick={close}
-              className="border-b border-cream/10 py-3 text-2xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+              className="border-b border-cream/10 py-2.5 text-xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
             >
               Contact
             </Link>
           </nav>
           <div className="space-y-2.5 px-6 pb-7">
+            <p className="flex items-center justify-center gap-2 pb-1 text-[13px] font-semibold text-cream/60">
+              <span className="text-cream">EN · English</span>
+              <span aria-hidden className="text-cream/25">|</span>
+              <span>ID · Soon</span>
+            </p>
             <Link
               href="/store"
               onClick={close}
@@ -261,7 +315,7 @@ export function Navbar() {
               onClick={close}
               className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-brand px-6 py-3 text-base font-semibold text-cream transition-[background-color,transform,box-shadow] duration-200 hover:bg-brand-deep active:translate-y-px"
             >
-              <Icons.FileText size={18} aria-hidden />
+              <Icons.FilePlus size={18} aria-hidden />
               Download Company Profile
             </a>
           </div>
