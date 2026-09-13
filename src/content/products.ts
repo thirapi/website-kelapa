@@ -14,7 +14,7 @@ export interface Product {
   packingOptions: string[];
   moq: string;
   price: string | null;
-  availability: "In stock" | "Made to order" | "Coming soon";
+  availability: "In stock" | "Pre order" | "Coming soon";
   flagship?: boolean;
 }
 
@@ -81,7 +81,7 @@ export const PRODUCTS: Product[] = [
     packingOptions: ["1 kg inner boxes", "10/20 kg master cartons", "Private label"],
     moq: "1 × 20ft container",
     price: null,
-    availability: "Made to order",
+    availability: "Pre order",
     flagship: true,
   },
   {
