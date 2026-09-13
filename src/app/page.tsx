@@ -30,9 +30,9 @@ export default function HomePage() {
         ]}
       />
       <Commodity />
+      <Origin />
       <Portfolio />
       <Commerce />
-      <Origin />
       <Process />
       <Quality />
       <Pertamina />

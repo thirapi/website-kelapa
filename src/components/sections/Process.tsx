@@ -1,15 +1,17 @@
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
 import { ArrowLink } from "@/components/ui/Button";
+import { SiteImage } from "@/components/ui/SiteImage";
+import type { AssetKey } from "@/content/assets";
 import Link from "next/link";
 
-const STEPS = [
-  { name: "Source", desc: "Selected coconuts from Katapiang groves." },
-  { name: "Select", desc: "Graded by size, maturity, soundness." },
-  { name: "Process", desc: "Dehusking, splitting, kernel prep." },
-  { name: "Dry", desc: "Sun-dried to ≤ 7% moisture." },
-  { name: "Control", desc: "Batch checks: moisture, ash, carbon." },
-  { name: "Pack", desc: "Bulk, bag or private label." },
-  { name: "Deliver", desc: "Container loading for export." },
+const STEPS: { name: string; desc: string; image: AssetKey }[] = [
+  { name: "Source", desc: "Selected coconuts from Katapiang groves.", image: "grove-fruit" },
+  { name: "Select", desc: "Graded by size, maturity, soundness.", image: "select-coconut" },
+  { name: "Process", desc: "Dehusking, splitting, kernel prep.", image: "copra-split" },
+  { name: "Dry", desc: "Sun-dried to ≤ 7% moisture.", image: "copra-table" },
+  { name: "Control", desc: "Batch checks: moisture, ash, carbon.", image: "copra-hands" },
+  { name: "Pack", desc: "Bulk, bag or private label.", image: "sack-burlap" },
+  { name: "Deliver", desc: "Container loading for export.", image: "port-ship" },
 ];
 
 export function Process() {
@@ -23,20 +25,29 @@ export function Process() {
           </h2>
           <ArrowLink href="/process">See the full process</ArrowLink>
         </div>
-        <ol className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
+        <ol className="mt-10 grid gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-px lg:overflow-hidden lg:rounded-2xl lg:border lg:border-line lg:bg-line">
           {STEPS.map((s, i) => (
-            <li key={s.name} className={i === STEPS.length - 1 ? "col-span-2 lg:col-span-1" : undefined}>
+            <li key={s.name}>
               <Link
                 href="/process"
-                className="block h-full bg-surface p-4 transition-colors duration-200 hover:bg-surface-alt sm:p-6"
+                className="group flex h-full gap-4 rounded-2xl border border-line bg-surface p-3 transition-colors duration-200 hover:bg-surface-alt sm:p-4 lg:block lg:rounded-none lg:border-0 lg:p-6"
               >
-                <p className="text-xs font-bold tabular-nums text-ember">0{i + 1}</p>
-                <h3 className="mt-2 text-base font-extrabold tracking-tight text-ink sm:text-lg">{s.name}</h3>
-                <p className="mt-1 hidden text-sm leading-relaxed text-muted sm:block">{s.desc}</p>
+                <SiteImage
+                  asset={s.image}
+                  alt={`${s.name}: ${s.desc}`}
+                  ratio="aspect-square lg:aspect-[4/3]"
+                  className="w-24 shrink-0 rounded-xl sm:w-28 lg:mb-4 lg:w-full lg:rounded-xl"
+                  sizes="(max-width: 1024px) 160px, 400px"
+                />
+                <div className="min-w-0 py-1 lg:py-0">
+                  <p className="text-xs font-bold tabular-nums text-ember">0{i + 1}</p>
+                  <h3 className="mt-1.5 text-base font-extrabold tracking-tight text-ink sm:text-lg">{s.name}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{s.desc}</p>
+                </div>
               </Link>
             </li>
           ))}
-          <li className="col-span-2 flex items-center bg-brand p-4 text-cream sm:p-6 lg:col-span-1">
+          <li className="flex items-center rounded-2xl bg-brand p-5 text-cream sm:p-6 lg:rounded-none">
             <Link href="/process" className="text-sm font-semibold leading-relaxed">
               Seven gates. Every lot passes all of them. Explore the timeline →
             </Link>

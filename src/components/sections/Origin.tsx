@@ -28,7 +28,7 @@ export function Origin() {
             </h2>
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-cream/70">
-                <Icons.MapPin size={14} aria-hidden />
+                <Icons.MapPin size={14} aria-hidden className="h-[18px] w-[18px] shrink-0 sm:h-3.5 sm:w-3.5" />
                 Padang Pariaman · West Sumatra · Indonesia
               </p>
               <Button href="/story" variant="secondaryDark" className="sm:w-auto">

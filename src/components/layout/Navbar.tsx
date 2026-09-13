@@ -11,13 +11,6 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 import { useInquiry } from "@/components/inquiry/InquiryProvider";
 
-const ABOUT_LINKS = [
-  { label: "Our Story", href: "/story" },
-  { label: "Process", href: "/process" },
-  { label: "Impact", href: "/impact" },
-  { label: "Journal", href: "/journal" },
-] as const;
-
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -91,7 +84,7 @@ export function Navbar() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 md:h-[72px] md:px-10">
           <Link
             href="/"
-            className="flex items-center gap-2.5"
+            className="flex min-w-0 items-center gap-2 sm:gap-2.5"
             aria-label="COCO KATAPIANG home"
           >
             <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl">
@@ -104,11 +97,11 @@ export function Navbar() {
                 priority
               />
             </span>
-            <span className="leading-none">
-              <span className="block text-[15px] font-extrabold tracking-tight">
+            <span className="min-w-0 leading-none">
+              <span className="block whitespace-nowrap text-[15px] font-extrabold tracking-tight">
                 COCO KATAPIANG
               </span>
-              <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+              <span className="block whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.14em] text-muted md:tracking-[0.2em]">
                 The world of coconut
               </span>
             </span>
@@ -259,48 +252,18 @@ export function Navbar() {
             className="flex flex-1 flex-col justify-center gap-1 overflow-y-auto px-6 py-4"
             aria-label="Mobile"
           >
-            <Link
-              href="/"
-              onClick={close}
-              className="border-b border-cream/10 py-2.5 text-xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
-            >
-              Home
-            </Link>
-            <div className="border-b border-cream/10 py-2.5">
-              <p className="text-xl font-extrabold tracking-tight text-cream/90">
-                About
-              </p>
-              <div className="mt-0.5">
-                {ABOUT_LINKS.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={close}
-                    className="group flex items-center gap-3 py-2 pl-1 text-[15px] font-bold text-cream/75 transition-colors duration-200 hover:text-cream"
-                  >
-                    <span
-                      className="h-1.5 w-1.5 shrink-0 rounded-full bg-cream/40 transition-colors duration-200 group-hover:bg-cream"
-                      aria-hidden
-                    />
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <Link
-              href="/contact"
-              onClick={close}
-              className="border-b border-cream/10 py-2.5 text-xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
-            >
-              Contact
-            </Link>
+            {NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={close}
+                className="border-b border-cream/10 py-2.5 text-xl font-extrabold tracking-tight transition-colors duration-200 hover:text-surface-alt"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
           <div className="space-y-2.5 px-6 pb-7">
-            <p className="flex items-center justify-center gap-2 pb-1 text-[13px] font-semibold text-cream/60">
-              <span className="text-cream">EN · English</span>
-              <span aria-hidden className="text-cream/25">|</span>
-              <span>ID · Soon</span>
-            </p>
             <Link
               href="/store"
               onClick={close}
@@ -318,6 +281,11 @@ export function Navbar() {
               <Icons.FilePlus size={18} aria-hidden />
               Download Company Profile
             </a>
+            <p className="flex items-center justify-center gap-2 pt-1 text-[13px] font-semibold text-cream/60">
+              <span className="text-cream">EN · English</span>
+              <span aria-hidden className="text-cream/25">|</span>
+              <span>ID · Soon</span>
+            </p>
           </div>
         </div>
       )}

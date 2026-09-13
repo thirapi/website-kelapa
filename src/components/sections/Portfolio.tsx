@@ -4,7 +4,7 @@ import { DeckSlider, deckCardClass } from "@/components/motion/DeckSlider";
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
 import { ArrowLink } from "@/components/ui/Button";
 import { SiteImage } from "@/components/ui/SiteImage";
-import { Icons } from "@/components/ui/icons";
+import { AddToInquiry } from "@/components/inquiry/AddToInquiry";
 import { PRODUCTS } from "@/content/products";
 import { track } from "@/lib/analytics";
 import Link from "next/link";
@@ -25,12 +25,10 @@ export function Portfolio() {
           </ArrowLink>
         </div>
       <DeckSlider contained className="mt-10">
-        {PRODUCTS.map((p, i) => (
-          <Link
+        {PRODUCTS.map((p) => (
+          <article
             key={p.slug}
-            href={`/store/${p.slug}`}
-            onClick={() => track("product_line_click", { product: p.slug })}
-            className={`group ${deckCardClass} overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-brand/50`}
+            className={`group ${deckCardClass} flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-brand/50 hover:shadow-lg hover:shadow-black/10`}
           >
             <SiteImage
               asset={p.image}
@@ -39,11 +37,9 @@ export function Portfolio() {
               className="rounded-none"
               sizes="(max-width: 640px) 78vw, (max-width: 1024px) 42vw, 31vw"
             />
-            <div className="p-6">
-              <div className="flex items-center justify-between gap-2">
-                <p className="text-xs font-bold tabular-nums text-muted">
-                  0{i + 1}
-                </p>
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex items-center justify-between gap-2 text-xs font-bold">
+                <span className="uppercase tracking-[0.14em] text-muted">Katapiang origin</span>
                 <span
                   className={
                     p.availability === "Coming soon"
@@ -55,21 +51,41 @@ export function Portfolio() {
                 </span>
               </div>
               <h3 className="mt-2 text-2xl font-extrabold tracking-tight">
-                {p.name}
+                <Link
+                  href={`/store/${p.slug}`}
+                  onClick={() => track("product_line_click", { product: p.slug })}
+                  className="transition-colors duration-200 hover:text-brand"
+                >
+                  {p.name}
+                </Link>
               </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted">
-                {p.tagline}
+              <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted">
+                {p.shortDesc}
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
-                Explore
-                <Icons.ArrowRight
-                  size={16}
-                  aria-hidden
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                />
-              </span>
+              <dl className="mt-4 space-y-1.5 border-t border-line pt-4 text-sm">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-muted">MOQ</dt>
+                  <dd className="font-semibold tabular-nums">{p.moq}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-muted">Price</dt>
+                  <dd className="font-semibold">{p.price ?? "On request"}</dd>
+                </div>
+              </dl>
+              <div className="mt-5">
+                {p.availability === "Coming soon" ? (
+                  <Link
+                    href="/contact"
+                    className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-full border border-ink/25 px-6 py-3 text-sm font-semibold transition-[border-color,color] duration-200 hover:border-brand/60 hover:text-brand-deep"
+                  >
+                    Notify Me
+                  </Link>
+                ) : (
+                  <AddToInquiry product={p.name} />
+                )}
+              </div>
             </div>
-          </Link>
+          </article>
         ))}
       </DeckSlider>
       </Container>
