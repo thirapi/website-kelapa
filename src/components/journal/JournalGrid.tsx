@@ -6,6 +6,13 @@ import { ARTICLES, type ArticleCategory } from "@/content/articles";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { FilterPills } from "@/components/ui/FilterPills";
 import { Icons } from "@/components/ui/icons";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 function formatDate(iso: string): string {
   return new Date(iso + "T00:00:00").toLocaleDateString("en-GB", {
@@ -57,25 +64,26 @@ export function JournalGrid() {
             wrap
           />
         </div>
-        <label className="relative inline-flex shrink-0 items-center self-start sm:self-auto">
-          <span className="sr-only">Sort articles</span>
-          <select
+        <div className="shrink-0 self-start sm:self-auto">
+          <span className="sr-only" id="journal-sort-label">
+            Sort articles
+          </span>
+          <Select
             value={sort}
-            onChange={(e) => {
-              setSort(e.target.value as Sort);
+            onValueChange={(v) => {
+              setSort(v as Sort);
               setVisibleCount(PAGE_SIZE);
             }}
-            className="appearance-none rounded-full bg-ink/5 py-1.5 pl-4 pr-9 text-[13px] font-semibold text-ink transition-colors duration-200 hover:bg-ink/10"
           >
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-          </select>
-          <Icons.ChevronDown
-            size={16}
-            aria-hidden
-            className="pointer-events-none absolute right-3.5 text-muted"
-          />
-        </label>
+            <SelectTrigger aria-labelledby="journal-sort-label">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent align="end">
+              <SelectItem value="newest">Newest</SelectItem>
+              <SelectItem value="oldest">Oldest</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {visible.map((a) => (

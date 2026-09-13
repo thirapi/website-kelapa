@@ -75,8 +75,9 @@ export default function ContactPage() {
         trail={[{ label: "Contact" }]}
       />
       <Section>
-        <Container className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
-          <div>
+        <Container className="grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:gap-10">
+          {/* 1 — Type selector: first on mobile & desktop-left */}
+          <div className="order-1 lg:col-start-1 lg:row-start-1">
             <div
               className="grid grid-cols-2 gap-2"
               role="group"
@@ -104,9 +105,23 @@ export default function ContactPage() {
                 </button>
               ))}
             </div>
+          </div>
 
+          {/* 2 — Form: directly below selector on mobile, right column on desktop */}
+          <div className="order-2 rounded-2xl border border-line bg-surface p-6 md:p-8 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+            <h2 className="text-xl font-extrabold tracking-tight">
+              {TYPES.find((t) => t.value === type)?.label} inquiry
+            </h2>
+            <p className="mb-6 mt-1 text-sm text-muted">
+              {TYPES.find((t) => t.value === type)?.desc}
+            </p>
+            <RfqForm inquiryType={type} />
+          </div>
+
+          {/* 3 — Inquiry list + contact info: below form on mobile, left-bottom on desktop */}
+          <div className="order-3 lg:col-start-1 lg:row-start-2 lg:self-start">
             {lines.length > 0 && (
-              <div className="mt-6 rounded-2xl border border-line bg-surface p-5">
+              <div className="rounded-2xl border border-line bg-surface p-5">
                 <h2 className="text-sm font-bold uppercase tracking-[0.14em]">
                   Your inquiry list ({lines.length})
                 </h2>
@@ -134,7 +149,12 @@ export default function ContactPage() {
               </div>
             )}
 
-            <div className="mt-6 space-y-3 rounded-2xl bg-ink p-6 text-sm text-cream">
+            <div
+              className={cn(
+                "space-y-3 rounded-2xl bg-ink p-6 text-sm text-cream",
+                lines.length > 0 && "mt-6",
+              )}
+            >
               <p className="flex items-start gap-2.5">
                 <Icons.MapPin
                   size={16}
@@ -157,16 +177,6 @@ export default function ContactPage() {
                 {SITE.whatsapp}
               </p>
             </div>
-          </div>
-
-          <div className="rounded-2xl border border-line bg-surface p-6 md:p-8">
-            <h2 className="text-xl font-extrabold tracking-tight">
-              {TYPES.find((t) => t.value === type)?.label} inquiry
-            </h2>
-            <p className="mb-6 mt-1 text-sm text-muted">
-              {TYPES.find((t) => t.value === type)?.desc}
-            </p>
-            <RfqForm inquiryType={type} />
           </div>
         </Container>
         <Container className="mt-10 md:mt-14">
