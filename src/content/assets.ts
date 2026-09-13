@@ -29,6 +29,13 @@ export const ASSETS = {
   "sacks-pile": "/assets/process/sacks-pile.webp",
   "port-cranes": "/assets/process/port-cranes.webp",
   "port-ship": "/assets/process/port-ship.webp",
+  "harvest-piles": "/assets/process/harvest-piles.webp",
+  "sort-yard": "/assets/process/sort-yard.webp",
+  "split-fresh": "/assets/process/split-fresh.webp",
+  "dry-house": "/assets/process/dry-house.webp",
+  "control-kernel": "/assets/process/control-kernel.webp",
+  "pack-sack": "/assets/process/pack-sack.webp",
+  "deliver-barge": "/assets/process/deliver-barge.webp",
 } as const;
 
 export type AssetKey = keyof typeof ASSETS;

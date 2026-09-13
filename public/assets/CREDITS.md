@@ -29,6 +29,13 @@ Total ~3.1 MB / 22 files. Licenses: Unsplash License + Pexels License
 | `process/sacks-pile.webp` | Warehouse / commerce | Unsplash |
 | `process/port-cranes.webp` | Process: deliver | Unsplash |
 | `process/port-ship.webp` | Global / deliver | Wolfgang Weiser / Unsplash |
+| `process/harvest-piles.webp` (1280×853, q78) | Process: source (real) | Stakeholder |
+| `process/sort-yard.webp` (1280×960, q78) | Process: select (real) | Stakeholder |
+| `process/split-fresh.webp` (1280×1120, q78) | Process: splitting (real) | Stakeholder |
+| `process/dry-house.webp` (1280×960, q78) | Process: drying house (real) | Stakeholder |
+| `process/control-kernel.webp` (1280×960, q78) | Process: quality check (real) | Stakeholder |
+| `process/pack-sack.webp` (1280×959, q78) | Process: packing (real) | Stakeholder |
+| `process/deliver-barge.webp` (1280×960, q78) | Process: deliver (real) | Stakeholder |
 
 | `brand/pertamina.svg` (6 KB) | Official Pertamina logo (Wikimedia Commons, PD-textlogo; trademark of Pertamina — nominative use as supported initiative) | Pertamina |
 

@@ -16,37 +16,37 @@ const STEPS: { name: string; desc: string; photo: AssetKey }[] = [
   {
     name: "Source",
     desc: "Selected mature coconuts from Katapiang groves.",
-    photo: "grove-fruit",
+    photo: "harvest-piles",
   },
   {
     name: "Select",
     desc: "Grading by size, maturity and soundness.",
-    photo: "select-coconut",
+    photo: "sort-yard",
   },
   {
     name: "Process",
     desc: "Dehusking, splitting and kernel preparation.",
-    photo: "copra-split",
+    photo: "split-fresh",
   },
   {
     name: "Dry",
     desc: "Sun-drying on raised racks to ≤ 7% moisture.",
-    photo: "coast-hero",
+    photo: "dry-house",
   },
   {
     name: "Control",
     desc: "Batch checks: moisture, ash, fixed carbon.",
-    photo: "shell-texture",
+    photo: "control-kernel",
   },
   {
     name: "Pack",
     desc: "Graded packing: bulk, bag or private label.",
-    photo: "sack-burlap",
+    photo: "pack-sack",
   },
   {
     name: "Deliver",
     desc: "Container loading for domestic & export.",
-    photo: "port-cranes",
+    photo: "deliver-barge",
   },
 ];
 
@@ -130,17 +130,17 @@ export default function ProcessPage() {
           </h2>
           <div className="mt-8 overflow-hidden rounded-2xl border border-line bg-surface">
             <table className="w-full text-sm">
-              <thead>
+              <thead className="hidden md:table-header-group">
                 <tr className="border-b border-line bg-surface-alt/60 text-left">
                   <th
                     scope="col"
-                    className="px-5 py-4 text-xs font-bold uppercase tracking-[0.14em]"
+                    className="px-5 py-4 text-left align-top text-xs font-bold uppercase tracking-[0.14em]"
                   >
                     Stage
                   </th>
                   <th
                     scope="col"
-                    className="px-5 py-4 text-xs font-bold uppercase tracking-[0.14em]"
+                    className="px-5 py-4 text-left align-top text-xs font-bold uppercase tracking-[0.14em]"
                   >
                     What we check
                   </th>
@@ -150,27 +150,35 @@ export default function ProcessPage() {
                 {FRAMEWORK.map((f) => (
                   <tr
                     key={f.stage}
-                    className="border-b border-line transition-colors duration-200 last:border-0 hover:bg-surface-alt/60"
+                    className="block border-b border-line px-5 py-4 transition-colors duration-200 last:border-0 hover:bg-surface-alt/60 md:table-row md:px-0 md:py-0"
                   >
                     <th
                       scope="row"
-                      className="flex items-center gap-2.5 px-5 py-4 font-bold"
+                      className="flex items-center gap-2.5 text-left align-top font-bold md:px-5 md:py-4"
                     >
-                      <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-brand/10 text-brand">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand">
                         <Icons.ShieldCheck size={15} aria-hidden />
                       </span>
                       {f.stage}
                     </th>
-                    <td className="px-5 py-4 text-muted">{f.checks}</td>
+                    <td className="mt-1 pl-[38px] text-left align-top text-muted md:mt-0 md:px-5 md:py-4 md:pl-5">
+                      {f.checks}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-6 flex items-center gap-2.5 text-sm text-muted">
-            <Icons.FileText size={16} aria-hidden />
-            Downloadable spec sheets (PDF) follow once stakeholder files arrive.
-          </p>
+          <div className="mt-6">
+            <a
+              href="/company-profile.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-cream transition-[background-color,transform,box-shadow] duration-200 hover:bg-brand-deep hover:shadow-lg hover:shadow-brand/25 active:translate-y-px"
+            >
+              <Icons.FileText size={16} aria-hidden />
+              Download our company profile
+            </a>
+          </div>
         </Container>
       </Section>
     </>
