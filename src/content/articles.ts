@@ -86,6 +86,102 @@ export const ARTICLES: Article[] = [
     ],
     references: [],
   },
+  {
+    slug: "hands-behind-harvest",
+    category: "People",
+    title: "The Hands Behind the Harvest",
+    excerpt:
+      "Meet the farming families of Katapiang whose selection and drying discipline set every lot's quality.",
+    cover: "select-coconut",
+    date: "2026-09-05",
+    author: "COCO KATAPIANG",
+    body: [
+      "Quality starts before processing, at selection. Our partner families choose mature nuts with thick kernels, the ones that dry evenly and yield more oil.",
+      "Most of this knowledge is generational: reading husk color, judging weight by hand, knowing which palms produce the densest copra.",
+      "Every lot we sell carries their names in our records, because traceability begins with people, not paperwork.",
+    ],
+    references: [],
+  },
+  {
+    slug: "shell-charcoal-graded",
+    category: "Products",
+    title: "Shell Charcoal, Graded for Export",
+    excerpt:
+      "Fixed carbon, ash content, and sizing: what our graded shell charcoal guarantees buyers.",
+    cover: "charcoal-dark",
+    date: "2026-09-08",
+    author: "COCO KATAPIANG",
+    body: [
+      "Not all shell charcoal burns the same. Dense Katapiang shells, carbonized slowly, produce charcoal with high fixed carbon and low ash.",
+      "We grade every batch by size and screen out fines, so briquettes makers and shisha producers get consistent feedstock.",
+      "Available in bulk bags with lot-level grading reports on request.",
+    ],
+    references: [],
+  },
+  {
+    slug: "what-buyers-ask",
+    category: "Market",
+    title: "What Global Buyers Ask Before Ordering",
+    excerpt:
+      "Moisture, specs, packaging, lead time: the four questions behind every quotation we send.",
+    cover: "port-cranes",
+    date: "2026-09-10",
+    author: "COCO KATAPIANG",
+    body: [
+      "After dozens of buyer conversations, the questions repeat: what is the moisture content, what specification can you guarantee, how is it packed, and when can it ship.",
+      "We built our quotation format around those four answers, with lot photos and grading notes attached.",
+      "If you buy copra or charcoal, send us your spec sheet. We will match it against current lots within two working days.",
+    ],
+    references: [],
+  },
+  {
+    slug: "kiln-to-cube",
+    category: "Process",
+    title: "From Kiln to Cube: How Our Briquettes Are Made",
+    excerpt:
+      "Carbonize, crush, bind, press, dry: the five steps behind smokeless coconut briquettes.",
+    cover: "kiln-embers",
+    date: "2026-09-12",
+    author: "COCO KATAPIANG",
+    body: [
+      "Good briquettes begin with good charcoal. We carbonize selected shells until they reach consistent fixed carbon, then crush to uniform grain.",
+      "A food-safe natural binder holds the mix before hydraulic pressing shapes it into cubes or hexagons.",
+      "Final drying brings moisture down for a long, smokeless burn. Made-to-order, in bulk or private-label boxes.",
+    ],
+    references: [],
+  },
+  {
+    slug: "copra-to-bottle",
+    category: "Coconut",
+    title: "Coconut Oil Next: From Copra to Bottle",
+    excerpt:
+      "Why our roadmap runs from dried copra to milled oil, and what buyers can pre-register interest for.",
+    cover: "oil-bottle",
+    date: "2026-09-14",
+    author: "COCO KATAPIANG",
+    body: [
+      "Copra is our foundation, but the value chain continues. Milled and filtered in bulk, the same Katapiang kernels become food-grade coconut oil.",
+      "We are preparing pressing and filtration capacity for bulk grades first, food and industrial, with virgin oil to follow.",
+      "Buyers with recurring oil demand can already share specifications so first production is allocated to real orders.",
+    ],
+    references: [],
+  },
+  {
+    slug: "coast-that-feeds-palms",
+    category: "Origin",
+    title: "Padang Pariaman: The Coast That Feeds the Palms",
+    excerpt:
+      "Sea air, volcanic soil, and year-round rain: why this coastline grows coconuts worth exporting.",
+    cover: "palms-beach",
+    date: "2026-09-16",
+    author: "COCO KATAPIANG",
+    body: [
+      "Padang Pariaman's coastline gives coconut palms almost everything they ask for: steady rainfall, sandy loam, and sun in every season.",
+      "Palms here fruit year-round, which means harvests never stop and lots can be scheduled around buyer demand, not seasons.",
+      "That geography is our quiet advantage, and the reason Katapiang can promise continuity, not just quality.",
+    ],
+    references: [],
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

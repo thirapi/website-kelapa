@@ -22,9 +22,12 @@ const FILTERS: ("All" | ArticleCategory)[] = [
 
 type Sort = "newest" | "oldest";
 
+const PAGE_SIZE = 6;
+
 export function JournalGrid() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
   const [sort, setSort] = useState<Sort>("newest");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const list = useMemo(() => {
     const filtered =
       filter === "All"
@@ -37,6 +40,7 @@ export function JournalGrid() {
     );
     return filtered;
   }, [filter, sort]);
+  const visible = list.slice(0, visibleCount);
 
   return (
     <div>
@@ -46,7 +50,10 @@ export function JournalGrid() {
             label="Filter articles"
             options={FILTERS.map((f) => ({ value: f, label: f }))}
             value={filter}
-            onChange={setFilter}
+            onChange={(v) => {
+              setFilter(v);
+              setVisibleCount(PAGE_SIZE);
+            }}
             wrap
           />
         </div>
@@ -54,7 +61,10 @@ export function JournalGrid() {
           <span className="sr-only">Sort articles</span>
           <select
             value={sort}
-            onChange={(e) => setSort(e.target.value as Sort)}
+            onChange={(e) => {
+              setSort(e.target.value as Sort);
+              setVisibleCount(PAGE_SIZE);
+            }}
             className="appearance-none rounded-full bg-ink/5 py-1.5 pl-4 pr-9 text-[13px] font-semibold text-ink transition-colors duration-200 hover:bg-ink/10"
           >
             <option value="newest">Newest</option>
@@ -68,7 +78,7 @@ export function JournalGrid() {
         </label>
       </div>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        {list.map((a) => (
+        {visible.map((a) => (
           <Link
             key={a.slug}
             href={`/journal/${a.slug}`}
@@ -99,6 +109,22 @@ export function JournalGrid() {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="mt-8 flex flex-col items-center gap-3">
+        <p className="text-[13px] font-medium tabular-nums text-muted">
+          Showing {visible.length} of {list.length}{" "}
+          {list.length === 1 ? "article" : "articles"}
+        </p>
+        {visibleCount < list.length && (
+          <button
+            type="button"
+            onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+            className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-[border-color,color] duration-200 hover:border-brand/60 hover:text-brand-deep"
+          >
+            Show more
+            <Icons.ChevronDown size={16} aria-hidden />
+          </button>
+        )}
       </div>
     </div>
   );

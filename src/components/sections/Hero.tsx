@@ -11,7 +11,8 @@ import { ASSETS } from "@/content/assets";
 const TRUST = [
   { value: "100%", label: "Traceable to Katapiang groves", short: "Traceable" },
   { value: "3+", label: "Export-ready product lines", short: "Export-ready" },
-  { value: "B2B", label: "Bulk, private-label & custom packing", short: "Bulk & label" },
+  // TODO: placeholder dummy — replace with verified stakeholder customer metric.
+  { value: "10+", label: "B2B customers served worldwide", short: "Customers" },
 ];
 
 export function Hero() {

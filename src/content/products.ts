@@ -26,8 +26,8 @@ export const PRODUCTS: Product[] = [
     category: "copra",
     shortDesc:
       "Premium sun-dried copra from selected Katapiang coconuts, consistent moisture, clean cut, ready for milling.",
-    image: "copra-split",
-    gallery: ["copra-split", "copra-hands", "copra-table", "grove-fruit"],
+    image: "white-copra",
+    gallery: ["white-copra", "copra-split", "copra-hands", "copra-table", "grove-fruit"],
     specs: [
       { label: "Moisture", value: "≤ 7%" },
       { label: "Oil content", value: "≥ 62%" },
@@ -48,8 +48,8 @@ export const PRODUCTS: Product[] = [
     category: "charcoal",
     shortDesc:
       "Dense, long-burning charcoal carbonized from mature coconut shells: the raw material for premium briquettes and activated carbon.",
-    image: "charcoal-fire",
-    gallery: ["charcoal-fire", "embers-close", "shell-texture", "kiln-embers"],
+    image: "coconut-charcoal",
+    gallery: ["coconut-charcoal", "charcoal-fire", "embers-close", "shell-texture", "kiln-embers"],
     specs: [
       { label: "Fixed carbon", value: "≥ 75%" },
       { label: "Ash content", value: "≤ 3%" },
@@ -69,8 +69,8 @@ export const PRODUCTS: Product[] = [
     category: "charcoal",
     shortDesc:
       "Odorless, smokeless briquettes pressed from shell charcoal, steady heat for shisha lounges, grills and food industry.",
-    image: "briquettes-grill",
-    gallery: ["briquettes-grill", "charcoal-dark", "embers-close", "sacks-pile"],
+    image: "coconut-briquettes",
+    gallery: ["coconut-briquettes", "briquettes-grill", "charcoal-dark", "embers-close", "sacks-pile"],
     specs: [
       { label: "Fixed carbon", value: "≥ 80%" },
       { label: "Ash content", value: "≤ 2.5%" },
@@ -91,8 +91,8 @@ export const PRODUCTS: Product[] = [
     category: "oil",
     shortDesc:
       "Refined coconut oil milled from our own copra. Food-grade and industrial grades in bulk packaging.",
-    image: "oil-bottle",
-    gallery: ["oil-bottle", "copra-split", "grove-fruit"],
+    image: "coconut-oil",
+    gallery: ["coconut-oil", "oil-bottle", "copra-split", "grove-fruit"],
     specs: [
       { label: "Grade", value: "RBD, food & industrial" },
       { label: "Packaging", value: "Jerry cans, drums, flexitank" },
@@ -110,8 +110,8 @@ export const PRODUCTS: Product[] = [
     category: "future",
     shortDesc:
       "Cold-pressed virgin coconut oil from fresh kernels, in development for wellness, food and cosmetics buyers.",
-    image: "vco-bottle",
-    gallery: ["vco-bottle", "oil-bottle", "copra-hands", "grove-fruit"],
+    image: "coconut-vco",
+    gallery: ["coconut-vco", "vco-bottle", "oil-bottle", "copra-hands", "grove-fruit"],
     specs: [
       { label: "Method", value: "Cold-pressed" },
       { label: "Packaging", value: "TBD" },

@@ -17,7 +17,7 @@ export function Portfolio() {
           <div>
             <Eyebrow>Products</Eyebrow>
             <h2 className="mt-4 max-w-2xl text-4xl font-extrabold tracking-tight md:text-5xl">
-              Meet Our Coconut Portfolio.
+              Meet Our Best Seller Products
             </h2>
           </div>
           <ArrowLink href="/store" event="product_line_click">
