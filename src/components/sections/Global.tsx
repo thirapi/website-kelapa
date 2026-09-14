@@ -1,7 +1,11 @@
 import { GlobalRoute } from "@/components/motion/GlobalRoute";
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
 
-const STOPS = ["Katapiang", "West Sumatra", "Indonesia", "Global markets"];
+const STOPS = [
+  { name: "Katapiang", note: "Origin · West Sumatra" },
+  { name: "Belawan International Port", note: "Sumatera" },
+  { name: "Global markets", note: "Destination" },
+];
 
 export function Global() {
   return (

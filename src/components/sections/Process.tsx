@@ -1,5 +1,5 @@
 import { Container, Section, Eyebrow } from "@/components/ui/Section";
-import { ArrowLink } from "@/components/ui/Button";
+import { ArrowLink, Button } from "@/components/ui/Button";
 import { SiteImage } from "@/components/ui/SiteImage";
 import type { AssetKey } from "@/content/assets";
 import Link from "next/link";
@@ -23,7 +23,9 @@ export function Process() {
           <h2 className="mt-4 max-w-2xl text-4xl font-extrabold tracking-tight md:text-5xl">
             From Coconut to Value.
           </h2>
-          <ArrowLink href="/process">See the full process</ArrowLink>
+          <span className="hidden lg:block">
+            <ArrowLink href="/process">See the full process</ArrowLink>
+          </span>
         </div>
         <ol className="mt-10 grid gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-px lg:overflow-hidden lg:rounded-2xl lg:border lg:border-line lg:bg-line">
           {STEPS.map((s, i) => (
@@ -47,12 +49,17 @@ export function Process() {
               </Link>
             </li>
           ))}
-          <li className="flex items-center rounded-2xl bg-brand p-5 text-cream sm:p-6 lg:rounded-none">
+          <li className="hidden items-center rounded-2xl bg-brand p-5 text-cream sm:p-6 lg:flex lg:rounded-none">
             <Link href="/process" className="text-sm font-semibold leading-relaxed">
               Seven gates. Every lot passes all of them. Explore the timeline →
             </Link>
           </li>
         </ol>
+        <div className="mt-6 lg:hidden">
+          <Button href="/process" className="w-full sm:w-auto">
+            Explore the timeline
+          </Button>
+        </div>
       </Container>
     </Section>
   );

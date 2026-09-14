@@ -25,7 +25,7 @@ export function Impact() {
     <Section dark>
       <Container className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         {/* Editorial intro — sticky on desktop, stacked first on mobile */}
-        <div className="lg:sticky lg:top-24 lg:self-start">
+        <div className="lg:sticky lg:top-24 lg:col-start-1 lg:row-start-1 lg:self-start">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-surface-alt">
             Impact
           </p>
@@ -36,37 +36,17 @@ export function Impact() {
             Every container shipped keeps value in the village: farmer income,
             processing jobs, and a reason for the next generation to stay.
           </p>
-          <div className="mt-8">
-            <Button
-              href="/impact"
-              variant="secondaryDark"
-              event="numbers_section_viewed"
-              className="w-full sm:w-auto"
-            >
-              See the full picture
-            </Button>
-            <p className="mt-3 max-w-md text-xs leading-relaxed text-cream/60">
-              Quantified dashboard (tonnage, suppliers, jobs) publishes only
-              when verified.
-            </p>
-          </div>
         </div>
 
         {/* Pillar rows — divided list, not cards */}
-        <ol className="border-t border-cream/15">
-          {PILLARS.map((p, i) => {
+        <ol className="border-t border-cream/15 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+          {PILLARS.map((p) => {
             const Icon = Icons[p.icon];
             return (
               <li
                 key={p.title}
                 className="flex items-start gap-5 border-b border-cream/15 py-7 md:py-8"
               >
-                <span
-                  aria-hidden
-                  className="text-sm font-extrabold tabular-nums text-cream/40"
-                >
-                  0{i + 1}
-                </span>
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-cream/20 bg-cream/5 text-cream">
                   <Icon size={22} aria-hidden />
                 </span>
@@ -82,6 +62,22 @@ export function Impact() {
             );
           })}
         </ol>
+
+        {/* CTA — below the list on mobile, under the intro on desktop */}
+        <div className="lg:col-start-1 lg:row-start-2 lg:self-start">
+          <Button
+            href="/impact"
+            variant="secondaryDark"
+            event="numbers_section_viewed"
+            className="w-full sm:w-auto"
+          >
+            See the full picture
+          </Button>
+          <p className="mt-3 max-w-md text-xs leading-relaxed text-cream/60">
+            Quantified dashboard (tonnage, suppliers, jobs) publishes only
+            when verified.
+          </p>
+        </div>
       </Container>
     </Section>
   );

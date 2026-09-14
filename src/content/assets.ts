@@ -36,6 +36,10 @@ export const ASSETS = {
   "control-kernel": "/assets/process/control-kernel.webp",
   "pack-sack": "/assets/process/pack-sack.webp",
   "deliver-barge": "/assets/process/deliver-barge.webp",
+  "team-grove": "/assets/story/team-grove.webp",
+  "learning-center": "/assets/story/learning-center.webp",
+  "team-discussion": "/assets/story/team-discussion.webp",
+  "field-visit": "/assets/story/field-visit.webp",
 } as const;
 
 export type AssetKey = keyof typeof ASSETS;

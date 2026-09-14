@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ComponentType } from "react";
@@ -42,6 +43,7 @@ const SOCIAL_ICONS: Record<
 
 export function Footer() {
   const root = useRef<HTMLElement>(null);
+  const pathname = usePathname();
   const onLink = () => track("footer_link_click");
 
   useLayoutEffect(() => {
@@ -73,8 +75,13 @@ export function Footer() {
       );
     }, element);
 
+    // Re-measure after client-side navigation: page height changes, so the
+    // cached trigger position would otherwise go stale and the footer could
+    // stay hidden (autoAlpha 0) forever.
+    ScrollTrigger.refresh();
+
     return () => context.revert();
-  }, []);
+  }, [pathname]);
 
   return (
     <footer ref={root} className="bg-ink text-cream">

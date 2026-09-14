@@ -168,7 +168,7 @@ export default function ContactPage() {
                   <Icons.Mail size={16} className="shrink-0" aria-hidden />
                   <a
                     href={`mailto:${SITE.email}`}
-                    className="underline-offset-4 hover:underline"
+                    className="min-w-0 break-all underline-offset-4 hover:underline"
                   >
                     {SITE.email}
                   </a>
@@ -186,8 +186,8 @@ export default function ContactPage() {
                     className="h-56 w-full border-0 bg-surface-alt"
                     loading="lazy"
                   />
-                  <div className="flex items-center justify-between gap-3 bg-white/5 px-4 py-3">
-                    <p className="truncate text-xs text-cream/70">
+                  <div className="flex flex-col gap-2 bg-white/5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+                    <p className="text-xs leading-relaxed text-cream/70 sm:min-w-0 sm:flex-1 sm:truncate">
                       {SITE.address}
                     </p>
                     <a

@@ -43,8 +43,8 @@ export function Portfolio() {
                 <span
                   className={
                     p.availability === "Coming soon"
-                      ? "rounded-full bg-ember/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-ember"
-                      : "rounded-full bg-palm/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-palm"
+                      ? "shrink-0 whitespace-nowrap rounded-full bg-ember/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-ember"
+                      : "shrink-0 whitespace-nowrap rounded-full bg-palm/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-palm"
                   }
                 >
                   {p.availability === "Coming soon" ? "Future" : p.availability}

@@ -9,17 +9,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const POINTS = [
   { x: 90, y: 235 },
-  { x: 340, y: 125 },
-  { x: 640, y: 205 },
+  { x: 500, y: 180 },
   { x: 910, y: 75 },
 ];
 
 const ROUTE_PATH =
   "M90 235 C190 220 230 125 340 125 S515 235 640 205 S790 100 910 75";
 
-const STOP_ICONS = [Icons.Sprout, Icons.Truck, Icons.Globe2, Icons.Ship] as const;
+const STOP_ICONS = [Icons.Sprout, Icons.Ship, Icons.Globe2] as const;
 
-export function GlobalRoute({ stops }: { stops: string[] }) {
+export function GlobalRoute({
+  stops,
+}: {
+  stops: { name: string; note: string }[];
+}) {
   const root = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
@@ -105,7 +108,7 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
       <svg
         viewBox="0 0 1000 300"
         role="img"
-        aria-label="Route from Katapiang through Indonesia toward global markets"
+        aria-label="Route from Katapiang via Belawan International Port toward global markets"
         className="hidden h-auto w-full overflow-visible md:block"
       >
         <path
@@ -127,7 +130,7 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
           data-route-path
         />
         {POINTS.map((point, index) => (
-          <g key={stops[index]} data-route-node>
+          <g key={stops[index].name} data-route-node>
             <circle
               cx={point.x}
               cy={point.y}
@@ -150,13 +153,13 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
       </svg>
 
       {/* Journey stepper — vertical timeline on mobile, horizontal on desktop */}
-      <ol className="mt-2 grid gap-0 md:mt-10 md:grid-cols-4">
+      <ol className="mt-2 grid gap-0 md:mt-10 md:grid-cols-3">
         {stops.map((stop, index) => {
           const StopIcon = STOP_ICONS[index % STOP_ICONS.length];
           const last = index === stops.length - 1;
           return (
             <li
-              key={stop}
+              key={stop.name}
               className="relative flex gap-4 pb-8 last:pb-0 md:block md:pb-0 md:pt-2 md:text-center"
             >
               {/* vertical rail (mobile) */}
@@ -183,10 +186,10 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
                     className="shrink-0 text-brand"
                     aria-hidden
                   />
-                  {stop}
+                  {stop.name}
                 </p>
                 <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-muted">
-                  {index === stops.length - 1 ? "Destination" : `Stop 0${index + 1}`}
+                  {stop.note}
                 </p>
               </div>
             </li>

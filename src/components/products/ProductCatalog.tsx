@@ -28,8 +28,16 @@ export function ProductCatalog() {
               <SiteImage asset={p.image} alt={p.name} ratio="aspect-[4/3]" className="rounded-none" sizes="(max-width: 768px) 100vw, 33vw" />
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center justify-between gap-2 text-xs font-bold">
-                  <span className="uppercase tracking-[0.14em] text-muted">{p.category}</span>
-                  <span className="rounded-full bg-palm/10 px-2.5 py-1 text-palm">{p.availability}</span>
+                  <span className="uppercase tracking-[0.14em] text-muted">Katapiang origin</span>
+                  <span
+                    className={
+                      p.availability === "Coming soon"
+                        ? "shrink-0 whitespace-nowrap rounded-full bg-ember/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-ember"
+                        : "shrink-0 whitespace-nowrap rounded-full bg-palm/10 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-palm"
+                    }
+                  >
+                    {p.availability === "Coming soon" ? "Future" : p.availability}
+                  </span>
                 </div>
                 <h2 className="mt-2 text-xl font-extrabold tracking-tight">
                   <Link

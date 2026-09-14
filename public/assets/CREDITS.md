@@ -36,6 +36,10 @@ Total ~3.1 MB / 22 files. Licenses: Unsplash License + Pexels License
 | `process/control-kernel.webp` (1280×960, q78) | Process: quality check (real) | Stakeholder |
 | `process/pack-sack.webp` (1280×959, q78) | Process: packing (real) | Stakeholder |
 | `process/deliver-barge.webp` (1280×960, q78) | Process: deliver (real) | Stakeholder |
+| `story/team-grove.webp` (1280×720, q78) | Story: team among palms (real) | Stakeholder |
+| `story/learning-center.webp` (1280×720, q78) | Story: DEB learning center (real) | Stakeholder |
+| `story/team-discussion.webp` (1280×720, q78) | Story: partner meeting (real) | Stakeholder |
+| `story/field-visit.webp` (1280×720, q78) | Story: grove field visit (real) | Stakeholder |
 
 | `brand/pertamina.svg` (6 KB) | Official Pertamina logo (Wikimedia Commons, PD-textlogo; trademark of Pertamina — nominative use as supported initiative) | Pertamina |
 
