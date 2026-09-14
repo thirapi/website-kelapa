@@ -27,7 +27,7 @@ export default function StoryPage() {
       />
       <Section>
         <Container className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <SiteImage asset="team-grove" alt="COCO KATAPIANG team with village partners among coconut palms in Katapiang" ratio="aspect-[4/3]" />
+          <SiteImage asset="grove-rows" alt="Rows of coconut palms in Katapiang" ratio="aspect-[4/3]" />
           <div>
             <Eyebrow>Origin</Eyebrow>
             <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl">
@@ -69,18 +69,6 @@ export default function StoryPage() {
               ))}
             </ol>
           </div>
-          <figure className="mt-10">
-            <SiteImage
-              asset="learning-center"
-              alt="Learning Center Pokdarwis Pantai Panjang, Nagari Katapiang, supported by Pertamina Desa Energi Berdikari"
-              ratio="aspect-[16/9]"
-              sizes="(max-width: 768px) 100vw, 80vw"
-            />
-            <figcaption className="mt-3 text-sm text-muted">
-              Learning Center, Nagari Katapiang — backed by Pertamina&apos;s Desa
-              Energi Berdikari framework.
-            </figcaption>
-          </figure>
         </Container>
       </Section>
       <Section>
@@ -98,9 +86,23 @@ export default function StoryPage() {
               <Button href="/impact">See our impact</Button>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <SiteImage asset="team-discussion" alt="Coordination meeting with Katapiang farmer partners" ratio="aspect-[4/3]" />
-            <SiteImage asset="field-visit" alt="Field visit and discussion with farmers in a Katapiang coconut grove" ratio="aspect-[4/3]" />
+          <SiteImage asset="copra-hands" alt="Hands holding freshly cracked coconut in Katapiang" ratio="aspect-[4/3]" />
+        </Container>
+      </Section>
+      <Section className="bg-surface-alt/50">
+        <Container>
+          <Eyebrow>Gallery</Eyebrow>
+          <h2 className="mt-4 max-w-2xl text-3xl font-extrabold tracking-tight md:text-4xl">
+            From the village.
+          </h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-ink/80">
+            Recent moments with our team and farmer partners in Nagari Katapiang.
+          </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <SiteImage asset="team-grove" alt="COCO KATAPIANG team with village partners among coconut palms in Katapiang" ratio="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 25vw" />
+            <SiteImage asset="learning-center" alt="Learning Center Pokdarwis Pantai Panjang, Nagari Katapiang, supported by Pertamina Desa Energi Berdikari" ratio="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 25vw" />
+            <SiteImage asset="team-discussion" alt="Coordination meeting with Katapiang farmer partners" ratio="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 25vw" />
+            <SiteImage asset="field-visit" alt="Field visit and discussion with farmers in a Katapiang coconut grove" ratio="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 25vw" />
           </div>
         </Container>
       </Section>

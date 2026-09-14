@@ -179,16 +179,16 @@ export function GlobalRoute({
               <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-extrabold tabular-nums text-cream ring-4 ring-cream md:mx-auto">
                 0{index + 1}
               </span>
-              <div className="min-w-0 pt-1 md:px-2 md:pt-4">
-                <p className="flex items-center gap-2 text-base font-extrabold tracking-tight text-ink md:justify-center md:text-lg">
+              <div className="min-w-0 flex-1 pt-1 md:flex-none md:px-2 md:pt-4">
+                <p className="flex items-center gap-1.5 whitespace-nowrap text-sm font-extrabold tracking-tight text-ink sm:gap-2 sm:text-base md:justify-center md:text-lg">
                   <StopIcon
-                    size={17}
-                    className="shrink-0 text-brand"
+                    size={16}
+                    className="h-4 w-4 shrink-0 text-brand sm:h-[17px] sm:w-[17px]"
                     aria-hidden
                   />
-                  {stop.name}
+                  <span className="truncate">{stop.name}</span>
                 </p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-muted">
+                <p className="mt-1 truncate whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.14em] text-muted sm:text-xs sm:tracking-[0.2em]">
                   {stop.note}
                 </p>
               </div>
