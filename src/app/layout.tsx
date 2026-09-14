@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { ScrollToTop } from "@/components/motion/ScrollToTop";
 import { Navbar } from "@/components/layout/Navbar";
 import { GlobalBuyerCta } from "@/components/sections/GlobalBuyerCta";
 import { Footer } from "@/components/layout/Footer";
@@ -45,6 +46,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <Providers>
+          <ScrollToTop />
           <Navbar />
           <main id="main">
             {children}
