@@ -5,7 +5,6 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { Commerce } from "@/components/sections/Commerce";
 import { Origin } from "@/components/sections/Origin";
 import { Process } from "@/components/sections/Process";
-import { Quality } from "@/components/sections/Quality";
 import { Pertamina } from "@/components/sections/Pertamina";
 import { Impact } from "@/components/sections/Impact";
 import { Global } from "@/components/sections/Global";
@@ -34,7 +33,6 @@ export default function HomePage() {
       <Portfolio />
       <Commerce />
       <Process />
-      <Quality />
       <Pertamina />
       <Impact />
       <Global />

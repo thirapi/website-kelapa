@@ -151,56 +151,57 @@ export default function ContactPage() {
 
             <div
               className={cn(
-                "space-y-3 rounded-2xl bg-ink p-6 text-sm text-cream",
+                "overflow-hidden rounded-2xl bg-ink text-sm text-cream",
                 lines.length > 0 && "mt-6",
               )}
             >
-              <p className="flex items-start gap-2.5">
-                <Icons.MapPin
-                  size={16}
-                  className="mt-0.5 shrink-0"
-                  aria-hidden
-                />
-                {SITE.address}
-              </p>
-              <p className="flex items-center gap-2.5">
-                <Icons.Mail size={16} className="shrink-0" aria-hidden />
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="underline-offset-4 hover:underline"
-                >
-                  {SITE.email}
-                </a>
-              </p>
-              <p className="flex items-center gap-2.5">
-                <Icons.Phone size={16} className="shrink-0" aria-hidden />
-                {SITE.whatsapp}
-              </p>
-            </div>
-          </div>
-        </Container>
-        <Container className="mt-10 md:mt-14">
-          <div className="overflow-hidden rounded-2xl border border-line bg-surface">
-            <iframe
-              title="Map: Nagari Katapiang, Padang Pariaman"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=100.10%2C-0.62%2C100.22%2C-0.50&layer=mapnik&marker=-0.56%2C100.16"
-              className="h-64 w-full border-0 bg-surface-alt md:h-80"
-              loading="lazy"
-            />
-            <div className="flex flex-wrap items-center justify-between gap-3 p-5 md:px-6">
-              <p className="flex items-center gap-2 text-sm text-muted">
-                <Icons.MapPin size={16} className="shrink-0 text-brand" aria-hidden />
-                {SITE.address}
-              </p>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Nagari+Katapiang,+Padang+Pariaman,+West+Sumatra"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand underline-offset-4 hover:underline"
-              >
-                Get directions
-                <Icons.ArrowUpRight size={15} aria-hidden />
-              </a>
+              <div className="space-y-3 p-6">
+                <p className="flex items-start gap-2.5">
+                  <Icons.MapPin
+                    size={16}
+                    className="mt-0.5 shrink-0"
+                    aria-hidden
+                  />
+                  {SITE.address}
+                </p>
+                <p className="flex items-center gap-2.5">
+                  <Icons.Mail size={16} className="shrink-0" aria-hidden />
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    {SITE.email}
+                  </a>
+                </p>
+                <p className="flex items-center gap-2.5">
+                  <Icons.Phone size={16} className="shrink-0" aria-hidden />
+                  {SITE.whatsapp}
+                </p>
+              </div>
+              <div className="px-3 pb-3">
+                <div className="overflow-hidden rounded-xl border border-white/10">
+                  <iframe
+                    title="Map: Nagari Katapiang, Padang Pariaman"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=100.10%2C-0.62%2C100.22%2C-0.50&layer=mapnik&marker=-0.56%2C100.16"
+                    className="h-56 w-full border-0 bg-surface-alt"
+                    loading="lazy"
+                  />
+                  <div className="flex items-center justify-between gap-3 bg-white/5 px-4 py-3">
+                    <p className="truncate text-xs text-cream/70">
+                      {SITE.address}
+                    </p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Nagari+Katapiang,+Padang+Pariaman,+West+Sumatra"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex shrink-0 items-center gap-1.5 text-xs font-semibold text-cream underline-offset-4 hover:underline"
+                    >
+                      Get directions
+                      <Icons.ArrowUpRight size={14} aria-hidden />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Container>

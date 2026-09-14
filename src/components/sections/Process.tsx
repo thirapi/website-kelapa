@@ -5,13 +5,13 @@ import type { AssetKey } from "@/content/assets";
 import Link from "next/link";
 
 const STEPS: { name: string; desc: string; image: AssetKey }[] = [
-  { name: "Source", desc: "Selected coconuts from Katapiang groves.", image: "grove-fruit" },
-  { name: "Select", desc: "Graded by size, maturity, soundness.", image: "select-coconut" },
-  { name: "Process", desc: "Dehusking, splitting, kernel prep.", image: "copra-split" },
-  { name: "Dry", desc: "Sun-dried to ≤ 7% moisture.", image: "copra-table" },
-  { name: "Control", desc: "Batch checks: moisture, ash, carbon.", image: "copra-hands" },
-  { name: "Pack", desc: "Bulk, bag or private label.", image: "sack-burlap" },
-  { name: "Deliver", desc: "Container loading for export.", image: "port-ship" },
+  { name: "Source", desc: "Selected coconuts from Katapiang groves.", image: "harvest-piles" },
+  { name: "Select", desc: "Graded by size, maturity, soundness.", image: "sort-yard" },
+  { name: "Process", desc: "Dehusking, splitting, kernel prep.", image: "split-fresh" },
+  { name: "Dry", desc: "Sun-dried to ≤ 7% moisture.", image: "dry-house" },
+  { name: "Control", desc: "Batch checks: moisture, ash, carbon.", image: "control-kernel" },
+  { name: "Pack", desc: "Bulk, bag or private label.", image: "pack-sack" },
+  { name: "Deliver", desc: "Container loading for export.", image: "deliver-barge" },
 ];
 
 export function Process() {

@@ -1,5 +1,5 @@
-import { Container, Section, Eyebrow } from "@/components/ui/Section";
-import { ArrowLink } from "@/components/ui/Button";
+import { Container, Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
 import { Icons } from "@/components/ui/icons";
 
 const PILLARS = [
@@ -22,43 +22,66 @@ const PILLARS = [
 
 export function Impact() {
   return (
-    <Section>
-      <Container>
-        <Eyebrow>Impact</Eyebrow>
-        <h2 className="mt-4 max-w-2xl text-4xl font-extrabold tracking-tight md:text-5xl">
-          Business That Creates More Than Products.
-        </h2>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {PILLARS.map((p) => {
+    <Section dark>
+      <Container className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        {/* Editorial intro — sticky on desktop, stacked first on mobile */}
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-surface-alt">
+            Impact
+          </p>
+          <h2 className="mt-4 max-w-xl text-4xl font-extrabold tracking-tight md:text-5xl">
+            Business That Creates More Than Products.
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-cream/75">
+            Every container shipped keeps value in the village: farmer income,
+            processing jobs, and a reason for the next generation to stay.
+          </p>
+          <div className="mt-8">
+            <Button
+              href="/impact"
+              variant="secondaryDark"
+              event="numbers_section_viewed"
+              className="w-full sm:w-auto"
+            >
+              See the full picture
+            </Button>
+            <p className="mt-3 max-w-md text-xs leading-relaxed text-cream/60">
+              Quantified dashboard (tonnage, suppliers, jobs) publishes only
+              when verified.
+            </p>
+          </div>
+        </div>
+
+        {/* Pillar rows — divided list, not cards */}
+        <ol className="border-t border-cream/15">
+          {PILLARS.map((p, i) => {
             const Icon = Icons[p.icon];
             return (
-              <div
+              <li
                 key={p.title}
-                className="rounded-2xl border border-line bg-surface p-6 transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-brand/50 hover:shadow-lg hover:shadow-black/10"
+                className="flex items-start gap-5 border-b border-cream/15 py-7 md:py-8"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                  <Icon size={20} aria-hidden />
+                <span
+                  aria-hidden
+                  className="text-sm font-extrabold tabular-nums text-cream/40"
+                >
+                  0{i + 1}
                 </span>
-                <h3 className="mt-4 text-xl font-extrabold tracking-tight text-ink">
-                  {p.title}
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.desc}</p>
-              </div>
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-cream/20 bg-cream/5 text-cream">
+                  <Icon size={22} aria-hidden />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-xl font-extrabold tracking-tight md:text-2xl">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-cream/70 md:text-base">
+                    {p.desc}
+                  </p>
+                </div>
+              </li>
             );
           })}
-        </div>
-        <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted">
-          Every container shipped keeps value in the village: farmer income,
-          processing jobs, and a reason for the next generation to stay.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <ArrowLink href="/impact" event="numbers_section_viewed">
-            See the full picture
-          </ArrowLink>
-          <p className="text-xs text-muted">
-            Quantified dashboard (tonnage, suppliers, jobs) publishes only when verified.
-          </p>
-        </div>
+        </ol>
       </Container>
     </Section>
   );

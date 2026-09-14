@@ -100,13 +100,13 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
   return (
     <div
       ref={root}
-      className="mt-10 overflow-hidden rounded-2xl border border-line bg-surface p-5 text-ink md:p-8"
+      className="mt-12 overflow-hidden rounded-3xl border border-line bg-cream p-6 shadow-xl shadow-brand/5 md:p-10"
     >
       <svg
         viewBox="0 0 1000 300"
         role="img"
         aria-label="Route from Katapiang through Indonesia toward global markets"
-        className="h-auto w-full overflow-visible"
+        className="hidden h-auto w-full overflow-visible md:block"
       >
         <path
           d={ROUTE_PATH}
@@ -114,7 +114,16 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
           stroke="currentColor"
           strokeWidth="4"
           strokeLinecap="round"
-          className="text-brand/35"
+          strokeDasharray="1 10"
+          className="text-brand/30"
+        />
+        <path
+          d={ROUTE_PATH}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="4"
+          strokeLinecap="round"
+          className="text-brand"
           data-route-path
         />
         {POINTS.map((point, index) => (
@@ -139,25 +148,45 @@ export function GlobalRoute({ stops }: { stops: string[] }) {
           </g>
         ))}
       </svg>
-      <ol className="mt-2 grid grid-cols-2 gap-4 md:grid-cols-4">
+
+      {/* Journey stepper — vertical timeline on mobile, horizontal on desktop */}
+      <ol className="mt-2 grid gap-0 md:mt-10 md:grid-cols-4">
         {stops.map((stop, index) => {
           const StopIcon = STOP_ICONS[index % STOP_ICONS.length];
+          const last = index === stops.length - 1;
           return (
             <li
               key={stop}
-              className="flex items-start gap-2.5 border-t border-line pt-4"
+              className="relative flex gap-4 pb-8 last:pb-0 md:block md:pb-0 md:pt-2 md:text-center"
             >
-              <StopIcon
-                size={17}
-                className="mt-0.5 shrink-0 text-brand"
-                aria-hidden
-              />
-              <div>
-                <p className="text-xs font-bold tabular-nums text-muted">
-                  0{index + 1}
-                </p>
-                <p className="text-sm font-extrabold tracking-tight text-ink md:text-base">
+              {/* vertical rail (mobile) */}
+              {!last && (
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-[21px] top-12 w-px bg-brand/25 md:hidden"
+                />
+              )}
+              {/* horizontal connector (desktop) */}
+              {!last && (
+                <span
+                  aria-hidden
+                  className="absolute left-[calc(50%+28px)] right-[calc(-50%+28px)] top-[21px] hidden h-px bg-brand/25 md:block"
+                />
+              )}
+              <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-extrabold tabular-nums text-cream ring-4 ring-cream md:mx-auto">
+                0{index + 1}
+              </span>
+              <div className="min-w-0 pt-1 md:px-2 md:pt-4">
+                <p className="flex items-center gap-2 text-base font-extrabold tracking-tight text-ink md:justify-center md:text-lg">
+                  <StopIcon
+                    size={17}
+                    className="shrink-0 text-brand"
+                    aria-hidden
+                  />
                   {stop}
+                </p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-muted">
+                  {index === stops.length - 1 ? "Destination" : `Stop 0${index + 1}`}
                 </p>
               </div>
             </li>
