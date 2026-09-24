@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ASSETS } from "@/content/assets";
 
-// Desktop hero media: poster image (LCP) with looping video layered on top.
+// Shared hero media (mobile + desktop): poster image (LCP) with looping video layered on top.
 // Video plays only when motion is safe, data-saver is off, and hero is visible.
 export function HeroVideo() {
   const ref = useRef<HTMLVideoElement>(null);
@@ -41,12 +41,12 @@ export function HeroVideo() {
         priority
         fetchPriority="high"
         sizes="100vw"
-        className="hidden h-full w-full object-cover opacity-50 md:block"
+        className="h-full w-full object-cover opacity-50"
       />
       {enabled && (
         <video
           ref={ref}
-          className="hidden h-full w-full object-cover opacity-50 md:block"
+          className="h-full w-full object-cover opacity-50"
           autoPlay
           muted
           loop

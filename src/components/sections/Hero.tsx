@@ -1,12 +1,10 @@
 import { HeroParallax } from "@/components/motion/HeroParallax";
 import { Reveal } from "@/components/motion/Reveal";
 import { HeroVideo } from "@/components/sections/HeroVideo";
-import Image from "next/image";
 import { Container } from "@/components/ui/Section";
 import { PertaminaBadge } from "@/components/ui/PertaminaBadge";
 import { Button } from "@/components/ui/Button";
 import { SITE } from "@/content/site";
-import { ASSETS } from "@/content/assets";
 
 const TRUST = [
   { value: "100%", label: "Traceable to Katapiang groves", short: "Traceable" },
@@ -19,15 +17,6 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-cream">
       <HeroParallax>
-        <Image
-          src={ASSETS["grove-hero-mobile"]}
-          alt="Coconut groves of Nagari Katapiang at golden hour"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="h-full w-full object-cover opacity-50 md:hidden"
-        />
         <HeroVideo />
         <div className="absolute inset-0 bg-ink/60" />
       </HeroParallax>
