@@ -18,7 +18,9 @@ export function Hero() {
     <section className="relative overflow-hidden bg-ink text-cream">
       <HeroParallax>
         <HeroVideo />
-        <div className="absolute inset-0 bg-ink/60" />
+        {/* Gradient: clear at top so the groves show, dark at bottom for text contrast.
+            Desktop stops are all ink/60 (= flat overlay, unchanged). */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/10 via-ink/40 to-ink/80 md:from-ink/60 md:via-ink/60 md:to-ink/60" />
       </HeroParallax>
       <Reveal className="relative">
         <Container className="flex min-h-[92svh] flex-col justify-end pb-16 pt-28 md:pb-20">
