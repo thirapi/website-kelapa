@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ASSETS } from "@/content/assets";
 
 // Hero media: poster image (LCP) with looping video layered on top.
-// Mobile gets the close-up coconut-crown video (young fruit bunch clearly visible,
+// Mobile gets the palm-trees-against-blue-sky video (slightly darkened treatment,
 // framed natively for portrait screens); desktop keeps the sunset aerial.
 // Video plays only when motion is safe, data-saver is off, and hero is visible.
 function LoopingVideo({
@@ -69,24 +69,24 @@ export function HeroVideo() {
 
   return (
     <>
-      {/* Mobile: close-up of coconut crown with young fruit bunch. */}
+      {/* Mobile: palm trees against blue sky, slightly darkened. */}
       <Image
         src={ASSETS["hero-video-poster-mobile"]}
-        alt="Close-up of young coconuts in a palm crown"
+        alt="Tall coconut palms against a blue sky"
         fill
         priority
         fetchPriority="high"
         sizes="100vw"
-        className="h-full w-full object-cover object-center opacity-70 brightness-110 contrast-125 saturate-150 md:hidden"
+        className="h-full w-full object-cover object-center opacity-60 brightness-90 contrast-125 saturate-150 md:hidden"
       />
       <LoopingVideo
         enabled={enabled}
         poster={ASSETS["hero-video-poster-mobile"]}
         sources={[
-          { src: "/assets/hero/hero-coconut-crown.webm", type: "video/webm" },
-          { src: "/assets/hero/hero-coconut-crown.mp4", type: "video/mp4" },
+          { src: "/assets/hero/hero-palms-sky.webm", type: "video/webm" },
+          { src: "/assets/hero/hero-palms-sky.mp4", type: "video/mp4" },
         ]}
-        className="h-full w-full object-cover object-center opacity-70 brightness-110 contrast-125 saturate-150 md:hidden"
+        className="h-full w-full object-cover object-center opacity-60 brightness-90 contrast-125 saturate-150 md:hidden"
       />
       {/* Desktop: sunset aerial. */}
       <Image

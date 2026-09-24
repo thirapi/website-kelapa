@@ -53,5 +53,5 @@ Total ~3.1 MB / 22 files. Licenses: Unsplash License + Pexels License
 | `hero/hero-grove-aerial-poster.jpg` | Video poster (LCP) | Same, frame extract |
 | `hero/hero-drone-short.mp4` + `.webm` (1280x720, 8.8s) | Home hero alt | Mixkit #44376, dynamic drone sunny beach |
 | `hero/hero-drone-short-poster.jpg` | Video poster (LCP) | Same, frame extract |
-| `hero/hero-coconut-crown.mp4` + `.webm` (540x960 portrait, 8s, H.264/VP9, muted loop) | Home hero mobile | Pexels #14835906, coconut crown close-up with young fruit |
-| `hero/hero-coconut-crown-poster.jpg` | Mobile video poster (LCP) | Same, frame extract |
+| `hero/hero-palms-sky.mp4` + `.webm` (540x960 portrait, 6.6s, H.264/VP9, muted loop) | Home hero mobile | Pexels #28380543, palm trees and blue sky |
+| `hero/hero-palms-sky-poster.jpg` | Mobile video poster (LCP) | Same, frame extract |
